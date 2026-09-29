@@ -21,9 +21,11 @@ An enterprise-ready, high-performance foundation built on **Next.js 16**, **Reac
 
 - ⚡ **Next.js 16 & Turbopack**: Sub-second Hot Module Replacement (HMR), React Server Components (RSC), and nested layout routing.
 - ⚛️ **React 19 & React Compiler**: Preconfigured with `babel-plugin-react-compiler` for automatic memoization without boilerplate `useMemo` / `useCallback`.
+- 🔄 **TanStack React Query v5**: Production-grade server state management and asynchronous data fetching with isolated SSR caches, smart refetching, and React Query Devtools.
 - 🎨 **Tailwind CSS v4 & Nova Theme**: Pure CSS variable engine with zero JavaScript overhead, configured with Shadcn UI & accessible Base UI primitives.
 - 📐 **Geist Design Language**: Strictly adheres to [DESIGN.md](DESIGN.md) — minimalist black-on-near-white canvas (`#fafafa`), deep ink (`#171717`), 1px hairlines (`#ebebeb`), dual button radius (100px marketing pills vs. 6px square app controls), and the signature hero mesh gradient.
 - 🛡️ **Type-Safe Form Sandbox**: Built-in runtime validation using **Zod** and **React Hook Form** with `@hookform/resolvers/zod`.
+- 🌓 **Seamless Dark Mode**: Powered by `next-themes` with zero flash-of-unstyled-content (FOUC), system preference detection, and smooth light/dark switching.
 - 📁 **Domain-Driven Modular Architecture**: Clean separation between routes (`app/`), domain features (`modules/`), shared infrastructure (`core/`), and UI primitives (`components/`).
 - 🔌 **Fullstack & Microservices Ready**: Optimized for Next.js App Router route handlers, server actions, or a companion NestJS backend.
 
@@ -35,6 +37,7 @@ An enterprise-ready, high-performance foundation built on **Next.js 16**, **Reac
 |---|---|---|---|
 | **Framework** | [Next.js](https://nextjs.org/) | `16.3.7` | App Router, SSR, Server Components & Turbopack |
 | **UI Library** | [React](https://react.dev/) | `19.2.8` | Component model & React Compiler optimization |
+| **Server State** | [TanStack Query](https://tanstack.com/query) | `^5.104.0` | Caching, deduplication, optimistic UI & Devtools |
 | **Styling** | [Tailwind CSS](https://tailwindcss.com/) | `v4.0` | Theme variables, utility-first CSS |
 | **Primitives** | [Base UI](https://base-ui.com/) / [Shadcn](https://ui.shadcn.com/) | Latest | Accessible, unstyled UI primitives (Nova preset) |
 | **Validation** | [Zod](https://zod.dev/) | `v4.6.5` | Type-safe runtime schema validation |
@@ -50,11 +53,21 @@ This template uses a domain-driven modular structure:
 
 ```
 next-starter-template/
+├── messages/                     # Translation dictionaries
+│   ├── en.json                   # English (default)
+│   ├── es.json                   # Spanish
+│   ├── fr.json                   # French
+│   ├── de.json                   # German
+│   └── ja.json                   # Japanese
+│
 ├── src/
 │   ├── app/                      # Next.js App Router
-│   │   ├── globals.css           # Tailwind v4 theme & Geist tokens
-│   │   ├── layout.tsx            # Root layout with Geist font loading
-│   │   └── page.tsx              # Asynchronous SSR entrypoint calling modules/home
+│   │   ├── [locale]/             # Localized root segment
+│   │   │   ├── layout.tsx        # Localized root layout (Geist font & NextIntlClientProvider)
+│   │   │   └── page.tsx          # Asynchronous SSR entrypoint calling modules/home
+│   │   └── globals.css           # Tailwind v4 theme & Geist tokens
+│   │
+│   ├── proxy.ts                  # Next.js 16 Proxy convention for locale routing
 │   │
 │   ├── modules/                  # Domain-driven feature modules
 │   │   └── home/                 # Home domain
@@ -71,6 +84,13 @@ next-starter-template/
 │   │           └── footer.tsx
 │   │
 │   ├── core/                     # Shared application core (feature-agnostic)
+│   │   ├── providers/            # Application context providers
+│   │   │   ├── index.ts          # Consolidated provider exports
+│   │   │   ├── query-provider.tsx # TanStack Query v5 provider & client singleton
+│   │   │   └── theme-provider.tsx # Next-themes provider
+│   │   ├── i18n/                 # Internationalization configuration
+│   │   │   ├── request.ts        # getRequestConfig for next-intl
+│   │   │   └── routing.ts        # defineRouting & navigation exports
 │   │   ├── hooks/                # Reusable React hooks
 │   │   ├── lib/                  # Utility functions (cn classnames helper)
 │   │   └── network/              # API clients & HTTP wrappers
@@ -162,6 +182,76 @@ export function ProjectForm() {
       <button type="submit">Submit</button>
     </form>
   );
+}
+```
+
+---
+
+## Internationalization (i18n / intl)
+
+This starter is configured with [**next-intl**](https://next-intl-docs.vercel.app/) for high-performance, App Router-first internationalization:
+
+- **Supported Locales**: `en` (English - default), `es` (Spanish), `fr` (French), `de` (German), `ja` (Japanese).
+- **Localized Routing**: Routes map to `/[locale]/...` with automatic locale detection via Next.js 16 `src/proxy.ts`.
+- **Locale Switcher**: Built-in `<LocaleSwitcher />` component in the navbar for seamless instant language toggling.
+- **Message Dictionaries**: Located in `messages/*.json` for clean separation and localization workflows.
+
+### Usage in Server Components
+
+```tsx
+import { getTranslations } from "next-intl/server";
+
+export default async function ServerComponent() {
+  const t = await getTranslations("Hero");
+  return <h1>{t("title")}</h1>;
+}
+```
+
+### Usage in Client Components
+
+```tsx
+"use client";
+
+import { useTranslations } from "next-intl";
+
+export function ClientComponent() {
+  const t = useTranslations("Navbar");
+  return <span>{t("brand")}</span>;
+}
+```
+
+---
+
+## Server State & Caching (TanStack React Query)
+
+The template is preconfigured with `@tanstack/react-query` v5 and `@tanstack/react-query-devtools` located under `@/core/providers`.
+
+### Features
+- **App Router Singleton**: Avoids recreating query clients during client-side hydration or suspense cascades while keeping server request contexts isolated.
+- **Smart Defaults**: 60s `staleTime`, 5m `gcTime`, single automatic retry, and window focus refetching disabled by default.
+- **Integrated Devtools**: Floating React Query Devtools enabled in development mode.
+
+### Usage in Components
+
+```tsx
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
+
+export function UserProfile({ userId }: { userId: string }) {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["user", userId],
+    queryFn: async () => {
+      const res = await fetch(`/api/users/${userId}`);
+      if (!res.ok) throw new Error("Failed to fetch user");
+      return res.json();
+    },
+  });
+
+  if (isLoading) return <div>Loading user...</div>;
+  if (error) return <div>Error loading user</div>;
+
+  return <div>Welcome, {data.name}!</div>;
 }
 ```
 
