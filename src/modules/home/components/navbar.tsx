@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ExternalLink, Menu, X, Terminal, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { LocaleSwitcher } from "@/components/locale-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Subheader } from "./subheader";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const t = useTranslations("Navbar");
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#ebebeb] bg-[#fafafa]/85 backdrop-blur-md dark:border-[#262626] dark:bg-black/85 transition-colors">
@@ -26,53 +31,25 @@ export function Navbar() {
               </svg>
             </div>
             <span className="font-semibold text-sm tracking-tight text-[#171717] dark:text-[#ededed]">
-              next-starter
+              {t("brand")}
             </span>
           </Link>
 
           {/* Version / Eyebrow Pill */}
           <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[#ebebeb] dark:border-[#262626] bg-white dark:bg-[#121212] px-2.5 py-0.5 text-[11px] font-mono text-[#4d4d4d] dark:text-[#a1a1a1]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#10b981] animate-pulse" />
-            v16.3 Next.js
+            {t("versionBadge")}
           </span>
         </div>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 text-[13px] text-[#4d4d4d] dark:text-[#a1a1a1]">
-          <a
-            href="#features"
-            className="rounded-full px-3 py-1.5 transition-colors hover:text-[#171717] dark:hover:text-white"
-          >
-            Features
-          </a>
-          <a
-            href="#stack"
-            className="rounded-full px-3 py-1.5 transition-colors hover:text-[#171717] dark:hover:text-white"
-          >
-            Tech Stack
-          </a>
-          <a
-            href="#form-demo"
-            className="rounded-full px-3 py-1.5 transition-colors hover:text-[#171717] dark:hover:text-white"
-          >
-            Form & Zod Demo
-          </a>
-          <a
-            href="#architecture"
-            className="rounded-full px-3 py-1.5 transition-colors hover:text-[#171717] dark:hover:text-white"
-          >
-            Architecture
-          </a>
-          <a
-            href="#quickstart"
-            className="rounded-full px-3 py-1.5 transition-colors hover:text-[#171717] dark:hover:text-white"
-          >
-            Quickstart
-          </a>
-        </nav>
-
         {/* Right CTA Actions adhering to DESIGN.md button-primary-sm (rounded-sm 6px square) */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        <div className="hidden sm:flex items-center gap-2">
+          {/* Language Switcher */}
+          <LocaleSwitcher />
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
           <a
             href="https://github.com/vercel/next.js"
             target="_blank"
@@ -84,7 +61,7 @@ export function Navbar() {
             </svg>
             <span>GitHub</span>
             <span className="text-[10px] text-[#8f8f8f] font-mono border-l border-[#ebebeb] dark:border-[#262626] pl-1.5 ml-0.5">
-              ★ 124k
+              {t("githubStars")}
             </span>
           </a>
 
@@ -94,13 +71,15 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-[6px] bg-[#171717] dark:bg-white text-white dark:text-[#171717] px-3 py-1 text-xs font-medium hover:bg-black dark:hover:bg-zinc-200 transition-colors shadow-xs"
           >
-            <span>Deploy</span>
+            <span>{t("deploy")}</span>
             <ArrowUpRight className="h-3 w-3" />
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <div className="flex md:hidden items-center gap-2">
+        {/* Mobile Hamburger Toggle & Switcher */}
+        <div className="flex md:hidden items-center gap-1.5">
+          <LocaleSwitcher />
+          <ThemeToggle />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-1.5 rounded-[6px] border border-[#ebebeb] dark:border-[#262626] text-[#4d4d4d] dark:text-[#a1a1a1]"
@@ -111,6 +90,9 @@ export function Navbar() {
         </div>
       </div>
 
+      {/* Secondary Nav Bar */}
+      <Subheader />
+
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[#ebebeb] dark:border-[#262626] bg-[#fafafa] dark:bg-black px-4 py-4 space-y-3">
@@ -120,35 +102,35 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 hover:text-[#171717] dark:hover:text-white"
             >
-              Features
+              {t("features")}
             </a>
             <a
               href="#stack"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 hover:text-[#171717] dark:hover:text-white"
             >
-              Tech Stack
+              {t("techStack")}
             </a>
             <a
               href="#form-demo"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 hover:text-[#171717] dark:hover:text-white"
             >
-              Form & Zod Demo
+              {t("formDemo")}
             </a>
             <a
               href="#architecture"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 hover:text-[#171717] dark:hover:text-white"
             >
-              Architecture
+              {t("architecture")}
             </a>
             <a
               href="#quickstart"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 hover:text-[#171717] dark:hover:text-white"
             >
-              Quickstart
+              {t("quickstart")}
             </a>
           </nav>
 
@@ -159,7 +141,7 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="w-full text-center rounded-[6px] bg-[#171717] dark:bg-white text-white dark:text-[#171717] py-2 text-xs font-medium"
             >
-              Deploy to Vercel
+              {t("deploy")}
             </a>
           </div>
         </div>
