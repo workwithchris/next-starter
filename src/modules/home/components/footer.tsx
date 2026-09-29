@@ -1,4 +1,10 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 export function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="border-t border-[#ebebeb] dark:border-[#262626] bg-[#fafafa] dark:bg-black py-16 transition-colors">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -22,12 +28,12 @@ export function Footer() {
               </span>
             </div>
             <p className="text-xs text-[#8f8f8f] max-w-sm leading-relaxed">
-              Designed with the Vercel Geist design system — a stark black-on-near-white developer platform aesthetic, 1px hairlines, and strict typography.
+              {t("description")}
             </p>
             <div className="pt-2 flex items-center gap-2">
               <span className="flex h-2 w-2 rounded-full bg-[#10b981]" />
               <span className="text-[11px] font-mono text-[#4d4d4d] dark:text-[#a1a1a1]">
-                All Systems Operational • Turbopack v16.3
+                {t("status")}
               </span>
             </div>
           </div>

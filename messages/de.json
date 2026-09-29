@@ -1,0 +1,68 @@
+{
+  "Navbar": {
+    "brand": "next-starter",
+    "versionBadge": "v16.3 Next.js",
+    "features": "Funktionen",
+    "techStack": "Tech Stack",
+    "formDemo": "Formular & Zod Demo",
+    "architecture": "Architektur",
+    "quickstart": "Schnellstart",
+    "githubStars": "★ 124k",
+    "deploy": "Deployen"
+  },
+  "Hero": {
+    "eyebrow": "Next.js 16 Production Starter Kit",
+    "subEyebrow": "Turbopack & Tailwind v4",
+    "title": "Der Konstruktionsplan für moderne Webanwendungen.",
+    "description": "Vorkonfiguriert mit Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn und strikter Zod-Validierung. Entwickelt für maximale Geschwindigkeit und strukturelle Klarheit.",
+    "deployButton": "Auf Vercel deployen",
+    "formDemoButton": "Interaktive Formulardemo",
+    "quickScaffold": "Schnellstart",
+    "copySuccess": "In die Zwischenablage kopiert"
+  },
+  "TechStack": {
+    "eyebrow": "KURATIERTER PRODUKTIONS-STACK",
+    "title": "Erstklassige Werkzeuge. Ohne überflüssigen Ballast.",
+    "description": "Jede Schicht wurde auf Spitzenleistung, Ergonomie und Produktionszuverlässigkeit optimiert."
+  },
+  "Features": {
+    "eyebrow": "KERNFUNKTIONEN",
+    "title": "Mit chirurgischer Präzision gefertigt.",
+    "description": "Entwickelt nach Vercels Geist-Prinzipien: strenger Minimalismus, feine 1px-Linien und typografische Hierarchie."
+  },
+  "FormDemo": {
+    "badge": "LIVE INTERAKTIVE DEMO",
+    "title": "Zod + React Hook Form Sandbox",
+    "description": "Reibungslose Laufzeitvalidierung. Testen Sie Schema-Einschränkungen in Echtzeit mit sofortigem Fehlerfeedback."
+  },
+  "Architecture": {
+    "eyebrow": "CODE-ORGANISATION",
+    "title": "Architektur für nachhaltiges Wachstum.",
+    "description": "Klare Trennung der Zuständigkeiten mit Domain-Modulen, Core-Infrastruktur und typsicheren Schichten."
+  },
+  "VercelTriad": {
+    "eyebrow": "ENTWICKLUNGSZYKLUS",
+    "title": "Entwickeln. Vorschau. Bereitstellen.",
+    "description": "Der bewährte Entwicklungs-Workflow, destilliert in eine schlanke Vorlage."
+  },
+  "CtaBand": {
+    "eyebrow": "SOFORTIGES DEPLOYMENT",
+    "title": "Bereit, Ihre nächste Webanwendung zu starten?",
+    "description": "Sparen Sie Tage an Konfigurationsaufwand. Klonen Sie diese Vorlage und starten Sie sofort mit einer produktionsreifen Architektur.",
+    "deployButton": "Auf Vercel deployen",
+    "githubButton": "Auf GitHub bewerten"
+  },
+  "Footer": {
+    "description": "Gestaltet nach dem Vercel Geist Design System — klare Ästhetik, feine Linien und präzise Typografie.",
+    "status": "Alle Systeme Betriebsbereit • Turbopack v16.3",
+    "copyright": "Next.js Starter Template. Open-Source unter MIT-Lizenz."
+  },
+  "LocaleSwitcher": {
+    "label": "Sprache",
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "ja": "日本語"
+  }
+}

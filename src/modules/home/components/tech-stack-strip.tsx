@@ -1,4 +1,10 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 export function TechStackStrip() {
+  const t = useTranslations("TechStack");
+
   const technologies = [
     {
       name: "Next.js 16",
@@ -56,14 +62,14 @@ export function TechStackStrip() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <span className="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] font-medium">
-              CURATED PRODUCTION STACK
+              {t("eyebrow")}
             </span>
             <h2 className="mt-1 text-2xl font-semibold tracking-[-0.03em] text-[#171717] dark:text-[#ededed]">
-              First-class tooling. Zero unnecessary fluff.
+              {t("title")}
             </h2>
           </div>
           <p className="text-sm text-[#4d4d4d] dark:text-[#a1a1a1] max-w-md">
-            Every layer has been vetted for benchmark performance, clean developer ergonomics, and rock-solid production reliability.
+            {t("description")}
           </p>
         </div>
 

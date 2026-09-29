@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Check, AlertCircle, Sparkles, RefreshCw, Send, Terminal } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 // Strict Zod Validation Schema showcasing production form handling
 const projectFormSchema = z.object({
@@ -25,6 +26,7 @@ const projectFormSchema = z.object({
 type ProjectFormData = z.infer<typeof projectFormSchema>;
 
 export function FormDemo() {
+  const t = useTranslations("FormDemo");
   const [submittedData, setSubmittedData] = useState<ProjectFormData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -79,13 +81,13 @@ export function FormDemo() {
         <div className="max-w-2xl mb-12">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-[#ebebeb] dark:border-[#262626] bg-[#fafafa] dark:bg-[#141414] px-2.5 py-0.5 text-xs font-mono text-[#0070f3] dark:text-[#50e3c2] mb-3">
             <Sparkles className="h-3 w-3" />
-            <span>LIVE INTERACTIVE DEMO</span>
+            <span>{t("badge")}</span>
           </div>
           <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[#171717] dark:text-[#ededed]">
-            Zod + React Hook Form Sandbox
+            {t("title")}
           </h2>
           <p className="mt-2 text-base text-[#4d4d4d] dark:text-[#a1a1a1]">
-            Experience frictionless runtime validation. Test live schema constraints, instant error reflection, and zero-rerender form ergonomics.
+            {t("description")}
           </p>
         </div>
 

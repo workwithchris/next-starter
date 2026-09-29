@@ -1,6 +1,10 @@
+"use client";
+
 import { Code2, GitPullRequest, Rocket } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function VercelTriad() {
+  const t = useTranslations("VercelTriad");
   const pillars = [
     {
       step: "01",
@@ -39,13 +43,13 @@ export function VercelTriad() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl mb-12">
           <span className="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] font-medium">
-            DEVELOPMENT LIFECYCLE
+            {t("eyebrow")}
           </span>
           <h2 className="mt-1 text-3xl font-semibold tracking-[-0.04em] text-[#171717] dark:text-[#ededed]">
-            Develop. Preview. Ship.
+            {t("title")}
           </h2>
           <p className="mt-2 text-base text-[#4d4d4d] dark:text-[#a1a1a1]">
-            The canonical workflow that powers millions of developers, distilled into a lean starter template.
+            {t("description")}
           </p>
         </div>
 

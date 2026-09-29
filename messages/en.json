@@ -1,0 +1,68 @@
+{
+  "Navbar": {
+    "brand": "next-starter",
+    "versionBadge": "v16.3 Next.js",
+    "features": "Features",
+    "techStack": "Tech Stack",
+    "formDemo": "Form & Zod Demo",
+    "architecture": "Architecture",
+    "quickstart": "Quickstart",
+    "githubStars": "★ 124k",
+    "deploy": "Deploy"
+  },
+  "Hero": {
+    "eyebrow": "Next.js 16 Production Starter Kit",
+    "subEyebrow": "Turbopack & Tailwind v4",
+    "title": "The engineering blueprint for modern web applications.",
+    "description": "Pre-configured with Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn, and strict Zod validation. Engineered for developer velocity, structural purity, and sub-second builds.",
+    "deployButton": "Deploy to Vercel",
+    "formDemoButton": "Interactive Form Demo",
+    "quickScaffold": "Quick Scaffold",
+    "copySuccess": "Copied to clipboard"
+  },
+  "TechStack": {
+    "eyebrow": "CURATED PRODUCTION STACK",
+    "title": "First-class tooling. Zero unnecessary fluff.",
+    "description": "Every layer has been vetted for benchmark performance, clean developer ergonomics, and rock-solid production reliability."
+  },
+  "Features": {
+    "eyebrow": "CORE CAPABILITIES",
+    "title": "Built with surgical precision.",
+    "description": "Designed according to Vercel's Geist principles: strict minimalism, 1px hairlines, and typography-driven hierarchy."
+  },
+  "FormDemo": {
+    "badge": "LIVE INTERACTIVE DEMO",
+    "title": "Zod + React Hook Form Sandbox",
+    "description": "Experience frictionless runtime validation. Test live schema constraints, instant error reflection, and zero-rerender form ergonomics."
+  },
+  "Architecture": {
+    "eyebrow": "CODEBASE ORGANIZATION",
+    "title": "Architected for growth.",
+    "description": "Clean separation of concerns with domain modules, core shared infrastructure, and type-safe schema layers."
+  },
+  "VercelTriad": {
+    "eyebrow": "DEVELOPMENT LIFECYCLE",
+    "title": "Develop. Preview. Ship.",
+    "description": "The canonical workflow that powers millions of developers, distilled into a lean starter template."
+  },
+  "CtaBand": {
+    "eyebrow": "INSTANT DEPLOYMENT",
+    "title": "Ready to ship your next web application?",
+    "description": "Skip days of boilerplate configuration. Clone this template and start developing with production-ready architecture immediately.",
+    "deployButton": "Deploy to Vercel",
+    "githubButton": "Star on GitHub"
+  },
+  "Footer": {
+    "description": "Designed with the Vercel Geist design system — a stark black-on-near-white developer platform aesthetic, 1px hairlines, and strict typography.",
+    "status": "All Systems Operational • Turbopack v16.3",
+    "copyright": "Next.js Starter Template. Open-source under MIT."
+  },
+  "LocaleSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "ja": "日本語"
+  }
+}

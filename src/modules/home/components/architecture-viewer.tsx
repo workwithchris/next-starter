@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { Folder, FileCode, Check, Layers, Info } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function ArchitectureViewer() {
+  const t = useTranslations("Architecture");
   const [selectedPath, setSelectedPath] = useState<string>("src/core");
 
   const structureDetails: Record<
@@ -74,13 +76,13 @@ export function ArchitectureViewer() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl mb-12">
           <span className="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] font-medium">
-            CODEBASE ORGANIZATION
+            {t("eyebrow")}
           </span>
           <h2 className="mt-1 text-3xl font-semibold tracking-[-0.04em] text-[#171717] dark:text-[#ededed]">
-            Architected for growth.
+            {t("title")}
           </h2>
           <p className="mt-2 text-base text-[#4d4d4d] dark:text-[#a1a1a1]">
-            Clean separation of concerns with domain modules, core shared infrastructure, and type-safe schema layers.
+            {t("description")}
           </p>
         </div>
 

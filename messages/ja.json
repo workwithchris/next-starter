@@ -1,0 +1,68 @@
+{
+  "Navbar": {
+    "brand": "next-starter",
+    "versionBadge": "v16.3 Next.js",
+    "features": "機能",
+    "techStack": "技術スタック",
+    "formDemo": "フォーム & Zod デモ",
+    "architecture": "アーキテクチャ",
+    "quickstart": "クイックスタート",
+    "githubStars": "★ 124k",
+    "deploy": "デプロイ"
+  },
+  "Hero": {
+    "eyebrow": "Next.js 16 本番用スターターキット",
+    "subEyebrow": "Turbopack & Tailwind v4",
+    "title": "モダンWebアプリケーションのためのエンジニアリング設計図。",
+    "description": "Next.js 16 App Router、React 19、Tailwind CSS v4、Base UI / Shadcn、厳格なZodバリデーションを標準搭載。開発速度と構造の純度、超高速ビルドを追求。",
+    "deployButton": "Vercelにデプロイ",
+    "formDemoButton": "インタラクティブフォームデモ",
+    "quickScaffold": "クイック作成",
+    "copySuccess": "クリップボードにコピーしました"
+  },
+  "TechStack": {
+    "eyebrow": "厳選されたプロダクションスタック",
+    "title": "最高クラスのツール群。無駄な要素はゼロ。",
+    "description": "各レイヤーはベンチマーク性能、優れた開発者体験、本番環境の信頼性を考慮して厳選されています。"
+  },
+  "Features": {
+    "eyebrow": "コア機能",
+    "title": "精密に構築された基盤。",
+    "description": "VercelのGeistデザイン原則に準拠：ミニマリズム、1pxの極細境界線、洗練されたタイポグラフィ階層。"
+  },
+  "FormDemo": {
+    "badge": "インタラクティブ実演",
+    "title": "Zod + React Hook Form サンドボックス",
+    "description": "ストレスのない実行時バリデーション。スキーマ制約の即時検証と無駄な再レンダリングのないフォーム体験をテストできます。"
+  },
+  "Architecture": {
+    "eyebrow": "コードベース構造",
+    "title": "成長を支えるアーキテクチャ。",
+    "description": "ドメインモジュール、コア共有基盤、型安全なスキーマレイヤーによる責任の明確な分離。"
+  },
+  "VercelTriad": {
+    "eyebrow": "開発ライフサイクル",
+    "title": "開発。プレビュー。出荷。",
+    "description": "何百万人もの開発者を支える標準ワークフローを軽量スターターに凝縮。"
+  },
+  "CtaBand": {
+    "eyebrow": "即時デプロイ",
+    "title": "次世代Webアプリの構築をはじめましょう。",
+    "description": "設定に時間を費やす必要はありません。このテンプレートをクローンして本番品質のアーキテクチャで開発をスタート。",
+    "deployButton": "Vercelにデプロイ",
+    "githubButton": "GitHubでスター"
+  },
+  "Footer": {
+    "description": "Vercel Geistデザインシステムを採用 — 白基調キャンバス、深みのある黒インク、繊細な境界線による洗練されたUI。",
+    "status": "全システム正常稼働中 • Turbopack v16.3",
+    "copyright": "Next.js Starter Template. MITライセンスに基づくオープンソース。"
+  },
+  "LocaleSwitcher": {
+    "label": "言語",
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "ja": "日本語"
+  }
+}
