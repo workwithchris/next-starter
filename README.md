@@ -374,6 +374,8 @@ export function RealTimeChat() {
 | `npm run build` | Compiles an optimized production build and checks TypeScript types |
 | `npm run start` | Starts the production server |
 | `npm run lint` | Runs ESLint to check for code quality and style issues |
+| `npm test` | Runs all unit test suites using Vitest |
+| `npm run test:watch` | Starts Vitest in interactive watch mode |
 
 ---
 

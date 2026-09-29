@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { SSEClient, type SSEClientOptions, type SSEMessage } from "../sse";
 
-export interface UseSSEResult<T = any> {
+export interface UseSSEResult<T = unknown> {
   data: T | null;
   lastMessage: SSEMessage<T> | null;
   messages: SSEMessage<T>[];
@@ -13,7 +13,7 @@ export interface UseSSEResult<T = any> {
   close: () => void;
 }
 
-export function useSSE<T = any>(
+export function useSSE<T = unknown>(
   url: string | null | undefined,
   options: SSEClientOptions = {}
 ): UseSSEResult<T> {
@@ -25,7 +25,10 @@ export function useSSE<T = any>(
 
   const clientRef = useRef<SSEClient | null>(null);
   const optionsRef = useRef(options);
-  optionsRef.current = options;
+
+  useEffect(() => {
+    optionsRef.current = options;
+  }, [options]);
 
   const close = useCallback(() => {
     if (clientRef.current) {
@@ -47,9 +50,9 @@ export function useSSE<T = any>(
         optionsRef.current.onOpen?.(res);
       },
       onMessage: (msg) => {
-        setData(msg.data);
-        setLastMessage(msg);
-        setMessages((prev) => [...prev, msg]);
+        setData(msg.data as T);
+        setLastMessage(msg as SSEMessage<T>);
+        setMessages((prev) => [...prev, msg as SSEMessage<T>]);
         optionsRef.current.onMessage?.(msg);
       },
       onError: (err) => {

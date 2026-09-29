@@ -7,8 +7,8 @@ export interface UseSocketResult {
   status: SocketStatus;
   isConnected: boolean;
   send: (data: string | object | ArrayBufferLike | Blob | ArrayBufferView) => void;
-  emit: <T = any>(event: string, data?: T) => void;
-  lastMessage: any;
+  emit: <T = unknown>(event: string, data?: T) => void;
+  lastMessage: unknown;
   error: Event | null;
   disconnect: () => void;
   reconnect: () => void;
@@ -20,17 +20,22 @@ export function useSocket(
   options: SocketClientOptions = {}
 ): UseSocketResult {
   const [status, setStatus] = useState<SocketStatus>("CLOSED");
-  const [lastMessage, setLastMessage] = useState<any>(null);
+  const [lastMessage, setLastMessage] = useState<unknown>(null);
   const [error, setError] = useState<Event | null>(null);
+  const [client, setClient] = useState<SocketClient | null>(null);
 
   const clientRef = useRef<SocketClient | null>(null);
   const optionsRef = useRef(options);
-  optionsRef.current = options;
+
+  useEffect(() => {
+    optionsRef.current = options;
+  }, [options]);
 
   const disconnect = useCallback(() => {
     if (clientRef.current) {
       clientRef.current.disconnect();
       clientRef.current = null;
+      setClient(null);
       setStatus("CLOSED");
     }
   }, []);
@@ -39,7 +44,7 @@ export function useSocket(
     if (!url) return;
     disconnect();
 
-    const client = new SocketClient(url, {
+    const socketInstance = new SocketClient(url, {
       ...optionsRef.current,
       autoConnect: true,
       onOpen: (event) => {
@@ -61,8 +66,9 @@ export function useSocket(
       },
     });
 
-    client.on("reconnecting", () => setStatus("CONNECTING"));
-    clientRef.current = client;
+    socketInstance.on("reconnecting", () => setStatus("CONNECTING"));
+    clientRef.current = socketInstance;
+    setClient(socketInstance);
     setStatus("CONNECTING");
   }, [url, disconnect]);
 
@@ -79,7 +85,7 @@ export function useSocket(
     clientRef.current?.send(data);
   }, []);
 
-  const emit = useCallback(<T = any>(event: string, data?: T) => {
+  const emit = useCallback(<T = unknown>(event: string, data?: T) => {
     clientRef.current?.emit(event, data);
   }, []);
 
@@ -92,6 +98,6 @@ export function useSocket(
     error,
     disconnect,
     reconnect: connect,
-    client: clientRef.current,
+    client,
   };
 }
