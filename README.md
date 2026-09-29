@@ -93,7 +93,14 @@ next-starter-template/
 │   │   │   └── routing.ts        # defineRouting & navigation exports
 │   │   ├── hooks/                # Reusable React hooks
 │   │   ├── lib/                  # Utility functions (cn classnames helper)
-│   │   └── network/              # API clients & HTTP wrappers
+│   │   └── network/              # Enterprise network client suite
+│   │       ├── index.ts          # Unified entrypoint exports
+│   │       ├── client.ts         # Type-safe fetch client (interceptors, retries, multipart)
+│   │       ├── sse.ts            # Fetch-based SSE client (POST, custom headers & async stream)
+│   │       ├── socket.ts         # Resilient WebSocket client (heartbeat & offline buffer)
+│   │       ├── errors.ts         # HttpError, NetworkError, TimeoutError, ValidationError
+│   │       ├── types.ts          # TypeScript interfaces & configs
+│   │       └── hooks/            # useSSE & useSocket React hooks
 │   │
 │   └── components/               # Cross-cutting UI primitives
 │       ├── layouts/              # Global layout shells
@@ -252,6 +259,108 @@ export function UserProfile({ userId }: { userId: string }) {
   if (error) return <div>Error loading user</div>;
 
   return <div>Welcome, {data.name}!</div>;
+}
+```
+
+---
+
+## Enterprise Network Suite (`@/core/network`)
+
+A type-safe, production-ready network layer engineered for Next.js 16 (Server Components, Route Handlers, and Client Components).
+
+### 1. HTTP Client (`apiClient` / `createHttpClient`)
+
+- **Automatic Content-Type Negotiation**: Encodes JSON, preserves FormData boundaries for multipart uploads, handles Blobs, ArrayBuffers, and URLSearchParams.
+- **Interceptors**: Pre-configured pipelines for `onRequest`, `onResponse`, and `onError` (token injection, refresh token rotation, logging).
+- **Transient Error Retries**: Built-in exponential backoff with jitter for HTTP 408, 429, and 5xx errors.
+- **Zod Runtime Validation**: Optional `schema` parameter validates API responses before returning.
+- **Timeout Management**: Per-request `timeoutMs` via native `AbortController`.
+
+```tsx
+import { apiClient } from "@/core/network";
+import { z } from "zod";
+
+const UserSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+});
+
+// Type-safe GET with runtime Zod parsing & automatic retries
+const response = await apiClient.get("/api/users/me", {
+  schema: UserSchema,
+  retries: 2,
+  timeoutMs: 5000,
+});
+console.log(response.data.name);
+```
+
+### 2. Multipart & FormData File Uploads
+
+Upload files or structured form data with automatic boundary management and real-time progress events:
+
+```tsx
+import { apiClient } from "@/core/network";
+
+const formData = new FormData();
+formData.append("avatar", fileInput.files[0]);
+formData.append("bio", "Software Architect");
+
+const uploadRes = await apiClient.upload("/api/upload", formData, {
+  onProgress: ({ percentage, loaded, total }) => {
+    console.log(`Upload progress: ${percentage}% (${loaded}/${total} bytes)`);
+  },
+});
+```
+
+### 3. Server-Sent Events (SSE)
+
+Unlike browser `EventSource`, our `SSEClient` supports **POST requests**, **custom auth headers**, and **async iterators** (perfect for LLM / AI streaming and live notifications):
+
+```tsx
+import { SSEClient, useSSE } from "@/core/network";
+
+// Option A: React Hook
+export function LiveNotifications() {
+  const { data, isConnected } = useSSE<{ message: string }>("/api/live/stream");
+  return <div>Status: {isConnected ? "Live" : "Offline"} | Last: {data?.message}</div>;
+}
+
+// Option B: Async Streaming (React 19 / Server & Client)
+for await (const chunk of SSEClient.stream("/api/ai/chat", {
+  method: "POST",
+  body: { prompt: "Explain Next.js 16 architecture" },
+  headers: { Authorization: `Bearer ${token}` },
+})) {
+  console.log("Stream token:", chunk.data);
+}
+```
+
+### 4. Resilient WebSockets (`SocketClient` / `useSocket`)
+
+Includes automatic reconnection, ping-pong heartbeat, outgoing message buffering, and typed event dispatching:
+
+```tsx
+"use client";
+
+import { useSocket } from "@/core/network";
+
+export function RealTimeChat() {
+  const { isConnected, emit, lastMessage, status } = useSocket("wss://api.example.com/ws", {
+    heartbeat: true,
+    heartbeatIntervalMs: 25000,
+  });
+
+  const sendMessage = () => {
+    emit("chat_message", { text: "Hello team!", channel: "general" });
+  };
+
+  return (
+    <div>
+      <p>Connection: {status}</p>
+      <button onClick={sendMessage} disabled={!isConnected}>Send</button>
+    </div>
+  );
 }
 ```
 
