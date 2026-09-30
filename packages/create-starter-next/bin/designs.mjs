@@ -432,4 +432,220 @@ export const DESIGN_CATALOG = [
     radial-gradient(at 80% 80%, #888888 0px, transparent 50%);
 `,
   },
+  {
+    id: "nord",
+    title: "Nord (Arctic Frost & Polar Night)",
+    description: "Polar Night #2e3440, Frost Cyan #88c0d0, Aurora Emerald",
+    primary: "oklch(0.75 0.12 210)",
+    accent: "oklch(0.7 0.14 180)",
+    radius: "0.5rem",
+    cssRoot: `
+  --background: oklch(0.98 0.01 220);
+  --foreground: oklch(0.25 0.03 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.03 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.03 240);
+  --primary: oklch(0.6 0.14 210);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.02 220);
+  --secondary-foreground: oklch(0.25 0.03 240);
+  --muted: oklch(0.94 0.02 220);
+  --muted-foreground: oklch(0.5 0.02 230);
+  --accent: oklch(0.92 0.03 210);
+  --accent-foreground: oklch(0.5 0.15 210);
+  --destructive: oklch(0.6 0.22 25);
+  --border: oklch(0.9 0.01 220);
+  --input: oklch(0.9 0.01 220);
+  --ring: oklch(0.6 0.14 210);
+  --radius: 0.5rem;
+`,
+    cssDark: `
+  --background: oklch(0.22 0.025 240);
+  --foreground: oklch(0.94 0.01 220);
+  --card: oklch(0.26 0.03 240);
+  --card-foreground: oklch(0.94 0.01 220);
+  --popover: oklch(0.26 0.03 240);
+  --popover-foreground: oklch(0.94 0.01 220);
+  --primary: oklch(0.75 0.12 210);
+  --primary-foreground: oklch(0.18 0.03 240);
+  --secondary: oklch(0.3 0.03 240);
+  --secondary-foreground: oklch(0.94 0.01 220);
+  --muted: oklch(0.3 0.03 240);
+  --muted-foreground: oklch(0.65 0.02 230);
+  --accent: oklch(0.32 0.04 210);
+  --accent-foreground: oklch(0.85 0.1 210);
+  --border: oklch(0.32 0.03 240);
+  --input: oklch(0.32 0.03 240);
+  --ring: oklch(0.75 0.12 210);
+`,
+    meshGradient: `
+  background: 
+    radial-gradient(at 15% 20%, #88c0d0 0px, transparent 50%),
+    radial-gradient(at 85% 25%, #81a1c1 0px, transparent 50%),
+    radial-gradient(at 50% 80%, #5e81ac 0px, transparent 55%);
+`,
+  },
+  {
+    id: "catppuccin",
+    title: "Catppuccin Mocha (Soothing Pastel)",
+    description: "Crust #11111b, Mauve #cba6f7 & Sapphire #74c7ec, Rounded",
+    primary: "oklch(0.75 0.16 300)",
+    accent: "oklch(0.78 0.14 230)",
+    radius: "0.625rem",
+    cssRoot: `
+  --background: oklch(0.98 0.01 280);
+  --foreground: oklch(0.22 0.03 280);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 280);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 280);
+  --primary: oklch(0.6 0.18 300);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.02 280);
+  --secondary-foreground: oklch(0.22 0.03 280);
+  --muted: oklch(0.94 0.02 280);
+  --muted-foreground: oklch(0.5 0.02 280);
+  --accent: oklch(0.92 0.03 300);
+  --accent-foreground: oklch(0.5 0.18 300);
+  --destructive: oklch(0.6 0.22 25);
+  --border: oklch(0.9 0.01 280);
+  --input: oklch(0.9 0.01 280);
+  --ring: oklch(0.6 0.18 300);
+  --radius: 0.625rem;
+`,
+    cssDark: `
+  --background: oklch(0.14 0.02 280);
+  --foreground: oklch(0.92 0.015 280);
+  --card: oklch(0.18 0.025 280);
+  --card-foreground: oklch(0.92 0.015 280);
+  --popover: oklch(0.18 0.025 280);
+  --popover-foreground: oklch(0.92 0.015 280);
+  --primary: oklch(0.75 0.16 300);
+  --primary-foreground: oklch(0.12 0.02 280);
+  --secondary: oklch(0.24 0.03 280);
+  --secondary-foreground: oklch(0.92 0.015 280);
+  --muted: oklch(0.24 0.03 280);
+  --muted-foreground: oklch(0.65 0.02 280);
+  --accent: oklch(0.26 0.04 300);
+  --accent-foreground: oklch(0.85 0.15 300);
+  --border: oklch(0.26 0.025 280);
+  --input: oklch(0.26 0.025 280);
+  --ring: oklch(0.75 0.16 300);
+`,
+    meshGradient: `
+  background: 
+    radial-gradient(at 15% 20%, #cba6f7 0px, transparent 50%),
+    radial-gradient(at 85% 25%, #74c7ec 0px, transparent 50%),
+    radial-gradient(at 50% 80%, #f38ba8 0px, transparent 55%);
+`,
+  },
+  {
+    id: "cyberpunk",
+    title: "Cyberpunk (Neon Synthwave)",
+    description: "Pure Onyx #050505, Neon Electric Yellow #facc15 & Hot Pink #f43f5e",
+    primary: "oklch(0.85 0.22 95)",
+    accent: "oklch(0.65 0.28 15)",
+    radius: "0.25rem",
+    cssRoot: `
+  --background: oklch(0.99 0.01 95);
+  --foreground: oklch(0.1 0.01 95);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.1 0.01 95);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.1 0.01 95);
+  --primary: oklch(0.7 0.22 95);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.94 0.03 95);
+  --secondary-foreground: oklch(0.1 0.01 95);
+  --muted: oklch(0.94 0.03 95);
+  --muted-foreground: oklch(0.45 0.02 95);
+  --accent: oklch(0.9 0.05 95);
+  --accent-foreground: oklch(0.4 0.2 95);
+  --destructive: oklch(0.6 0.28 15);
+  --border: oklch(0.88 0.02 95);
+  --input: oklch(0.88 0.02 95);
+  --ring: oklch(0.7 0.22 95);
+  --radius: 0.25rem;
+`,
+    cssDark: `
+  --background: oklch(0.08 0.01 95);
+  --foreground: oklch(0.96 0.01 95);
+  --card: oklch(0.12 0.02 95);
+  --card-foreground: oklch(0.96 0.01 95);
+  --popover: oklch(0.12 0.02 95);
+  --popover-foreground: oklch(0.96 0.01 95);
+  --primary: oklch(0.85 0.22 95);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.18 0.03 95);
+  --secondary-foreground: oklch(0.96 0.01 95);
+  --muted: oklch(0.18 0.03 95);
+  --muted-foreground: oklch(0.65 0.02 95);
+  --accent: oklch(0.22 0.05 15);
+  --accent-foreground: oklch(0.8 0.25 15);
+  --border: oklch(0.24 0.03 95);
+  --input: oklch(0.24 0.03 95);
+  --ring: oklch(0.85 0.22 95);
+`,
+    meshGradient: `
+  background: 
+    radial-gradient(at 15% 20%, #facc15 0px, transparent 50%),
+    radial-gradient(at 85% 25%, #f43f5e 0px, transparent 50%),
+    radial-gradient(at 50% 80%, #a855f7 0px, transparent 55%);
+`,
+  },
+  {
+    id: "sunset",
+    title: "Sunset Horizon (Warm Peach & Violet)",
+    description: "Deep Wine Noir, Coral Pink #ff6b6b & Violet #845ec2",
+    primary: "oklch(0.72 0.22 35)",
+    accent: "oklch(0.65 0.24 320)",
+    radius: "0.5rem",
+    cssRoot: `
+  --background: oklch(0.99 0.01 35);
+  --foreground: oklch(0.16 0.02 35);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.02 35);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.02 35);
+  --primary: oklch(0.65 0.22 35);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.02 35);
+  --secondary-foreground: oklch(0.16 0.02 35);
+  --muted: oklch(0.95 0.02 35);
+  --muted-foreground: oklch(0.5 0.02 35);
+  --accent: oklch(0.93 0.03 320);
+  --accent-foreground: oklch(0.5 0.2 320);
+  --destructive: oklch(0.6 0.22 25);
+  --border: oklch(0.9 0.01 35);
+  --input: oklch(0.9 0.01 35);
+  --ring: oklch(0.65 0.22 35);
+  --radius: 0.5rem;
+`,
+    cssDark: `
+  --background: oklch(0.12 0.02 320);
+  --foreground: oklch(0.95 0.01 35);
+  --card: oklch(0.16 0.025 320);
+  --card-foreground: oklch(0.95 0.01 35);
+  --popover: oklch(0.16 0.025 320);
+  --popover-foreground: oklch(0.95 0.01 35);
+  --primary: oklch(0.72 0.22 35);
+  --primary-foreground: oklch(0.1 0.02 35);
+  --secondary: oklch(0.22 0.025 320);
+  --secondary-foreground: oklch(0.95 0.01 35);
+  --muted: oklch(0.22 0.025 320);
+  --muted-foreground: oklch(0.65 0.02 35);
+  --accent: oklch(0.25 0.04 320);
+  --accent-foreground: oklch(0.85 0.15 320);
+  --border: oklch(0.24 0.02 320);
+  --input: oklch(0.24 0.02 320);
+  --ring: oklch(0.72 0.22 35);
+`,
+    meshGradient: `
+  background: 
+    radial-gradient(at 15% 20%, #ff6b6b 0px, transparent 50%),
+    radial-gradient(at 85% 25%, #845ec2 0px, transparent 50%),
+    radial-gradient(at 50% 80%, #ffc75f 0px, transparent 55%);
+`,
+  },
 ];

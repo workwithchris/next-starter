@@ -173,17 +173,26 @@ async function main() {
         {
           type: args.design ? null : "autocomplete",
           name: "designSystem",
-          message: "Search & select design system (from getdesign.md):",
+          message: "Search & select design system (type to filter from getdesign.md):",
+          limit: 12,
+          fallback: "No matching design found",
           choices: DESIGN_CATALOG.map((d) => ({
             title: `${d.title} — ${d.description}`,
             value: d.id,
+            description: `${d.id} ${d.title} ${d.description}`,
           })),
-          suggest: (input, choices) =>
-            Promise.resolve(
-              choices.filter((choice) =>
-                choice.title.toLowerCase().includes((input || "").toLowerCase())
+          suggest: (input, choices) => {
+            const query = (input || "").toLowerCase().trim();
+            if (!query) return Promise.resolve(choices);
+            return Promise.resolve(
+              choices.filter(
+                (choice) =>
+                  choice.title.toLowerCase().includes(query) ||
+                  (choice.description && choice.description.toLowerCase().includes(query)) ||
+                  choice.value.toLowerCase().includes(query)
               )
-            ),
+            );
+          },
         },
         {
           type: args.pm ? null : "select",
