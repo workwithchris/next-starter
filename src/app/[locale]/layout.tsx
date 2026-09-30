@@ -27,35 +27,58 @@ export const metadata: Metadata = {
     template: "%s | next-starter",
   },
   description:
-    "An enterprise-ready Next.js 16 starter template built with React 19, Tailwind CSS v4, Base UI / Shadcn, Zod validation, and next-intl.",
+    "An enterprise-ready Next.js 16 starter template & CLI built with React 19, Tailwind CSS v4, Base UI, Auth.js v5, and next-intl.",
   keywords: [
     "Next.js 16",
     "React 19",
+    "Next.js Starter",
+    "create-starter-next",
     "Tailwind CSS v4",
+    "Auth.js",
+    "NextAuth v5",
     "Base UI",
-    "Shadcn",
+    "Shadcn UI",
     "TypeScript",
     "Zod",
     "TanStack Query",
     "Zustand",
-    "i18n",
+    "next-intl",
+    "Turbopack",
   ],
   authors: [{ name: "workwithchris", url: "https://github.com/workwithchris" }],
   creator: "workwithchris",
+  publisher: "workwithchris",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: appUrl,
     title: "next-starter — Modern Next.js 16 Production Blueprint",
     description:
-      "Enterprise-ready Next.js starter template preconfigured with React 19, Turbopack, Tailwind v4, and Geist design language.",
+      "Enterprise Next.js 16 starter template preconfigured with React 19, Turbopack, Tailwind v4, Auth.js v5, and Geist design language.",
     siteName: "next-starter",
   },
   twitter: {
     card: "summary_large_image",
     title: "next-starter — Modern Next.js 16 Production Blueprint",
     description:
-      "Enterprise-ready Next.js starter template preconfigured with React 19, Turbopack, Tailwind v4, and Geist design language.",
+      "Enterprise Next.js 16 starter template preconfigured with React 19, Turbopack, Tailwind v4, Auth.js v5, and Geist design language.",
+    creator: "@workwithchris",
   },
 };
 

@@ -7,10 +7,16 @@ import { ArchitectureViewer } from "./components/architecture-viewer";
 import { VercelTriad } from "./components/vercel-triad";
 import { CtaBand } from "./components/cta-band";
 import { Footer } from "./components/footer";
+import { StructuredData } from "./components/structured-data";
 
 export function Home() {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://next-starter.dev";
+
   return (
     <div className="min-h-screen bg-[#fafafa] dark:bg-black text-[#171717] dark:text-[#ededed] font-sans antialiased selection:bg-[#0070f3] selection:text-white transition-colors">
+      {/* Schema.org JSON-LD Structured Data for Google Rich Snippets */}
+      <StructuredData appUrl={appUrl} />
+
       {/* Top Navigation */}
       <Navbar />
 
