@@ -1,4 +1,4 @@
-import { Home } from "@/modules/home/home";
+import { Home } from "@/modules/public/home/home";
 import { setRequestLocale } from "next-intl/server";
 
 export default async function Page({

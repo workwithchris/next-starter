@@ -50,7 +50,7 @@ export function CtaBand() {
           </a>
 
           <a
-            href="https://github.com/vercel/next.js"
+            href="https://github.com/workwithchris/next-starter"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#ebebeb] dark:border-[#262626] bg-white dark:bg-[#121212] text-[#171717] dark:text-[#ededed] px-7 py-3 text-sm font-medium hover:bg-[#f5f5f5] dark:hover:bg-[#1c1c1c] transition-colors shadow-xs"

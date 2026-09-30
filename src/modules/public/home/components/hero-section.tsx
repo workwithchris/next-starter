@@ -10,10 +10,10 @@ export function HeroSection() {
   const t = useTranslations("Hero");
 
   const commands = {
-    pnpm: "pnpm create next-app@latest -e https://github.com/vercel/next.js/tree/canary/examples",
-    npm: "npx create-next-app@latest my-starter-app",
-    bun: "bun create next-app my-starter-app",
-    yarn: "yarn create next-app my-starter-app",
+    pnpm: "git clone https://github.com/workwithchris/next-starter.git my-app",
+    npm: "git clone https://github.com/workwithchris/next-starter.git my-app",
+    bun: "git clone https://github.com/workwithchris/next-starter.git my-app",
+    yarn: "git clone https://github.com/workwithchris/next-starter.git my-app",
   };
 
   const copyToClipboard = () => {

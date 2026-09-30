@@ -174,7 +174,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/vercel/next.js"
+                  href="https://github.com/workwithchris/next-starter"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#171717] dark:hover:text-white transition-colors"

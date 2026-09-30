@@ -1,16 +1,18 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/core/i18n/routing";
 import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Subheader } from "./subheader";
+import { useGitHubStars } from "../hooks/use-github-stars";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = useTranslations("Navbar");
+  const { data: starCount } = useGitHubStars();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#ebebeb] bg-[#fafafa]/85 backdrop-blur-md dark:border-[#262626] dark:bg-black/85 transition-colors">
@@ -51,7 +53,7 @@ export function Navbar() {
           <ThemeToggle />
 
           <a
-            href="https://github.com/vercel/next.js"
+            href="https://github.com/workwithchris/next-starter"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-[6px] border border-[#ebebeb] dark:border-[#262626] bg-white dark:bg-[#121212] px-2.5 py-1 text-xs font-medium text-[#171717] dark:text-[#ededed] hover:bg-[#f5f5f5] dark:hover:bg-[#1c1c1c] transition-colors"
@@ -61,7 +63,9 @@ export function Navbar() {
             </svg>
             <span>GitHub</span>
             <span className="text-[10px] text-[#8f8f8f] font-mono border-l border-[#ebebeb] dark:border-[#262626] pl-1.5 ml-0.5">
-              {t("githubStars")}
+              {starCount !== undefined
+                ? `★ ${starCount >= 1000 ? `${(starCount / 1000).toFixed(1)}k` : starCount}`
+                : t("githubStars")}
             </span>
           </a>
 
@@ -132,6 +136,20 @@ export function Navbar() {
             >
               {t("quickstart")}
             </a>
+            <Link
+              href="/dashboard"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1 hover:text-[#171717] dark:hover:text-white font-semibold"
+            >
+              {t("dashboard")}
+            </Link>
+            <Link
+              href="/login"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1 hover:text-[#171717] dark:hover:text-white font-semibold"
+            >
+              {t("login")}
+            </Link>
           </nav>
 
           <div className="pt-2 flex flex-col gap-2">
