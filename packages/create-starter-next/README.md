@@ -1,4 +1,4 @@
-# create-next-starter
+# create-starter-next
 
 The fastest way to scaffold an enterprise-ready **Next.js 16** project with **React 19**, **Tailwind CSS v4**, **Base UI / Shadcn**, **Zod**, and **TanStack React Query**.
 
@@ -8,24 +8,24 @@ You can create a new project with any of your favorite package managers:
 
 ### With `npx` / `npm`
 ```bash
-npx create-next-starter my-app
+npx create-starter-next my-app
 # or
-npm create next-starter my-app
+npm create starter-next my-app
 ```
 
 ### With `pnpm`
 ```bash
-pnpm create next-starter my-app
+pnpm create starter-next my-app
 ```
 
 ### With `bun`
 ```bash
-bun create next-starter my-app
+bun create starter-next my-app
 ```
 
 ### With `yarn`
 ```bash
-yarn create next-starter my-app
+yarn create starter-next my-app
 ```
 
 ## Features Included
@@ -37,7 +37,7 @@ yarn create next-starter my-app
 - 🛡️ **Zod** schema runtime validation & React Hook Form
 - 🌐 **5 Locales i18n** (`next-intl`) with edge proxy middleware protection
 - 🧪 **Vitest** test suite with JSDOM
-- 🚀 Pre-configured Auth, Dashboard, and Marketing modules
+- 🚀 Pre-configured Auth.js, Dashboard, and Marketing modules
 
 ## Publishing to NPM
 
@@ -48,9 +48,9 @@ To publish this package to NPM:
    npm login
    ```
 
-2. Publish from the `packages/create-next-starter` directory:
+2. Publish from the `packages/create-starter-next` directory:
    ```bash
-   cd packages/create-next-starter
+   cd packages/create-starter-next
    npm publish --access public
    ```
 

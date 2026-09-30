@@ -1,19 +1,20 @@
 {
-  "name": "create-next-starter",
+  "name": "create-starter-next",
   "version": "1.0.0",
   "description": "Scaffold an enterprise-ready Next.js 16 production starter template with React 19, Tailwind CSS v4, Base UI, and Zod",
   "type": "module",
   "main": "./bin/index.mjs",
   "bin": {
-    "create-next-starter": "./bin/index.mjs"
+    "create-starter-next": "./bin/index.mjs"
   },
   "files": [
     "bin",
     "README.md"
   ],
   "keywords": [
+    "create-starter-next",
+    "starter-next",
     "create-next-app",
-    "next-starter",
     "nextjs",
     "next16",
     "react19",
@@ -27,7 +28,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/workwithchris/next-starter.git",
-    "directory": "packages/create-next-starter"
+    "directory": "packages/create-starter-next"
   },
   "dependencies": {
     "giget": "^1.2.4",

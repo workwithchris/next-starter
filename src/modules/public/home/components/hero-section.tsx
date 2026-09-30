@@ -10,10 +10,10 @@ export function HeroSection() {
   const t = useTranslations("Hero");
 
   const commands = {
-    pnpm: "pnpm create next-starter my-app",
-    npm: "npx create-next-starter my-app",
-    bun: "bun create next-starter my-app",
-    yarn: "yarn create next-starter my-app",
+    pnpm: "pnpm create starter-next my-app",
+    npm: "npx create-starter-next my-app",
+    bun: "bun create starter-next my-app",
+    yarn: "yarn create starter-next my-app",
   };
 
   const copyToClipboard = () => {

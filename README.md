@@ -150,15 +150,15 @@ Create a new project instantly using `npx`, `npm`, `pnpm`, or `bun`:
 
 ```bash
 # With npx / npm
-npx create-next-starter my-app
+npx create-starter-next my-app
 # or
-npm create next-starter my-app
+npm create starter-next my-app
 
 # With pnpm
-pnpm create next-starter my-app
+pnpm create starter-next my-app
 
 # With bun
-bun create next-starter my-app
+bun create starter-next my-app
 ```
 
 Alternatively, use Next.js's native `create-next-app` with the example flag:
