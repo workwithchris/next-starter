@@ -1,0 +1,59 @@
+# create-next-starter
+
+The fastest way to scaffold an enterprise-ready **Next.js 16** project with **React 19**, **Tailwind CSS v4**, **Base UI / Shadcn**, **Zod**, and **TanStack React Query**.
+
+## Usage
+
+You can create a new project with any of your favorite package managers:
+
+### With `npx` / `npm`
+```bash
+npx create-next-starter my-app
+# or
+npm create next-starter my-app
+```
+
+### With `pnpm`
+```bash
+pnpm create next-starter my-app
+```
+
+### With `bun`
+```bash
+bun create next-starter my-app
+```
+
+### With `yarn`
+```bash
+yarn create next-starter my-app
+```
+
+## Features Included
+
+- ⚡ **Next.js 16** with Turbopack & React 19 Compiler
+- 🎨 **Tailwind CSS v4** + Geist Design tokens
+- 🐻 **Zustand** client & auth state with cookie sync
+- 🔄 **TanStack React Query v5** server cache & devtools
+- 🛡️ **Zod** schema runtime validation & React Hook Form
+- 🌐 **5 Locales i18n** (`next-intl`) with edge proxy middleware protection
+- 🧪 **Vitest** test suite with JSDOM
+- 🚀 Pre-configured Auth, Dashboard, and Marketing modules
+
+## Publishing to NPM
+
+To publish this package to NPM:
+
+1. Sign in to your NPM account:
+   ```bash
+   npm login
+   ```
+
+2. Publish from the `packages/create-next-starter` directory:
+   ```bash
+   cd packages/create-next-starter
+   npm publish --access public
+   ```
+
+## License
+
+MIT © [workwithchris](https://github.com/workwithchris)

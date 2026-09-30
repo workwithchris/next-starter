@@ -143,9 +143,31 @@ next-starter-template/
 ### Prerequisites
 
 - **Node.js**: `18.18+` or `20.x` / `22.x` recommended
-- **Package Manager**: `pnpm`, `npm`, `yarn`, or `bun`
+### Quick Scaffold (Recommended)
 
-### Installation
+Create a new project instantly using `npx`, `npm`, `pnpm`, or `bun`:
+
+```bash
+# With npx / npm
+npx create-next-starter my-app
+# or
+npm create next-starter my-app
+
+# With pnpm
+pnpm create next-starter my-app
+
+# With bun
+bun create next-starter my-app
+```
+
+Alternatively, use Next.js's native `create-next-app` with the example flag:
+```bash
+npx create-next-app@latest my-app -e https://github.com/workwithchris/next-starter
+```
+
+---
+
+### Manual Installation
 
 1. **Clone the repository:**
    ```bash

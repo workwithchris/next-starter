@@ -10,10 +10,10 @@ export function HeroSection() {
   const t = useTranslations("Hero");
 
   const commands = {
-    pnpm: "git clone https://github.com/workwithchris/next-starter.git my-app",
-    npm: "git clone https://github.com/workwithchris/next-starter.git my-app",
-    bun: "git clone https://github.com/workwithchris/next-starter.git my-app",
-    yarn: "git clone https://github.com/workwithchris/next-starter.git my-app",
+    pnpm: "pnpm create next-starter my-app",
+    npm: "npx create-next-starter my-app",
+    bun: "bun create next-starter my-app",
+    yarn: "yarn create next-starter my-app",
   };
 
   const copyToClipboard = () => {
