@@ -1,0 +1,8 @@
+{
+  "*.{ts,tsx,js,jsx,mjs}": [
+    "eslint --fix"
+  ],
+  "*.{ts,tsx}": [
+    "vitest related --run"
+  ]
+}
