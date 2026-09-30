@@ -2,6 +2,7 @@ import { Navbar } from "./components/navbar";
 import { HeroSection } from "./components/hero-section";
 import { TechStackStrip } from "./components/tech-stack-strip";
 import { FeaturesGrid } from "./components/features-grid";
+import { DesignCatalogSection } from "./components/design-catalog-section";
 import { FormDemo } from "./components/form-demo";
 import { ArchitectureViewer } from "./components/architecture-viewer";
 import { CtaBand } from "./components/cta-band";
@@ -27,20 +28,23 @@ export function Home() {
         {/* 2. Logo / Tech Stack Strip */}
         <TechStackStrip />
 
-        {/* 3. Hairline Feature Card Grid */}
+        {/* 3. getdesign.md 20+ Real-World Design Systems Explorer */}
+        <DesignCatalogSection />
+
+        {/* 4. Hairline Feature Card Grid */}
         <FeaturesGrid />
 
-        {/* 4. Interactive Zod & React Hook Form Sandbox */}
+        {/* 5. Interactive Zod & React Hook Form Sandbox */}
         <FormDemo />
 
-        {/* 5. Enterprise Architecture & File Manifest Explorer */}
+        {/* 6. Enterprise Architecture & File Manifest Explorer */}
         <ArchitectureViewer />
 
-        {/* 6. CTA Band with Black Marketing Pill */}
+        {/* 7. CTA Band with Black Marketing Pill */}
         <CtaBand />
       </main>
 
-      {/* 7. Structural Footer */}
+      {/* 8. Structural Footer */}
       <Footer />
     </div>
   );

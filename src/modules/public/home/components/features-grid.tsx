@@ -26,20 +26,20 @@ export function FeaturesGrid() {
     },
     {
       eyebrow: "DESIGN & ACCESSIBILITY",
-      title: "Tailwind CSS v4 & Base UI",
+      title: "getdesign.md & Tailwind CSS v4",
       description:
-        "Modern CSS variable architecture without JavaScript overhead. Powered by Shadcn UI and accessible Base UI primitives.",
-      tag: "Nova Preset",
+        "Select from 20+ real-world design systems (Linear, Supabase, Claude, Stripe). Powered by OKLCH CSS tokens, Base UI primitives, and 1px hairlines.",
+      tag: "20+ Themes",
       illustration: (
         <div className="mt-4 flex flex-wrap gap-2 items-center p-3 rounded-lg border border-[#ebebeb] dark:border-[#262626] bg-[#fafafa] dark:bg-[#121212]">
           <span className="rounded-full bg-[#171717] dark:bg-white text-white dark:text-black text-xs px-3 py-1 font-medium">
-            Primary Pill
+            getdesign.md
           </span>
           <span className="rounded-[6px] border border-[#ebebeb] dark:border-[#262626] bg-white dark:bg-[#1e1e1e] text-[#171717] dark:text-[#ededed] text-xs px-2.5 py-1 font-medium">
-            6px Nav Square
+            Linear / Claude
           </span>
           <span className="rounded-full border border-[#ebebeb] dark:border-[#262626] bg-white dark:bg-[#1e1e1e] text-[#8f8f8f] text-xs px-2.5 py-1 font-mono">
-            border: 1px hairline
+            OKLCH Tokens
           </span>
         </div>
       ),

@@ -254,6 +254,48 @@ async function main() {
     fs.rmSync(nestedPackagesDir, { recursive: true, force: true });
   }
 
+  // Prune website-only documentation pages and modules from starter projects
+  const websiteOnlyPaths = [
+    path.join(projectPath, "src/app/[locale]/(public)/docs"),
+    path.join(projectPath, "src/modules/public/docs"),
+  ];
+  for (const p of websiteOnlyPaths) {
+    if (fs.existsSync(p)) {
+      fs.rmSync(p, { recursive: true, force: true });
+    }
+  }
+
+  // Prune Docs link from subheader in starter projects
+  const subheaderPath = path.join(projectPath, "src/modules/public/home/components/subheader.tsx");
+  if (fs.existsSync(subheaderPath)) {
+    try {
+      let subheader = fs.readFileSync(subheaderPath, "utf8");
+      subheader = subheader.replace(/<Link\s+href="\/docs"[\s\S]*?<\/Link>/g, "");
+      fs.writeFileSync(subheaderPath, subheader);
+    } catch {
+      // ignore
+    }
+  }
+
+  // Clean up Docs namespace from translation files
+  const messagesDir = path.join(projectPath, "messages");
+  if (fs.existsSync(messagesDir)) {
+    const localeFiles = ["en.json", "es.json", "fr.json", "de.json", "ja.json"];
+    for (const file of localeFiles) {
+      const filePath = path.join(messagesDir, file);
+      if (fs.existsSync(filePath)) {
+        try {
+          const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+          delete data.Docs;
+          if (data.Navbar) delete data.Navbar.docs;
+          fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n");
+        } catch {
+          // ignore
+        }
+      }
+    }
+  }
+
   // Apply chosen design system tokens
   console.log(`${dim("Applying design system:")} ${magenta(designSystem)}...`);
   applyDesignSystem(projectPath, designSystem);
