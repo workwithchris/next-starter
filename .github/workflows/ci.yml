@@ -18,27 +18,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: "pnpm"
+          cache: "npm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Run ESLint
-        run: pnpm run lint
+        run: npm run lint
 
       - name: Run Vitest Suite
-        run: pnpm test
+        run: npm test
 
       - name: Build Next.js 16 Application
-        run: pnpm run build
+        run: npm run build
         env:
           AUTH_SECRET: "ci_testing_auth_secret_minimum_32_characters_long"
