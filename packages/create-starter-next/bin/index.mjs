@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { execSync } from "node:child_process";
 import { downloadTemplate } from "giget";
 import prompts from "prompts";
@@ -9,93 +10,163 @@ import { blue, bold, cyan, dim, green, red, yellow } from "kolorist";
 
 const TEMPLATE_REPO = "gh:workwithchris/next-starter";
 
+function detectPackageManager() {
+  const userAgent = process.env.npm_config_user_agent || "";
+  if (userAgent.startsWith("pnpm")) return "pnpm";
+  if (userAgent.startsWith("bun")) return "bun";
+  if (userAgent.startsWith("yarn")) return "yarn";
+  if (userAgent.startsWith("npm")) return "npm";
+  return "pnpm";
+}
+
+function parseArgs(rawArgs) {
+  const options = {
+    targetDir: null,
+    preset: null,
+    pm: null,
+    git: null,
+    install: null,
+    yes: false,
+    help: false,
+  };
+
+  for (let i = 0; i < rawArgs.length; i++) {
+    const arg = rawArgs[i];
+    if (arg === "-y" || arg === "--yes") options.yes = true;
+    else if (arg === "-h" || arg === "--help") options.help = true;
+    else if (arg === "--minimal") options.preset = "minimal";
+    else if (arg === "--fullstack") options.preset = "fullstack";
+    else if (arg.startsWith("--preset=")) options.preset = arg.split("=")[1];
+    else if (arg === "--preset" && rawArgs[i + 1]) options.preset = rawArgs[++i];
+    else if (["--pnpm", "--npm", "--bun", "--yarn"].includes(arg)) options.pm = arg.slice(2);
+    else if (arg.startsWith("--pm=")) options.pm = arg.split("=")[1];
+    else if (arg === "--pm" && rawArgs[i + 1]) options.pm = rawArgs[++i];
+    else if (arg === "--git") options.git = true;
+    else if (arg === "--no-git") options.git = false;
+    else if (arg === "--install") options.install = true;
+    else if (arg === "--no-install") options.install = false;
+    else if (!arg.startsWith("-") && !options.targetDir) options.targetDir = arg;
+  }
+  return options;
+}
+
+function showHelp() {
+  console.log(`
+${bold(cyan("create-starter-next"))} — Next.js 16 Production Blueprint
+
+${bold("Usage:")}
+  npx create-starter-next [project-name] [options]
+
+${bold("Options:")}
+  --fullstack              Scaffold fullstack preset (Auth.js, Dashboard, APIs)
+  --minimal                Scaffold minimal preset (Clean Core, i18n, Tailwind v4)
+  --preset <name>          Specify preset ('fullstack' or 'minimal')
+  --pnpm / --npm / --bun   Set preferred package manager
+  --pm <manager>           Specify package manager ('pnpm', 'npm', 'bun', 'yarn')
+  --git / --no-git         Initialize git repository (or skip)
+  --install / --no-install Install dependencies immediately (or skip)
+  -y, --yes                Skip interactive prompts and use defaults
+  -h, --help               Show this help message
+`);
+}
+
 async function main() {
+  const args = parseArgs(process.argv.slice(2));
+
+  if (args.help) {
+    showHelp();
+    process.exit(0);
+  }
+
   console.log(`\n${bold(cyan("▲ next-starter"))} ${dim("— Next.js 16 Production Blueprint")}\n`);
 
-  let targetDir = process.argv[2];
+  const detectedPm = detectPackageManager();
+  let targetDir = args.targetDir || (args.yes ? "my-next-app" : null);
 
-  const response = await prompts(
-    [
-      {
-        type: targetDir ? null : "text",
-        name: "projectName",
-        message: "Project name:",
-        initial: "my-next-app",
-        onState: (state) => {
-          targetDir = String(state.value).trim() || "my-next-app";
-        },
-      },
-      {
-        type: () => (!fs.existsSync(targetDir) || fs.readdirSync(targetDir).length === 0 ? null : "confirm"),
-        name: "overwrite",
-        message: () => `Target directory "${targetDir}" is not empty. Remove existing files and continue?`,
-        initial: false,
-      },
-      {
-        type: (_, { overwrite }) => {
-          if (overwrite === false) {
-            throw new Error(red("✖ Operation cancelled"));
-          }
-          return null;
-        },
-        name: "overwriteCheck",
-      },
-      {
-        type: "select",
-        name: "templateVariant",
-        message: "Select template preset:",
-        initial: 0,
-        choices: [
-          {
-            title: "Fullstack (All included: Landing page + Auth + Protected Dashboard + Mock APIs)",
-            value: "fullstack",
+  let response = {};
+
+  if (!args.yes) {
+    response = await prompts(
+      [
+        {
+          type: targetDir ? null : "text",
+          name: "projectName",
+          message: "Project name:",
+          initial: "my-next-app",
+          onState: (state) => {
+            targetDir = String(state.value).trim() || "my-next-app";
           },
-          {
-            title: "Minimal (Core only: Marketing site, i18n, Tailwind v4, TanStack Query, Network suite)",
-            value: "minimal",
+        },
+        {
+          type: () => (!fs.existsSync(targetDir) || fs.readdirSync(targetDir).length === 0 ? null : "confirm"),
+          name: "overwrite",
+          message: () => `Target directory "${targetDir}" is not empty. Remove existing files and continue?`,
+          initial: false,
+        },
+        {
+          type: (_, { overwrite }) => {
+            if (overwrite === false) {
+              throw new Error(red("✖ Operation cancelled"));
+            }
+            return null;
           },
-        ],
-      },
+          name: "overwriteCheck",
+        },
+        {
+          type: args.preset ? null : "select",
+          name: "templateVariant",
+          message: "Select template preset:",
+          initial: 0,
+          choices: [
+            {
+              title: "Fullstack (All included: Landing page + Auth.js + Protected Dashboard + Mock APIs)",
+              value: "fullstack",
+            },
+            {
+              title: "Minimal (Core only: Marketing site, i18n, Tailwind v4, TanStack Query, Network suite)",
+              value: "minimal",
+            },
+          ],
+        },
+        {
+          type: args.pm ? null : "select",
+          name: "packageManager",
+          message: "Select package manager:",
+          initial: ["pnpm", "npm", "bun", "yarn"].indexOf(detectedPm) >= 0 ? ["pnpm", "npm", "bun", "yarn"].indexOf(detectedPm) : 0,
+          choices: [
+            { title: "pnpm", value: "pnpm" },
+            { title: "npm", value: "npm" },
+            { title: "bun", value: "bun" },
+            { title: "yarn", value: "yarn" },
+          ],
+        },
+        {
+          type: args.git !== null ? null : "confirm",
+          name: "gitInit",
+          message: "Initialize a new Git repository?",
+          initial: true,
+        },
+        {
+          type: args.install !== null ? null : "confirm",
+          name: "installDeps",
+          message: "Install dependencies immediately?",
+          initial: true,
+        },
+      ],
       {
-        type: "select",
-        name: "packageManager",
-        message: "Select package manager:",
-        initial: 0,
-        choices: [
-          { title: "pnpm", value: "pnpm" },
-          { title: "npm", value: "npm" },
-          { title: "bun", value: "bun" },
-          { title: "yarn", value: "yarn" },
-        ],
-      },
-      {
-        type: "confirm",
-        name: "gitInit",
-        message: "Initialize a new Git repository?",
-        initial: true,
-      },
-      {
-        type: "confirm",
-        name: "installDeps",
-        message: "Install dependencies immediately?",
-        initial: true,
-      },
-    ],
-    {
-      onCancel: () => {
-        throw new Error(red("✖") + " Operation cancelled");
-      },
-    }
-  );
+        onCancel: () => {
+          throw new Error(red("✖") + " Operation cancelled");
+        },
+      }
+    );
+  }
 
-  const {
-    templateVariant = "fullstack",
-    packageManager = "pnpm",
-    gitInit = true,
-    installDeps = true,
-  } = response;
+  const templateVariant = args.preset || response.templateVariant || "fullstack";
+  const packageManager = args.pm || response.packageManager || detectedPm || "pnpm";
+  const gitInit = args.git !== null ? args.git : response.gitInit !== undefined ? response.gitInit : true;
+  const installDeps = args.install !== null ? args.install : response.installDeps !== undefined ? response.installDeps : true;
 
-  const projectPath = path.resolve(process.cwd(), targetDir);
+  const projectPath = path.resolve(process.cwd(), targetDir || "my-next-app");
   const projectName = path.basename(projectPath);
 
   console.log(`\n${dim("Downloading template from")} ${cyan(TEMPLATE_REPO)}...`);
@@ -114,6 +185,20 @@ async function main() {
   const nestedPackagesDir = path.join(projectPath, "packages");
   if (fs.existsSync(nestedPackagesDir)) {
     fs.rmSync(nestedPackagesDir, { recursive: true, force: true });
+  }
+
+  // Generate .env.local with secure random AUTH_SECRET
+  const envExamplePath = path.join(projectPath, ".env.example");
+  const envLocalPath = path.join(projectPath, ".env.local");
+  if (fs.existsSync(envExamplePath)) {
+    try {
+      let content = fs.readFileSync(envExamplePath, "utf8");
+      const randomSecret = crypto.randomBytes(32).toString("hex");
+      content = content.replace(/AUTH_SECRET=.*/g, `AUTH_SECRET="${randomSecret}"`);
+      fs.writeFileSync(envLocalPath, content);
+    } catch {
+      // ignore
+    }
   }
 
   // If Minimal preset selected: prune Auth, Protected Dashboard, and APIs
@@ -234,7 +319,7 @@ export const config = {
   console.log(`  ${cyan(`${packageManager} test`)}`);
   console.log(`    Runs Vitest unit tests\n`);
   console.log("To get started:\n");
-  console.log(`  ${bold(blue(`cd ${targetDir}`))}`);
+  console.log(`  ${bold(blue(`cd ${targetDir || "my-next-app"}`))}`);
   if (!installDeps) {
     console.log(`  ${bold(blue(`${packageManager} install`))}`);
   }
