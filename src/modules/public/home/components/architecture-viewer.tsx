@@ -18,9 +18,10 @@ export function ArchitectureViewer() {
         "Houses enterprise shared primitives: HTTP fetch wrappers, network clients, custom hooks, and shared TypeScript helper definitions. Agnostic of business features.",
       badge: "Shared Foundation",
       files: [
+        "src/core/auth/ (Auth.js server configuration & providers)",
+        "src/core/network/ (type-safe HTTP, SSE, & WebSocket suite)",
+        "src/core/store/ (Zustand state slices & persistence)",
         "src/core/lib/utils.ts (cn classnames resolver)",
-        "src/core/hooks/ (reusable lifecycle & browser hooks)",
-        "src/core/network/ (fetch abstractions & API contracts)",
       ],
     },
     "src/modules": {
