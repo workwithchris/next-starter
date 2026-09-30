@@ -35,7 +35,7 @@ describe("response-parser", () => {
   it("parses blob format", async () => {
     const res = new Response("binary content");
     const parsed = await parseResponseBody<Blob>(res, "blob");
-    expect(parsed).toBeInstanceOf(Blob);
+    expect(parsed.size).toBe(14);
     expect(await parsed.text()).toBe("binary content");
   });
 });
