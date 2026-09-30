@@ -7,8 +7,10 @@
     "formDemo": "Demo Formularios & Zod",
     "architecture": "Arquitectura",
     "quickstart": "Inicio Rápido",
-    "githubStars": "★ 124k",
-    "deploy": "Desplegar"
+    "githubStars": "★ Star",
+    "deploy": "Desplegar",
+    "dashboard": "Panel",
+    "login": "Iniciar Sesión"
   },
   "Hero": {
     "eyebrow": "Kit de Inicio de Producción Next.js 16",
@@ -64,5 +66,60 @@
     "fr": "Français",
     "de": "Deutsch",
     "ja": "日本語"
+  },
+  "ErrorPage": {
+    "title": "Algo salió mal",
+    "description": "Ocurrió un error inesperado al cargar la página. Puede intentar recargar el componente o regresar al inicio.",
+    "retryButton": "Intentar de nuevo",
+    "homeButton": "Volver al Inicio"
+  },
+  "NotFoundPage": {
+    "title": "Página no encontrada",
+    "description": "El recurso o la página solicitada no se pudo encontrar. Es posible que haya sido movida o eliminada.",
+    "homeButton": "Volver al Inicio"
+  },
+  "Dashboard": {
+    "overviewBadge": "PANEL DE CONTROL",
+    "title": "Centro de Recursos y Despliegues",
+    "description": "Servicios en el borde en tiempo real, canalizaciones sin servidor y cargas activas.",
+    "refreshButton": "Actualizar",
+    "logoutButton": "Cerrar sesión",
+    "newProjectButton": "Nuevo Proyecto",
+    "Metrics": {
+      "totalProjects": "Proyectos Totales",
+      "activeDeployments": "Despliegues Activos",
+      "bandwidth": "Ancho de Banda",
+      "uptime": "Disponibilidad"
+    },
+    "Table": {
+      "searchPlaceholder": "Buscar proyectos por nombre o descripción...",
+      "nameColumn": "Nombre del Proyecto",
+      "statusColumn": "Estado",
+      "tierColumn": "Nivel",
+      "requestsColumn": "Peticiones (30d)",
+      "actionsColumn": "Acciones",
+      "noProjects": "No se encontraron proyectos con los filtros actuales."
+    },
+    "CreateDialog": {
+      "title": "Crear Nuevo Proyecto",
+      "description": "Configure los parámetros de su servicio y especificaciones de nivel.",
+      "nameLabel": "Slug del Proyecto",
+      "descriptionLabel": "Descripción (opcional)",
+      "descriptionPlaceholder": "Resumen breve del propósito del servicio...",
+      "cancelButton": "Cancelar",
+      "submitButton": "Crear Proyecto",
+      "creatingButton": "Creando..."
+    }
+  },
+  "Auth": {
+    "title": "Iniciar Sesión",
+    "description": "Ingrese sus credenciales para acceder al panel de su espacio de trabajo.",
+    "orContinueWith": "O continuar con",
+    "emailLabel": "Correo electrónico",
+    "passwordLabel": "Contraseña",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "rememberMe": "Recordar este dispositivo por 30 días",
+    "signInButton": "Entrar al Espacio de Trabajo",
+    "signingIn": "Iniciando sesión..."
   }
 }

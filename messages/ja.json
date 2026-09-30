@@ -7,55 +7,57 @@
     "formDemo": "フォーム & Zod デモ",
     "architecture": "アーキテクチャ",
     "quickstart": "クイックスタート",
-    "githubStars": "★ 124k",
-    "deploy": "デプロイ"
+    "githubStars": "★ Star",
+    "deploy": "デプロイ",
+    "dashboard": "ダッシュボード",
+    "login": "ログイン"
   },
   "Hero": {
-    "eyebrow": "Next.js 16 本番用スターターキット",
+    "eyebrow": "Next.js 16 本番向けスターターキット",
     "subEyebrow": "Turbopack & Tailwind v4",
-    "title": "モダンWebアプリケーションのためのエンジニアリング設計図。",
-    "description": "Next.js 16 App Router、React 19、Tailwind CSS v4、Base UI / Shadcn、厳格なZodバリデーションを標準搭載。開発速度と構造の純度、超高速ビルドを追求。",
-    "deployButton": "Vercelにデプロイ",
-    "formDemoButton": "インタラクティブフォームデモ",
-    "quickScaffold": "クイック作成",
+    "title": "モダン Web アプリケーションのためのエンジニアリング設計図。",
+    "description": "Next.js 16 App Router、React 19、Tailwind CSS v4、Base UI / Shadcn、厳格な Zod バリデーションを事前設定。開発者の速度と構造の純粋さを重視して設計されています。",
+    "deployButton": "Vercel にデプロイ",
+    "formDemoButton": "フォームデモを体験",
+    "quickScaffold": "クイック足場作成",
     "copySuccess": "クリップボードにコピーしました"
   },
   "TechStack": {
     "eyebrow": "厳選されたプロダクションスタック",
-    "title": "最高クラスのツール群。無駄な要素はゼロ。",
-    "description": "各レイヤーはベンチマーク性能、優れた開発者体験、本番環境の信頼性を考慮して厳選されています。"
+    "title": "最高峰のツール群。無駄はゼロ。",
+    "description": "すべてのレイヤーがベンチマークパフォーマンス、開発体験、本番での信頼性について検証済みです。"
   },
   "Features": {
     "eyebrow": "コア機能",
-    "title": "精密に構築された基盤。",
-    "description": "VercelのGeistデザイン原則に準拠：ミニマリズム、1pxの極細境界線、洗練されたタイポグラフィ階層。"
+    "title": "緻密な精度で構築。",
+    "description": "Vercel の Geist 原則に従って設計：徹底したミニマリズム、1px の極細線、タイポグラフィ重視の階層。"
   },
   "FormDemo": {
-    "badge": "インタラクティブ実演",
+    "badge": "インタラクティブ ライブデモ",
     "title": "Zod + React Hook Form サンドボックス",
-    "description": "ストレスのない実行時バリデーション。スキーマ制約の即時検証と無駄な再レンダリングのないフォーム体験をテストできます。"
+    "description": "シームレスなランタイムバリデーション。ライブスキーマ制約、即時エラー反映、再レンダリング不要の操作性を体験。"
   },
   "Architecture": {
-    "eyebrow": "コードベース構造",
-    "title": "成長を支えるアーキテクチャ。",
-    "description": "ドメインモジュール、コア共有基盤、型安全なスキーマレイヤーによる責任の明確な分離。"
+    "eyebrow": "コードベース構成",
+    "title": "拡張性を考慮した設計。",
+    "description": "ドメインモジュール、コア共有インフラストラクチャ、型安全スキーマ層による明確な関心の分離。"
   },
   "VercelTriad": {
     "eyebrow": "開発ライフサイクル",
-    "title": "開発。プレビュー。出荷。",
-    "description": "何百万人もの開発者を支える標準ワークフローを軽量スターターに凝縮。"
+    "title": "開発・プレビュー・公開。",
+    "description": "何百万人もの開発者を支える標準ワークフローを無駄のないスターターテンプレートに凝縮。"
   },
   "CtaBand": {
-    "eyebrow": "即時デプロイ",
-    "title": "次世代Webアプリの構築をはじめましょう。",
-    "description": "設定に時間を費やす必要はありません。このテンプレートをクローンして本番品質のアーキテクチャで開発をスタート。",
-    "deployButton": "Vercelにデプロイ",
-    "githubButton": "GitHubでスター"
+    "eyebrow": "即時デプロイ可能",
+    "title": "新しい Web アプリケーションを開発する準備はできましたか？",
+    "description": "面倒な初期設定を省略。このテンプレートをクローンして本番品質のアーキテクチャですぐに開発を開始しましょう。",
+    "deployButton": "Vercel にデプロイ",
+    "githubButton": "GitHub でスター"
   },
   "Footer": {
-    "description": "Vercel Geistデザインシステムを採用 — 白基調キャンバス、深みのある黒インク、繊細な境界線による洗練されたUI。",
+    "description": "Vercel Geist デザインシステムを採用 — 明瞭なモノトーンと精緻なタイポグラフィによる開発者プラットフォームの美学。",
     "status": "全システム正常稼働中 • Turbopack v16.3",
-    "copyright": "Next.js Starter Template. MITライセンスに基づくオープンソース。"
+    "copyright": "Next.js スターターテンプレート。MIT ライセンスによるオープンソース。"
   },
   "LocaleSwitcher": {
     "label": "言語",
@@ -64,5 +66,60 @@
     "fr": "Français",
     "de": "Deutsch",
     "ja": "日本語"
+  },
+  "ErrorPage": {
+    "title": "エラーが発生しました",
+    "description": "ページの実行中に予期しないエラーが発生しました。再試行するか、ホームページに戻ることができます。",
+    "retryButton": "再試行",
+    "homeButton": "ホームに戻る"
+  },
+  "NotFoundPage": {
+    "title": "ページが見つかりません",
+    "description": "リクエストされたリソースまたはページが見つかりませんでした。移動または削除された可能性があります。",
+    "homeButton": "ホームページに戻る"
+  },
+  "Dashboard": {
+    "overviewBadge": "ワークスペース概要",
+    "title": "リソースハブ & デプロイ一覧",
+    "description": "リアルタイムのエッジサービス、サーバーレスデプロイパイプライン、稼働中ワークロード。",
+    "refreshButton": "更新",
+    "logoutButton": "ログアウト",
+    "newProjectButton": "新規プロジェクト",
+    "Metrics": {
+      "totalProjects": "総プロジェクト数",
+      "activeDeployments": "稼働中デプロイ",
+      "bandwidth": "使用帯域幅",
+      "uptime": "稼働率"
+    },
+    "Table": {
+      "searchPlaceholder": "名前や説明でプロジェクトを検索...",
+      "nameColumn": "プロジェクト名",
+      "statusColumn": "ステータス",
+      "tierColumn": "プラン",
+      "requestsColumn": "リクエスト数 (30日)",
+      "actionsColumn": "操作",
+      "noProjects": "条件に一致するプロジェクトは見つかりませんでした。"
+    },
+    "CreateDialog": {
+      "title": "新規プロジェクト作成",
+      "description": "デプロイサービスの設定とプラン仕様を構成します。",
+      "nameLabel": "プロジェクトスラッグ",
+      "descriptionLabel": "説明 (任意)",
+      "descriptionPlaceholder": "サービスの概要...",
+      "cancelButton": "キャンセル",
+      "submitButton": "プロジェクトを作成",
+      "creatingButton": "作成中..."
+    }
+  },
+  "Auth": {
+    "title": "アカウント ログイン",
+    "description": "認証情報を入力してワークスペースダッシュボードにアクセスします。",
+    "orContinueWith": "または以下でログイン",
+    "emailLabel": "メールアドレス",
+    "passwordLabel": "パスワード",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "rememberMe": "この端末を30日間記憶する",
+    "signInButton": "ワークスペースにログイン",
+    "signingIn": "ログイン中..."
   }
 }

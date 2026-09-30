@@ -3,59 +3,61 @@
     "brand": "next-starter",
     "versionBadge": "v16.3 Next.js",
     "features": "Funktionen",
-    "techStack": "Tech Stack",
-    "formDemo": "Formular & Zod Demo",
+    "techStack": "Technologie-Stack",
+    "formDemo": "Formular- & Zod-Demo",
     "architecture": "Architektur",
     "quickstart": "Schnellstart",
-    "githubStars": "★ 124k",
-    "deploy": "Deployen"
+    "githubStars": "★ Star",
+    "deploy": "Bereitstellen",
+    "dashboard": "Dashboard",
+    "login": "Anmelden"
   },
   "Hero": {
-    "eyebrow": "Next.js 16 Production Starter Kit",
+    "eyebrow": "Next.js 16 Produktions-Starter-Kit",
     "subEyebrow": "Turbopack & Tailwind v4",
     "title": "Der Konstruktionsplan für moderne Webanwendungen.",
-    "description": "Vorkonfiguriert mit Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn und strikter Zod-Validierung. Entwickelt für maximale Geschwindigkeit und strukturelle Klarheit.",
-    "deployButton": "Auf Vercel deployen",
-    "formDemoButton": "Interaktive Formulardemo",
-    "quickScaffold": "Schnellstart",
+    "description": "Vorkonfiguriert mit Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn und strenger Zod-Validierung. Entwickelt für maximale Entwicklergeschwindigkeit und zuverlässige Builds.",
+    "deployButton": "Auf Vercel bereitstellen",
+    "formDemoButton": "Interaktive Formular-Demo",
+    "quickScaffold": "Schnellgerüst",
     "copySuccess": "In die Zwischenablage kopiert"
   },
   "TechStack": {
     "eyebrow": "KURATIERTER PRODUKTIONS-STACK",
-    "title": "Erstklassige Werkzeuge. Ohne überflüssigen Ballast.",
-    "description": "Jede Schicht wurde auf Spitzenleistung, Ergonomie und Produktionszuverlässigkeit optimiert."
+    "title": "Erstklassige Werkzeuge. Null Ballast.",
+    "description": "Jede Schicht wurde auf Benchmark-Leistung, Entwicklerergonomie und Produktionszuverlässigkeit geprüft."
   },
   "Features": {
     "eyebrow": "KERNFUNKTIONEN",
-    "title": "Mit chirurgischer Präzision gefertigt.",
-    "description": "Entwickelt nach Vercels Geist-Prinzipien: strenger Minimalismus, feine 1px-Linien und typografische Hierarchie."
+    "title": "Mit chirurgischer Präzision gebaut.",
+    "description": "Entworfen nach den Vercel Geist-Prinzipien: strenger Minimalismus, 1px-Haarlinien und typografiegetriebene Hierarchie."
   },
   "FormDemo": {
     "badge": "LIVE INTERAKTIVE DEMO",
     "title": "Zod + React Hook Form Sandbox",
-    "description": "Reibungslose Laufzeitvalidierung. Testen Sie Schema-Einschränkungen in Echtzeit mit sofortigem Fehlerfeedback."
+    "description": "Erleben Sie reibungslose Laufzeitvalidierung. Testen Sie Schema-Einschränkungen und sofortige Fehleranzeige ohne Re-Renders."
   },
   "Architecture": {
-    "eyebrow": "CODE-ORGANISATION",
-    "title": "Architektur für nachhaltiges Wachstum.",
-    "description": "Klare Trennung der Zuständigkeiten mit Domain-Modulen, Core-Infrastruktur und typsicheren Schichten."
+    "eyebrow": "CODEBASE-ORGANISATION",
+    "title": "Für Skalierung konstruiert.",
+    "description": "Klare Trennung der Zuständigkeiten mit Domänenmodulen, gemeinsamer Infrastruktur und typsicheren Schichten."
   },
   "VercelTriad": {
-    "eyebrow": "ENTWICKLUNGSZYKLUS",
-    "title": "Entwickeln. Vorschau. Bereitstellen.",
-    "description": "Der bewährte Entwicklungs-Workflow, destilliert in eine schlanke Vorlage."
+    "eyebrow": "ENTWICKLUNGSLEBENSZYKLUS",
+    "title": "Entwickeln. Vorschau. Veröffentlichen.",
+    "description": "Der kanonische Workflow von Millionen Entwicklern, destilliert in ein schlankes Starter-Template."
   },
   "CtaBand": {
-    "eyebrow": "SOFORTIGES DEPLOYMENT",
-    "title": "Bereit, Ihre nächste Webanwendung zu starten?",
-    "description": "Sparen Sie Tage an Konfigurationsaufwand. Klonen Sie diese Vorlage und starten Sie sofort mit einer produktionsreifen Architektur.",
-    "deployButton": "Auf Vercel deployen",
-    "githubButton": "Auf GitHub bewerten"
+    "eyebrow": "SOFORTIGE BEREITSTELLUNG",
+    "title": "Bereit für Ihre nächste Webanwendung?",
+    "description": "Sparen Sie Tage an Konfigurationsaufwand. Klonen Sie diese Vorlage und entwickeln Sie direkt mit produktionsreifer Architektur.",
+    "deployButton": "Auf Vercel bereitstellen",
+    "githubButton": "Auf GitHub favorisieren"
   },
   "Footer": {
-    "description": "Gestaltet nach dem Vercel Geist Design System — klare Ästhetik, feine Linien und präzise Typografie.",
-    "status": "Alle Systeme Betriebsbereit • Turbopack v16.3",
-    "copyright": "Next.js Starter Template. Open-Source unter MIT-Lizenz."
+    "description": "Entwickelt mit dem Vercel Geist-Designsystem — minimalistische dunkle Ästhetik auf hellem Grund mit präziser Typografie.",
+    "status": "Alle Systeme betriebsbereit • Turbopack v16.3",
+    "copyright": "Next.js Starter-Template. Open-Source unter MIT-Lizenz."
   },
   "LocaleSwitcher": {
     "label": "Sprache",
@@ -64,5 +66,60 @@
     "fr": "Français",
     "de": "Deutsch",
     "ja": "日本語"
+  },
+  "ErrorPage": {
+    "title": "Ein Fehler ist aufgetreten",
+    "description": "Während der Seitenausführung ist ein unerwarteter Fehler aufgetreten. Sie können die Seite neu laden oder zur Startseite zurückkehren.",
+    "retryButton": "Erneut versuchen",
+    "homeButton": "Zurück zur Startseite"
+  },
+  "NotFoundPage": {
+    "title": "Seite nicht gefunden",
+    "description": "Die angeforderte Ressource oder Seite konnte nicht gefunden werden. Sie wurde möglicherweise verschoben.",
+    "homeButton": "Zur Startseite zurückkehren"
+  },
+  "Dashboard": {
+    "overviewBadge": "WORKSPACE-ÜBERSICHT",
+    "title": "Ressourcen-Hub & Deployments",
+    "description": "Echtzeit-Edge-Dienste, serverlose Bereitstellungspipelines und aktive Workloads.",
+    "refreshButton": "Aktualisieren",
+    "logoutButton": "Abmelden",
+    "newProjectButton": "Neues Projekt",
+    "Metrics": {
+      "totalProjects": "Projekte Gesamt",
+      "activeDeployments": "Aktive Deployments",
+      "bandwidth": "Bandbreitennutzung",
+      "uptime": "Systemverfügbarkeit"
+    },
+    "Table": {
+      "searchPlaceholder": "Projekte nach Name oder Beschreibung durchsuchen...",
+      "nameColumn": "Projektname",
+      "statusColumn": "Status",
+      "tierColumn": "Tarif",
+      "requestsColumn": "Anfragen (30T)",
+      "actionsColumn": "Aktionen",
+      "noProjects": "Keine Projekte entsprechen Ihren Filterkriterien."
+    },
+    "CreateDialog": {
+      "title": "Neues Projekt erstellen",
+      "description": "Konfigurieren Sie Ihre Bereitstellungsdiensteinstellungen und Tarifspezifikationen.",
+      "nameLabel": "Projekt-Slug",
+      "descriptionLabel": "Beschreibung (optional)",
+      "descriptionPlaceholder": "Kurze Zusammenfassung des Dienstzwecks...",
+      "cancelButton": "Abbrechen",
+      "submitButton": "Projekt erstellen",
+      "creatingButton": "Wird erstellt..."
+    }
+  },
+  "Auth": {
+    "title": "Konto-Anmeldung",
+    "description": "Geben Sie Ihre Anmeldedaten ein, um auf das Workspace-Dashboard zuzugreifen.",
+    "orContinueWith": "Oder fortfahren mit",
+    "emailLabel": "E-Mail-Adresse",
+    "passwordLabel": "Passwort",
+    "forgotPassword": "Passwort vergessen?",
+    "rememberMe": "Dieses Gerät für 30 Tage merken",
+    "signInButton": "Im Workspace anmelden",
+    "signingIn": "Anmeldung läuft..."
   }
 }

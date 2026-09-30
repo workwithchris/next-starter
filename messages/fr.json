@@ -4,57 +4,59 @@
     "versionBadge": "v16.3 Next.js",
     "features": "Fonctionnalités",
     "techStack": "Technologies",
-    "formDemo": "Démo Formulaires & Zod",
+    "formDemo": "Démo Formulaire & Zod",
     "architecture": "Architecture",
     "quickstart": "Démarrage Rapide",
-    "githubStars": "★ 124k",
-    "deploy": "Déployer"
+    "githubStars": "★ Star",
+    "deploy": "Déployer",
+    "dashboard": "Tableau de bord",
+    "login": "Connexion"
   },
   "Hero": {
     "eyebrow": "Kit de Démarrage Production Next.js 16",
     "subEyebrow": "Turbopack et Tailwind v4",
-    "title": "Le plan d'ingénierie pour les applications web modernes.",
-    "description": "Préconfiguré avec Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn et validation stricte avec Zod. Conçu pour la rapidité et la pureté structurelle.",
+    "title": "Le modèle d'ingénierie pour les applications web modernes.",
+    "description": "Préconfiguré avec Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn et validation stricte avec Zod. Conçu pour la vitesse, la pureté structurelle et des builds instantanés.",
     "deployButton": "Déployer sur Vercel",
-    "formDemoButton": "Démo Formulaire Interactif",
-    "quickScaffold": "Installation Rapide",
+    "formDemoButton": "Démo Interactive",
+    "quickScaffold": "Génération Rapide",
     "copySuccess": "Copié dans le presse-papier"
   },
   "TechStack": {
     "eyebrow": "STACK DE PRODUCTION SÉLECTIONNÉE",
     "title": "Outils de premier ordre. Zéro superflu.",
-    "description": "Chaque couche a été validée pour des performances de pointe, une ergonomie claire et une fiabilité éprouvée."
+    "description": "Chaque couche a été validée pour des performances optimales, une ergonomie de développement et une fiabilité en production."
   },
   "Features": {
-    "eyebrow": "FONCTIONNALITÉS CLÉS",
+    "eyebrow": "CAPACITÉS PRINCIPALES",
     "title": "Conçu avec une précision chirurgicale.",
-    "description": "Inspiré des principes Geist de Vercel : minimalisme exigeant, bordures fines de 1px et hiérarchie typographique."
+    "description": "Pensé selon les principes Geist de Vercel : minimalisme strict, bordures fines de 1px et hiérarchie typographique."
   },
   "FormDemo": {
     "badge": "DÉMO INTERACTIVE EN DIRECT",
     "title": "Bac à sable Zod + React Hook Form",
-    "description": "Validation à l'exécution sans friction. Testez les contraintes de schéma en temps réel, l'affichage instantané des erreurs et zéro ré-exécution superflue."
+    "description": "Validation à l'exécution sans friction. Testez les contraintes de schéma en direct et le retour d'erreurs instantané."
   },
   "Architecture": {
     "eyebrow": "ORGANISATION DU CODE",
-    "title": "Une architecture taillée pour l'évolution.",
-    "description": "Séparation claire des responsabilités avec modules métier, socle d'infrastructure partagé et typage sécurisé."
+    "title": "Une architecture pour grandir.",
+    "description": "Séparation claire des responsabilités avec modules de domaine, infrastructure partagée et validation stricte."
   },
   "VercelTriad": {
     "eyebrow": "CYCLE DE DÉVELOPPEMENT",
-    "title": "Développez. Prévisualisez. Livrez.",
-    "description": "Le flux de travail qui propulse des millions de développeurs, condensé dans un modèle épuré."
+    "title": "Développer. Prévisualiser. Déployer.",
+    "description": "Le flux de travail canonique qui propulse des millions de développeurs, distillé dans un starter épuré."
   },
   "CtaBand": {
     "eyebrow": "DÉPLOIEMENT INSTANTANÉ",
-    "title": "Prêt à déployer votre prochaine application web ?",
-    "description": "Gagnez des jours de configuration. Clonez ce template et commencez à développer dès maintenant avec une architecture de production.",
+    "title": "Prêt à lancer votre prochaine application web ?",
+    "description": "Évitez des jours de configuration. Clonez ce modèle et commencez immédiatement à développer avec une architecture éprouvée.",
     "deployButton": "Déployer sur Vercel",
-    "githubButton": "Star sur GitHub"
+    "githubButton": "Étoiler sur GitHub"
   },
   "Footer": {
-    "description": "Conçu avec le système de design Geist de Vercel — esthétique sobre, encres sombres sur fond immaculé et bordures précises.",
-    "status": "Tous les Systèmes Opérationnels • Turbopack v16.3",
+    "description": "Conçu avec le système de design Vercel Geist — esthétique minimaliste sombre sur fond clair et typographie soignée.",
+    "status": "Tous les systèmes opérationnels • Turbopack v16.3",
     "copyright": "Modèle de démarrage Next.js. Open-source sous licence MIT."
   },
   "LocaleSwitcher": {
@@ -64,5 +66,60 @@
     "fr": "Français",
     "de": "Deutsch",
     "ja": "日本語"
+  },
+  "ErrorPage": {
+    "title": "Une erreur est survenue",
+    "description": "Une erreur inattendue est survenue lors de l'exécution. Vous pouvez recharger la page ou revenir à l'accueil.",
+    "retryButton": "Réessayer",
+    "homeButton": "Retour à l'Accueil"
+  },
+  "NotFoundPage": {
+    "title": "Page non trouvée",
+    "description": "La ressource ou page demandée est introuvable. Elle a peut-être été déplacée ou supprimée.",
+    "homeButton": "Retour à l'Accueil"
+  },
+  "Dashboard": {
+    "overviewBadge": "APERÇU DE L'ESPACE",
+    "title": "Centre de Ressources & Déploiements",
+    "description": "Services Edge en temps réel, pipelines serverless et charges de travail actives.",
+    "refreshButton": "Actualiser",
+    "logoutButton": "Déconnexion",
+    "newProjectButton": "Nouveau Projet",
+    "Metrics": {
+      "totalProjects": "Projets Totaux",
+      "activeDeployments": "Déploiements Actifs",
+      "bandwidth": "Bande Passante",
+      "uptime": "Disponibilité Système"
+    },
+    "Table": {
+      "searchPlaceholder": "Rechercher des projets par nom ou description...",
+      "nameColumn": "Nom du Projet",
+      "statusColumn": "Statut",
+      "tierColumn": "Niveau",
+      "requestsColumn": "Requêtes (30j)",
+      "actionsColumn": "Actions",
+      "noProjects": "Aucun projet ne correspond à vos filtres actuels."
+    },
+    "CreateDialog": {
+      "title": "Créer un Nouveau Projet",
+      "description": "Configurez les paramètres et le niveau de votre service de déploiement.",
+      "nameLabel": "Identifiant du Projet",
+      "descriptionLabel": "Description (optionnel)",
+      "descriptionPlaceholder": "Bref résumé du rôle du service...",
+      "cancelButton": "Annuler",
+      "submitButton": "Créer le Projet",
+      "creatingButton": "Création..."
+    }
+  },
+  "Auth": {
+    "title": "Connexion au Compte",
+    "description": "Entrez vos identifiants pour accéder au tableau de bord.",
+    "orContinueWith": "Ou continuer avec",
+    "emailLabel": "Adresse email",
+    "passwordLabel": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "rememberMe": "Mémoriser cet appareil pendant 30 jours",
+    "signInButton": "Se connecter à l'Espace",
+    "signingIn": "Connexion en cours..."
   }
 }

@@ -7,8 +7,10 @@
     "formDemo": "Form & Zod Demo",
     "architecture": "Architecture",
     "quickstart": "Quickstart",
-    "githubStars": "★ 124k",
-    "deploy": "Deploy"
+    "githubStars": "★ Star",
+    "deploy": "Deploy",
+    "dashboard": "Dashboard",
+    "login": "Login"
   },
   "Hero": {
     "eyebrow": "Next.js 16 Production Starter Kit",
@@ -64,5 +66,60 @@
     "fr": "Français",
     "de": "Deutsch",
     "ja": "日本語"
+  },
+  "ErrorPage": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred during page execution. You can attempt to reload the component or navigate back home.",
+    "retryButton": "Try Again",
+    "homeButton": "Back to Home"
+  },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "description": "The requested resource or page could not be located. It may have been moved or removed.",
+    "homeButton": "Return to Homepage"
+  },
+  "Dashboard": {
+    "overviewBadge": "WORKSPACE OVERVIEW",
+    "title": "Resource Hub & Deployments",
+    "description": "Real-time edge services, serverless deployment pipelines, and active workloads.",
+    "refreshButton": "Refresh",
+    "logoutButton": "Sign Out",
+    "newProjectButton": "New Project",
+    "Metrics": {
+      "totalProjects": "Total Projects",
+      "activeDeployments": "Active Deployments",
+      "bandwidth": "Bandwidth Used",
+      "uptime": "System Uptime"
+    },
+    "Table": {
+      "searchPlaceholder": "Search projects by name or description...",
+      "nameColumn": "Project Name",
+      "statusColumn": "Status",
+      "tierColumn": "Tier",
+      "requestsColumn": "Requests (30d)",
+      "actionsColumn": "Actions",
+      "noProjects": "No projects match your current filter criteria."
+    },
+    "CreateDialog": {
+      "title": "Create New Project",
+      "description": "Configure your deployment service settings and tier specifications.",
+      "nameLabel": "Project Slug",
+      "descriptionLabel": "Description (optional)",
+      "descriptionPlaceholder": "Brief summary of service purpose...",
+      "cancelButton": "Cancel",
+      "submitButton": "Create Project",
+      "creatingButton": "Creating..."
+    }
+  },
+  "Auth": {
+    "title": "Account Sign In",
+    "description": "Enter your credentials to access the workspace dashboard.",
+    "orContinueWith": "Or continue with",
+    "emailLabel": "Email address",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot password?",
+    "rememberMe": "Remember this device for 30 days",
+    "signInButton": "Sign in to Workspace",
+    "signingIn": "Signing in..."
   }
 }
