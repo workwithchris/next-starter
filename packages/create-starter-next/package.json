@@ -1,6 +1,6 @@
 {
   "name": "create-starter-next",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "description": "Scaffold an enterprise-ready Next.js 16 production starter template with React 19, Tailwind CSS v4, Base UI, and Zod",
   "type": "module",
   "main": "./bin/index.mjs",
