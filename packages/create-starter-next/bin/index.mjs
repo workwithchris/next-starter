@@ -6,7 +6,8 @@ import crypto from "node:crypto";
 import { execSync } from "node:child_process";
 import { downloadTemplate } from "giget";
 import prompts from "prompts";
-import { blue, bold, cyan, dim, green, red, yellow } from "kolorist";
+import { blue, bold, cyan, dim, green, magenta, red, yellow } from "kolorist";
+import { DESIGN_CATALOG } from "./designs.mjs";
 
 const TEMPLATE_REPO = "gh:workwithchris/next-starter";
 
@@ -23,6 +24,7 @@ function parseArgs(rawArgs) {
   const options = {
     targetDir: null,
     preset: null,
+    design: null,
     pm: null,
     git: null,
     install: null,
@@ -38,6 +40,8 @@ function parseArgs(rawArgs) {
     else if (arg === "--fullstack") options.preset = "fullstack";
     else if (arg.startsWith("--preset=")) options.preset = arg.split("=")[1];
     else if (arg === "--preset" && rawArgs[i + 1]) options.preset = rawArgs[++i];
+    else if (arg.startsWith("--design=")) options.design = arg.split("=")[1];
+    else if (arg === "--design" && rawArgs[i + 1]) options.design = rawArgs[++i];
     else if (["--pnpm", "--npm", "--bun", "--yarn"].includes(arg)) options.pm = arg.slice(2);
     else if (arg.startsWith("--pm=")) options.pm = arg.split("=")[1];
     else if (arg === "--pm" && rawArgs[i + 1]) options.pm = rawArgs[++i];
@@ -52,7 +56,7 @@ function parseArgs(rawArgs) {
 
 function showHelp() {
   console.log(`
-${bold(cyan("create-starter-next"))} — Next.js 16 Production Blueprint
+${bold(cyan("create-starter-next"))} — Next.js 16 Production Blueprint with getdesign.md Design Systems
 
 ${bold("Usage:")}
   npx create-starter-next [project-name] [options]
@@ -61,6 +65,7 @@ ${bold("Options:")}
   --fullstack              Scaffold fullstack preset (Auth.js, Dashboard, APIs)
   --minimal                Scaffold minimal preset (Clean Core, i18n, Tailwind v4)
   --preset <name>          Specify preset ('fullstack' or 'minimal')
+  --design <name>          Specify design system (${DESIGN_CATALOG.map((d) => d.id).join(", ")})
   --pnpm / --npm / --bun   Set preferred package manager
   --pm <manager>           Specify package manager ('pnpm', 'npm', 'bun', 'yarn')
   --git / --no-git         Initialize git repository (or skip)
@@ -68,6 +73,43 @@ ${bold("Options:")}
   -y, --yes                Skip interactive prompts and use defaults
   -h, --help               Show this help message
 `);
+}
+
+function applyDesignSystem(projectPath, designId) {
+  const design = DESIGN_CATALOG.find((d) => d.id === designId) || DESIGN_CATALOG[0];
+  const globalsCssPath = path.join(projectPath, "src/app/globals.css");
+
+  if (fs.existsSync(globalsCssPath)) {
+    try {
+      let css = fs.readFileSync(globalsCssPath, "utf8");
+      css = css.replace(/:root\s*\{[\s\S]*?\n\}/, `:root {${design.cssRoot}}`);
+      css = css.replace(/\.dark\s*\{[\s\S]*?\n\}/, `.dark {${design.cssDark}}`);
+      if (design.meshGradient) {
+        css = css.replace(
+          /(\.hero-mesh-gradient,\s*\.vercel-mesh-gradient\s*\{[\s\S]*?)(filter:)/,
+          `.hero-mesh-gradient,\n.vercel-mesh-gradient {${design.meshGradient}  $2`
+        );
+      }
+      fs.writeFileSync(globalsCssPath, css);
+    } catch {
+      // ignore css rewrite error
+    }
+  }
+
+  // Update DESIGN.md description with selected aesthetic
+  const designMdPath = path.join(projectPath, "DESIGN.md");
+  if (fs.existsSync(designMdPath)) {
+    try {
+      let designDoc = fs.readFileSync(designMdPath, "utf8");
+      designDoc = designDoc.replace(
+        /name: .*/,
+        `name: ${design.title}\ndescription: Selected from getdesign.md catalog (${design.title} — ${design.description}).`
+      );
+      fs.writeFileSync(designMdPath, designDoc);
+    } catch {
+      // ignore
+    }
+  }
 }
 
 async function main() {
@@ -78,7 +120,7 @@ async function main() {
     process.exit(0);
   }
 
-  console.log(`\n${bold(cyan("▲ next-starter"))} ${dim("— Next.js 16 Production Blueprint")}\n`);
+  console.log(`\n${bold(cyan("▲ next-starter"))} ${dim("— Next.js 16 Production Blueprint with getdesign.md")}\n`);
 
   const detectedPm = detectPackageManager();
   let targetDir = args.targetDir || (args.yes ? "my-next-app" : null);
@@ -129,6 +171,21 @@ async function main() {
           ],
         },
         {
+          type: args.design ? null : "autocomplete",
+          name: "designSystem",
+          message: "Search & select design system (from getdesign.md):",
+          choices: DESIGN_CATALOG.map((d) => ({
+            title: `${d.title} — ${d.description}`,
+            value: d.id,
+          })),
+          suggest: (input, choices) =>
+            Promise.resolve(
+              choices.filter((choice) =>
+                choice.title.toLowerCase().includes((input || "").toLowerCase())
+              )
+            ),
+        },
+        {
           type: args.pm ? null : "select",
           name: "packageManager",
           message: "Select package manager:",
@@ -162,6 +219,7 @@ async function main() {
   }
 
   const templateVariant = args.preset || response.templateVariant || "fullstack";
+  const designSystem = args.design || response.designSystem || "geist";
   const packageManager = args.pm || response.packageManager || detectedPm || "pnpm";
   const gitInit = args.git !== null ? args.git : response.gitInit !== undefined ? response.gitInit : true;
   const installDeps = args.install !== null ? args.install : response.installDeps !== undefined ? response.installDeps : true;
@@ -186,6 +244,10 @@ async function main() {
   if (fs.existsSync(nestedPackagesDir)) {
     fs.rmSync(nestedPackagesDir, { recursive: true, force: true });
   }
+
+  // Apply chosen design system tokens
+  console.log(`${dim("Applying design system:")} ${magenta(designSystem)}...`);
+  applyDesignSystem(projectPath, designSystem);
 
   // Generate .env.local with secure random AUTH_SECRET
   const envExamplePath = path.join(projectPath, ".env.example");
@@ -310,7 +372,7 @@ export const config = {
   }
 
   // Success summary
-  console.log(`\n${green(bold("✔ Success!"))} Created ${cyan(projectName)} (${blue(templateVariant)}) at ${dim(projectPath)}\n`);
+  console.log(`\n${green(bold("✔ Success!"))} Created ${cyan(projectName)} (${blue(templateVariant)}, ${magenta(designSystem)}) at ${dim(projectPath)}\n`);
   console.log("Inside that directory, you can run:\n");
   console.log(`  ${cyan(`${packageManager} run dev`)}`);
   console.log(`    Starts the development server with Turbopack\n`);
