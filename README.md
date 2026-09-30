@@ -1,72 +1,129 @@
 <div align="center">
 
-# Next.js Production Starter Template
+# Next.js 16 Production Starter Template & CLI
 
-An enterprise-ready, high-performance foundation built on **Next.js 16**, **React 19**, **Tailwind CSS v4**, **Base UI / Shadcn**, **Zod**, and **React Hook Form** — engineered with Vercel's **Geist design system**.
+An enterprise-ready, high-performance foundation built on **Next.js 16**, **React 19**, **Tailwind CSS v4**, **Base UI / Shadcn**, **Auth.js v5**, **Zod**, and **React Hook Form** — engineered with Vercel's **Geist design system**.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61dafb?style=flat&logo=react)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178c6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![Zod](https://img.shields.io/badge/Zod-v4-3068b7?style=flat&logo=zod)](https://zod.dev/)
+[![Auth.js](https://img.shields.io/badge/Auth.js-v5.0_Beta-purple?style=flat&logo=auth0)](https://authjs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![CI](https://img.shields.io/badge/CI-Passing-brightgreen?style=flat&logo=githubactions)](https://github.com/workwithchris/next-starter/actions)
+[![npm version](https://img.shields.io/npm/v/create-starter-next.svg?style=flat&color=blue)](https://www.npmjs.com/package/create-starter-next)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat)](LICENSE)
 
-[**Live Demo**](http://localhost:3000) • [**GitHub Repository**](https://github.com/workwithchris/next-starter) • [**Design Spec (DESIGN.md)**](DESIGN.md) • [**Deploy to Vercel**](https://vercel.com/new)
+[**Live Demo**](http://localhost:3000) • [**NPM Package**](https://www.npmjs.com/package/create-starter-next) • [**GitHub Repository**](https://github.com/workwithchris/next-starter) • [**Design Spec (DESIGN.md)**](DESIGN.md) • [**Deploy to Vercel**](https://vercel.com/new)
 
 </div>
 
 ---
 
-## Highlights
+## ⚡ Quick Scaffold via CLI
+
+Scaffold a production-grade application in seconds using the official CLI:
+
+```bash
+# Interactive setup (prompts for preset, package manager, and git)
+npx create-starter-next my-app
+# or
+pnpm create starter-next my-app
+# or
+bun create starter-next my-app
+# or
+npm create starter-next my-app
+```
+
+### ⚡ Non-Interactive Instant Scaffolding (Flags)
+For CI/CD scripts or power users who want instant setup without prompts:
+
+```bash
+# Instant fullstack app with pnpm and git
+npx create-starter-next my-app --fullstack --pnpm --git -y
+
+# Instant minimal app with bun
+bun create starter-next my-app --minimal -y
+```
+
+#### CLI Options & Flags:
+| Flag | Description |
+|---|---|
+| `--fullstack` | Scaffolds Fullstack preset (Auth.js, Protected Dashboard, Mock APIs). |
+| `--minimal` | Scaffolds Minimal preset (Clean core foundation, i18n, Tailwind v4). |
+| `--preset <name>` | Select preset (`fullstack` or `minimal`). |
+| `--pnpm` / `--npm` / `--bun` / `--yarn` | Select package manager. |
+| `--pm <manager>` | Specify package manager (`pnpm`, `npm`, `bun`, `yarn`). |
+| `--git` / `--no-git` | Initialize git repository (or skip). |
+| `--install` / `--no-install` | Install dependencies immediately (or skip). |
+| `-y`, `--yes` | Skip all interactive prompts and use smart defaults. |
+| `-h`, `--help` | Show CLI help message and flag list. |
+
+---
+
+## 📊 Preset Comparison Matrix
+
+| Feature / Architecture | Minimal Preset | Fullstack Preset |
+|---|:---:|:---:|
+| **Next.js 16 App Router & Turbopack** | ✅ | ✅ |
+| **React 19 & React Compiler Optimizations** | ✅ | ✅ |
+| **Tailwind CSS v4 & Vercel Geist Design System** | ✅ | ✅ |
+| **Accessible Base UI / Shadcn Primitives** | ✅ | ✅ |
+| **5-Locale i18n (`en`, `es`, `fr`, `de`, `ja`) with `next-intl`** | ✅ | ✅ |
+| **TanStack React Query v5 + Devtools** | ✅ | ✅ |
+| **Zod Schema & React Hook Form Engine** | ✅ | ✅ |
+| **Enterprise Network Client Suite (HTTP, SSE, WebSocket)** | ✅ | ✅ |
+| **Next.js 16 Edge Proxy Middleware** | ✅ | ✅ |
+| **Vitest 5 Unit & Integration Testing Suite** | ✅ | ✅ |
+| **Production SEO (sitemap.ts, robots.ts, manifest.ts)** | ✅ | ✅ |
+| **GitHub Actions CI/CD Pipeline** | ✅ | ✅ |
+| **Auth.js / NextAuth v5 (Credentials + OAuth Providers)** | ❌ *(Cleanly Pruned)* | ✅ *(Included)* |
+| **Auto-Generated Cryptographic `AUTH_SECRET` in `.env.local`** | ❌ *(Cleanly Pruned)* | ✅ *(Included)* |
+| **Two-Tier Protected Routes (`src/proxy.ts` + Server Layout)** | ❌ *(Cleanly Pruned)* | ✅ *(Included)* |
+| **Protected `/dashboard` Workspace with Metrics & Modals** | ❌ *(Cleanly Pruned)* | ✅ *(Included)* |
+| **CRUD REST API Route Handlers (`/api/...`)** | ❌ *(Cleanly Pruned)* | ✅ *(Included)* |
+| **Persistent Zustand Auth Store (`auth-store.ts`)** | ❌ *(Cleanly Pruned)* | ✅ *(Included)* |
+
+---
+
+## 🌟 Highlights
 
 - ⚡ **Next.js 16 & Turbopack**: Sub-second Hot Module Replacement (HMR), React Server Components (RSC), and nested layout routing.
 - ⚛️ **React 19 & React Compiler**: Preconfigured with `babel-plugin-react-compiler` for automatic memoization without boilerplate `useMemo` / `useCallback`.
+- 🔐 **Dedicated Auth.js (NextAuth v5)**: Complete authentication layer in `@/core/auth` supporting Credentials and OAuth (GitHub, Google), session token callbacks, and defense-in-depth route guards.
 - 🔄 **TanStack React Query v5**: Production-grade server state management and asynchronous data fetching with isolated SSR caches, smart refetching, and React Query Devtools.
 - 🐻 **Zustand State Management**: Lightweight, atomic UI state with feature-scoped slices and persistent global auth state.
 - 🎨 **Tailwind CSS v4 & Nova Theme**: Pure CSS variable engine with zero JavaScript overhead, configured with Shadcn UI & accessible Base UI primitives.
 - 📐 **Geist Design Language**: Strictly adheres to [DESIGN.md](DESIGN.md) — minimalist black-on-near-white canvas (`#fafafa`), deep ink (`#171717`), 1px hairlines (`#ebebeb`), dual button radius (100px marketing pills vs. 6px square app controls), and the signature hero mesh gradient.
-- 🔐 **Pre-Built Auth & Dashboard Modules**: Production-grade authentication with Zod validation, session management, project workspace management, metrics cards, and modal workflows.
 - 🛡️ **Type-Safe Form Sandbox**: Built-in runtime validation using **Zod** and **React Hook Form** with `@hookform/resolvers/zod`.
 - 🌐 **Full i18n Suite (5 Locales)**: Powered by `next-intl` across English (`en`), Spanish (`es`), French (`fr`), German (`de`), and Japanese (`ja`).
 - 🌓 **Seamless Dark Mode**: Powered by `next-themes` with zero flash-of-unstyled-content (FOUC), system preference detection, and smooth light/dark switching.
 - 🔔 **Toast Notifications**: Built-in **Sonner** toaster with dark-mode support.
 - 🔍 **Production SEO & PWA**: Dynamic `sitemap.ts`, `robots.ts`, and `manifest.ts` configured for localized multi-region indexing.
-- 🧪 **Vitest Test Suite**: Preconfigured unit and integration testing with JSDOM and React Testing Library utilities.
+- 🧪 **Vitest Test Suite**: Preconfigured unit and integration testing with JSDOM and React Testing Library utilities (66 passing tests).
+- 🤖 **GitHub Actions CI**: Automated linting, test runner, and production build checks on every push and PR.
 
 ---
 
-## Tech Stack
-
-| Layer | Technology | Version | Purpose |
-|---|---|---|---|
-| **Framework** | [Next.js](https://nextjs.org/) | `16.3.7` | App Router, SSR, Server Components & Turbopack |
-| **UI Library** | [React](https://react.dev/) | `19.2.8` | Component model & React Compiler optimization |
-| **Server State** | [TanStack Query](https://tanstack.com/query) | `^5.104.0` | Caching, deduplication, optimistic UI & Devtools |
-| **Client State** | [Zustand](https://zustand.docs.pmnd.rs/) | `^5.0.3` | Lightweight, scalable client & auth store |
-| **Styling** | [Tailwind CSS](https://tailwindcss.com/) | `v4.0` | Theme variables, utility-first CSS |
-| **Primitives** | [Base UI](https://base-ui.com/) / [Shadcn](https://ui.shadcn.com/) | Latest | Accessible, unstyled UI primitives (Nova preset) |
-| **Validation** | [Zod](https://zod.dev/) | `v4.6.5` | Type-safe runtime schema validation |
-| **Forms** | [React Hook Form](https://react-hook-form.com/) | `v7.89.0` | High-performance, uncontrolled form management |
-| **i18n** | [next-intl](https://next-intl-docs.vercel.app/) | `^4.8.4` | App Router localized routing & translations |
-| **Testing** | [Vitest](https://vitest.dev/) | `^5.0.2` | Ultra-fast unit & integration testing runner |
-| **Notifications** | [Sonner](https://sonner.emilkowal.ski/) | `^2.0.7` | Beautiful toast notifications |
-| **Icons** | [Lucide React](https://lucide.dev/) | `^1.48.0` | Clean, lightweight stroke icons |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) | `^5.0` | Strict type safety and inference |
-
----
-
-## Project Structure
+## 🧱 Project Structure
 
 This template uses a domain-driven modular structure:
 
 ```
 next-starter-template/
+├── .github/
+│   └── workflows/
+│       └── ci.yml                # Automated GitHub Actions CI workflow
 ├── messages/                     # Translation dictionaries (5 locales)
 │   ├── en.json                   # English (default)
 │   ├── es.json                   # Spanish
 │   ├── fr.json                   # French
 │   ├── de.json                   # German
 │   └── ja.json                   # Japanese
+│
+├── packages/
+│   └── create-starter-next/      # Official NPM scaffolding CLI package
+│       ├── bin/index.mjs         # CLI generator with interactive presets
+│       └── package.json          # CLI package manifest
 │
 ├── src/
 │   ├── app/                      # Next.js App Router
@@ -76,12 +133,14 @@ next-starter-template/
 │   │   │   ├── (auth)/           # Authentication route group
 │   │   │   │   └── login/page.tsx# Login & auth (modules/auth)
 │   │   │   ├── (protected)/      # Protected authenticated route group
+│   │   │   │   ├── layout.tsx    # Server session verification via await auth()
 │   │   │   │   └── dashboard/page.tsx # Workspace dashboard (modules/protected/dashboard)
 │   │   │   ├── layout.tsx        # Root layout (Geist font, providers, sonner toaster)
 │   │   │   ├── error.tsx         # Localized error boundary
 │   │   │   ├── not-found.tsx     # Localized 404 boundary
 │   │   │   └── loading.tsx       # Loading skeleton suspense boundary
 │   │   ├── api/                  # Next.js Route Handlers
+│   │   │   ├── auth/[...nextauth]/route.ts # NextAuth v5 GET/POST handler
 │   │   │   ├── projects/route.ts # CRUD projects API (GET, POST, DELETE)
 │   │   │   └── dashboard/metrics/route.ts # Live workspace metrics API
 │   │   ├── globals.css           # Tailwind v4 theme & Geist design tokens
@@ -90,14 +149,27 @@ next-starter-template/
 │   │   ├── sitemap.ts            # Multilingual dynamic sitemap
 │   │   └── global-error.tsx      # Root application crash boundary
 │   │
-│   ├── proxy.ts                  # Next.js 16 Proxy convention for locale routing
+│   ├── proxy.ts                  # Next.js 16 Proxy convention for locale routing & auth guard
+│   │
+│   ├── core/                     # Shared application infrastructure
+│   │   ├── auth/                 # Auth.js / NextAuth v5 server configuration & providers
+│   │   │   ├── auth.ts           # NextAuth instance & callbacks
+│   │   │   └── index.ts          # Barrel exports (auth, signIn, signOut, handlers)
+│   │   ├── providers/            # QueryProvider, ThemeProvider
+│   │   ├── store/                # Global stores (auth-store.ts with persistence)
+│   │   ├── i18n/                 # next-intl routing & request configuration
+│   │   ├── constants/            # API endpoints & app constants
+│   │   ├── hooks/                # Shared reusable hooks
+│   │   ├── lib/                  # Utility functions (cn classnames helper)
+│   │   └── network/              # Enterprise network client suite
+│   │       ├── client.ts         # Type-safe fetch client (retries, timeouts, schemas)
+│   │       ├── sse.ts            # Server-Sent Events stream client (POST & auth)
+│   │       ├── socket.ts         # Resilient WebSocket client (heartbeat & buffer)
+│   │       └── hooks/            # useSSE & useSocket React hooks
 │   │
 │   ├── modules/                  # Domain-driven feature modules
 │   │   ├── public/               # Public-facing domains
 │   │   │   └── home/             # Marketing landing page
-│   │   │       ├── home.tsx      # Composition root
-│   │   │       ├── hooks/        # use-github-stars.ts
-│   │   │       └── components/   # Hero, Features, Architecture, FormDemo, Navbar, etc.
 │   │   ├── auth/                 # Authentication domain
 │   │   │   ├── auth.tsx          # Auth composition root
 │   │   │   ├── components/       # AuthCard, LoginForm, SocialAuthButtons
@@ -113,24 +185,10 @@ next-starter-template/
 │   │           ├── store/        # dashboard-slice.ts (Zustand)
 │   │           └── __tests__/    # Dashboard store & API tests
 │   │
-│   ├── core/                     # Shared application infrastructure
-│   │   ├── auth/                 # Auth.js / NextAuth v5 server configuration
-│   │   ├── providers/            # QueryProvider, ThemeProvider
-│   │   ├── store/                # Global stores (auth-store.ts with persistence)
-│   │   ├── i18n/                 # next-intl routing & request configuration
-│   │   ├── constants/            # API endpoints & app constants
-│   │   ├── hooks/                # Shared reusable hooks
-│   │   ├── lib/                  # Utility functions (cn classnames helper)
-│   │   └── network/              # Enterprise network client suite
-│   │       ├── client.ts         # Type-safe fetch client (retries, timeouts, schemas)
-│   │       ├── sse.ts            # Server-Sent Events stream client (POST & auth)
-│   │       ├── socket.ts         # Resilient WebSocket client (heartbeat & buffer)
-│   │       └── hooks/            # useSSE & useSocket React hooks
-│   │
 │   └── components/               # Cross-cutting UI primitives
 │       ├── locale-switcher.tsx   # Language selector dropdown
 │       ├── theme-toggle.tsx      # Dark mode toggle
-│       └── ui/                   # Shadcn / Base UI primitives (button, dialog, badge, input, ...)
+│       └── ui/                   # Base UI & Shadcn primitives (button, dialog, badge, input, ...)
 │
 ├── DESIGN.md                     # Vercel Geist design system specification
 ├── components.json               # Shadcn UI configuration
@@ -139,110 +197,43 @@ next-starter-template/
 
 ---
 
-## Getting Started
+## 🔐 Authentication (Auth.js / NextAuth v5)
 
-### Prerequisites
-
-- **Node.js**: `18.18+` or `20.x` / `22.x` recommended
-### Quick Scaffold (Recommended)
-
-Create a new project instantly using `npx`, `npm`, `pnpm`, or `bun`:
-
-```bash
-# With npx / npm
-npx create-starter-next my-app
-# or
-npm create starter-next my-app
-
-# With pnpm
-pnpm create starter-next my-app
-
-# With bun
-bun create starter-next my-app
-```
-
-Alternatively, use Next.js's native `create-next-app` with the example flag:
-```bash
-npx create-next-app@latest my-app -e https://github.com/workwithchris/next-starter
-```
-
----
-
-### Manual Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/workwithchris/next-starter.git
-   cd next-starter
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   pnpm install
-   # or
-   npm install
-   # or
-   bun install
-   ```
-
-3. **Start the development server with Turbopack:**
-   ```bash
-   npm run dev
-   # or
-   pnpm dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## Form Validation Example (Zod + React Hook Form)
-
-Forms in this starter are built with `@hookform/resolvers/zod`:
+Configured under `@/core/auth` with support for Credentials and OAuth providers:
 
 ```tsx
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+// 1. Server-side session verification in layouts or Server Components
+import { auth } from "@/core/auth";
 
-const formSchema = z.object({
-  projectName: z.string().min(3, "Must be at least 3 characters"),
-  email: z.string().email("Invalid email address"),
-});
+export default async function DashboardPage() {
+  const session = await auth();
+  return <h1>Welcome back, {session?.user?.name}</h1>;
+}
+```
 
-type FormData = z.infer<typeof formSchema>;
+```tsx
+// 2. Client-side authentication trigger
+"use client";
 
-export function ProjectForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-    mode: "onChange",
-  });
+import { signIn, signOut } from "next-auth/react";
 
-  const onSubmit = (data: FormData) => {
-    console.log("Validated payload:", data);
-  };
-
+export function LoginButtons() {
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <input {...register("projectName")} placeholder="Project Name" />
-      {errors.projectName && <p className="text-red-500">{errors.projectName.message}</p>}
-
-      <input {...register("email")} type="email" placeholder="Developer Email" />
-      {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <button onClick={() => signIn("github", { callbackUrl: "/dashboard" })}>
+        Sign in with GitHub
+      </button>
+      <button onClick={() => signOut({ callbackUrl: "/login" })}>
+        Sign Out
+      </button>
+    </>
   );
 }
 ```
 
 ---
 
-## Internationalization (i18n / intl)
+## 🌐 Internationalization (i18n / intl)
 
 This starter is configured with [**next-intl**](https://next-intl-docs.vercel.app/) for high-performance, App Router-first internationalization:
 
@@ -251,25 +242,25 @@ This starter is configured with [**next-intl**](https://next-intl-docs.vercel.ap
 - **Locale Switcher**: Built-in `<LocaleSwitcher />` component in the navbar for seamless instant language toggling.
 - **Message Dictionaries**: Located in `messages/*.json` for clean separation and localization workflows.
 
-### Usage in Server Components
+### Usage in Components
 
 ```tsx
+// Server Component
 import { getTranslations } from "next-intl/server";
 
-export default async function ServerComponent() {
+export default async function Hero() {
   const t = await getTranslations("Hero");
   return <h1>{t("title")}</h1>;
 }
 ```
 
-### Usage in Client Components
-
 ```tsx
+// Client Component
 "use client";
 
 import { useTranslations } from "next-intl";
 
-export function ClientComponent() {
+export function Navbar() {
   const t = useTranslations("Navbar");
   return <span>{t("brand")}</span>;
 }
@@ -277,79 +268,36 @@ export function ClientComponent() {
 
 ---
 
-## Server State & Caching (TanStack React Query)
+## 🔄 Server State & Caching (TanStack React Query)
 
 The template is preconfigured with `@tanstack/react-query` v5 and `@tanstack/react-query-devtools` located under `@/core/providers`.
-
-### Features
-- **App Router Singleton**: Avoids recreating query clients during client-side hydration or suspense cascades while keeping server request contexts isolated.
-- **Smart Defaults**: 60s `staleTime`, 5m `gcTime`, single automatic retry, and window focus refetching disabled by default.
-- **Integrated Devtools**: Floating React Query Devtools enabled in development mode.
-
-### Usage in Components
 
 ```tsx
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import { apiClient } from "@/core/network";
 
-export function UserProfile({ userId }: { userId: string }) {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["user", userId],
-    queryFn: async () => {
-      const res = await fetch(`/api/users/${userId}`);
-      if (!res.ok) throw new Error("Failed to fetch user");
-      return res.json();
-    },
+export function ProjectsList() {
+  const { data, isLoading } = useQuery({
+    queryKey: ["projects"],
+    queryFn: () => apiClient.get("/api/projects").then((res) => res.data),
   });
 
-  if (isLoading) return <div>Loading user...</div>;
-  if (error) return <div>Error loading user</div>;
-
-  return <div>Welcome, {data.name}!</div>;
+  if (isLoading) return <div>Loading projects...</div>;
+  return <div>{data?.projects?.length} active projects</div>;
 }
 ```
 
 ---
 
-## Client State Management (Zustand)
+## 🛡️ Enterprise Network Suite (`@/core/network`)
 
-Client-side UI and session state are managed using [**Zustand**](https://zustand.docs.pmnd.rs/):
+A type-safe, production-ready network layer engineered for Next.js 16:
 
-- **Global Stores** (`@/core/store/`): App-wide state such as authentication (`useAuthStore`) with local storage persistence and role-based permissions.
-- **Feature-Scoped Slices** (`@/modules/<feature>/store/`): Atomic, isolated client UI state (e.g. `useDashboardStore` for search query, active tier filters, and modal toggles).
-
-```tsx
-import { useAuthStore } from "@/core/store";
-import { useDashboardStore } from "@/modules/protected/dashboard/store/dashboard-slice";
-
-export function HeaderUser() {
-  const user = useAuthStore((s) => s.user);
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  const setCreateDialogOpen = useDashboardStore((s) => s.setCreateDialogOpen);
-
-  return (
-    <div>
-      {isAuthenticated && <span>{user?.name}</span>}
-      <button onClick={() => setCreateDialogOpen(true)}>New Project</button>
-    </div>
-  );
-}
-```
-
----
-
-## Enterprise Network Suite (`@/core/network`)
-
-A type-safe, production-ready network layer engineered for Next.js 16 (Server Components, Route Handlers, and Client Components).
-
-### 1. HTTP Client (`apiClient` / `createHttpClient`)
-
-- **Automatic Content-Type Negotiation**: Encodes JSON, preserves FormData boundaries for multipart uploads, handles Blobs, ArrayBuffers, and URLSearchParams.
-- **Interceptors**: Pre-configured pipelines for `onRequest`, `onResponse`, and `onError` (token injection, refresh token rotation, logging).
-- **Transient Error Retries**: Built-in exponential backoff with jitter for HTTP 408, 429, and 5xx errors.
-- **Zod Runtime Validation**: Optional `schema` parameter validates API responses before returning.
-- **Timeout Management**: Per-request `timeoutMs` via native `AbortController`.
+- **HTTP Client (`apiClient`)**: Automatic JSON / FormData handling, interceptors, exponential backoff retries, and Zod runtime response schema validation.
+- **Server-Sent Events (`SSEClient` / `useSSE`)**: Supports **POST requests**, **custom auth headers**, and **async iterators** for live streaming and AI/LLM token streams.
+- **Resilient WebSockets (`SocketClient` / `useSocket`)**: Includes auto-reconnection, ping-pong heartbeat, and queued message buffering.
 
 ```tsx
 import { apiClient } from "@/core/network";
@@ -367,94 +315,24 @@ const response = await apiClient.get("/api/users/me", {
   retries: 2,
   timeoutMs: 5000,
 });
-console.log(response.data.name);
-```
-
-### 2. Multipart & FormData File Uploads
-
-Upload files or structured form data with automatic boundary management and real-time progress events:
-
-```tsx
-import { apiClient } from "@/core/network";
-
-const formData = new FormData();
-formData.append("avatar", fileInput.files[0]);
-formData.append("bio", "Software Architect");
-
-const uploadRes = await apiClient.upload("/api/upload", formData, {
-  onProgress: ({ percentage, loaded, total }) => {
-    console.log(`Upload progress: ${percentage}% (${loaded}/${total} bytes)`);
-  },
-});
-```
-
-### 3. Server-Sent Events (SSE)
-
-Unlike browser `EventSource`, our `SSEClient` supports **POST requests**, **custom auth headers**, and **async iterators** (perfect for LLM / AI streaming and live notifications):
-
-```tsx
-import { SSEClient, useSSE } from "@/core/network";
-
-// Option A: React Hook
-export function LiveNotifications() {
-  const { data, isConnected } = useSSE<{ message: string }>("/api/live/stream");
-  return <div>Status: {isConnected ? "Live" : "Offline"} | Last: {data?.message}</div>;
-}
-
-// Option B: Async Streaming (React 19 / Server & Client)
-for await (const chunk of SSEClient.stream("/api/ai/chat", {
-  method: "POST",
-  body: { prompt: "Explain Next.js 16 architecture" },
-  headers: { Authorization: `Bearer ${token}` },
-})) {
-  console.log("Stream token:", chunk.data);
-}
-```
-
-### 4. Resilient WebSockets (`SocketClient` / `useSocket`)
-
-Includes automatic reconnection, ping-pong heartbeat, outgoing message buffering, and typed event dispatching:
-
-```tsx
-"use client";
-
-import { useSocket } from "@/core/network";
-
-export function RealTimeChat() {
-  const { isConnected, emit, lastMessage, status } = useSocket("wss://api.example.com/ws", {
-    heartbeat: true,
-    heartbeatIntervalMs: 25000,
-  });
-
-  const sendMessage = () => {
-    emit("chat_message", { text: "Hello team!", channel: "general" });
-  };
-
-  return (
-    <div>
-      <p>Connection: {status}</p>
-      <button onClick={sendMessage} disabled={!isConnected}>Send</button>
-    </div>
-  );
-}
 ```
 
 ---
 
-## Available Scripts
+## 📋 Available Scripts
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Starts the Next.js development server with Turbopack |
-| `npm run build` | Compiles an optimized production build and checks TypeScript types |
-| `npm run start` | Starts the production server |
-| `npm run lint` | Runs ESLint to check for code quality and style issues |
-| `npm test` | Runs all unit test suites using Vitest |
-| `npm run test:watch` | Starts Vitest in interactive watch mode |
+| `pnpm dev` | Starts the Next.js development server with Turbopack on `http://localhost:3000` |
+| `pnpm build` | Compiles an optimized production build with Next.js Turbopack |
+| `pnpm start` | Starts the production server |
+| `pnpm run lint` | Runs ESLint (flat config) to check code quality |
+| `pnpm test` | Runs all 66 Vitest unit and integration test suites |
+| `pnpm test:watch` | Starts Vitest in interactive watch mode |
 
 ---
 
-## Design System Guidelines
+## 🎨 Design System Guidelines
 
 This project implements the design specification detailed in [DESIGN.md](DESIGN.md):
 
@@ -462,7 +340,6 @@ This project implements the design specification detailed in [DESIGN.md](DESIGN.
   - Canvas: `#fafafa` (light) / `#000000` (dark)
   - Card Surface: `#ffffff` (light) / `#101010` (dark)
   - Ink (Headings): `#171717` (light) / `#ededed` (dark)
-  - Body: `#4d4d4d` (light) / `#a1a1a1` (dark)
   - Hairline: `1px solid #ebebeb` (light) / `#262626` (dark)
 - **Buttons**:
   - **Marketing CTAs**: `rounded-full` (100px pill)
@@ -473,26 +350,20 @@ This project implements the design specification detailed in [DESIGN.md](DESIGN.
 
 ---
 
-## Deployment
+## 🚀 Deployment
 
-### Vercel (Recommended)
+### Deploy to Vercel (1-Click)
+Deploy your repository to Vercel with zero configuration:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fworkwithchris%2Fnext-starter)
 
-The easiest way to deploy this template is through [Vercel](https://vercel.com/new):
-
-1. Push your repository to GitHub, GitLab, or Bitbucket.
-2. Import the project on the Vercel dashboard.
-3. Deploy automatically with zero configuration.
-
-### Docker / Self-Hosted
-
-To build a standalone production bundle:
+### Self-Hosted / Docker
 ```bash
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
 
 ---
 
-## License
+## 📄 License
 
-This starter template is open-source software licensed under the [MIT License](LICENSE).
+This starter template and CLI are open-source software licensed under the [MIT License](LICENSE).
