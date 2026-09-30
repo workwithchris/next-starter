@@ -127,6 +127,8 @@ async function main() {
       path.join(projectPath, "src/modules/protected"),
       path.join(projectPath, "src/app/api"),
       path.join(projectPath, "src/core/store/auth-store.ts"),
+      path.join(projectPath, "src/core/auth"),
+      path.join(projectPath, "src/auth.ts"),
     ];
 
     for (const p of pathsToPrune) {
@@ -194,7 +196,9 @@ export const config = {
     try {
       const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
       pkg.name = projectName;
-      pkg.version = "0.1.0";
+      if (templateVariant === "minimal" && pkg.dependencies) {
+        delete pkg.dependencies["next-auth"];
+      }
       fs.writeFileSync(pkgJsonPath, JSON.stringify(pkg, null, 2) + "\n");
     } catch {
       // ignore json parse error

@@ -1,12 +1,11 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
 
 export function SocialAuthButtons() {
-
-  const handleOAuthClick = (provider: string) => {
-    toast.info(`${provider} OAuth authentication triggered`);
+  const handleOAuthClick = (provider: "github" | "google") => {
+    signIn(provider, { callbackUrl: "/dashboard" });
   };
 
   return (
@@ -14,7 +13,7 @@ export function SocialAuthButtons() {
       <Button
         type="button"
         variant="outline"
-        onClick={() => handleOAuthClick("GitHub")}
+        onClick={() => handleOAuthClick("github")}
         className="w-full gap-2"
       >
         <svg className="size-4 fill-current" viewBox="0 0 24 24">
@@ -26,7 +25,7 @@ export function SocialAuthButtons() {
       <Button
         type="button"
         variant="outline"
-        onClick={() => handleOAuthClick("Google")}
+        onClick={() => handleOAuthClick("google")}
         className="w-full gap-2"
       >
         <svg className="size-4" viewBox="0 0 24 24">

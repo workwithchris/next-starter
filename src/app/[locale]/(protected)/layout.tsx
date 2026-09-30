@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import { auth } from "@/core/auth";
 import { redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
@@ -12,10 +12,9 @@ export default async function ProtectedLayout({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const cookieStore = await cookies();
-  const token = cookieStore.get("auth_token")?.value;
+  const session = await auth();
 
-  if (!token) {
+  if (!session?.user) {
     redirect(`/${locale}/login`);
   }
 

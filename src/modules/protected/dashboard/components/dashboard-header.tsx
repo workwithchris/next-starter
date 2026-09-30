@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Plus, LayoutDashboard, RefreshCw, LogOut } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "@/core/i18n/routing";
+import { signOut } from "next-auth/react";
 import { useAuthStore } from "@/core/store";
 import { dashboardKeys } from "../data/use-dashboard-queries";
 
@@ -15,16 +15,15 @@ interface DashboardHeaderProps {
 export function DashboardHeader({ onOpenCreateDialog }: DashboardHeaderProps) {
   const t = useTranslations("Dashboard");
   const queryClient = useQueryClient();
-  const router = useRouter();
   const logout = useAuthStore((s) => s.logout);
 
   const handleRefresh = () => {
     queryClient.invalidateQueries({ queryKey: dashboardKeys.all });
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     logout();
-    router.push("/login");
+    await signOut({ callbackUrl: "/login" });
   };
 
   return (

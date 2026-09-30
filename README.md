@@ -114,6 +114,7 @@ next-starter-template/
 │   │           └── __tests__/    # Dashboard store & API tests
 │   │
 │   ├── core/                     # Shared application infrastructure
+│   │   ├── auth/                 # Auth.js / NextAuth v5 server configuration
 │   │   ├── providers/            # QueryProvider, ThemeProvider
 │   │   ├── store/                # Global stores (auth-store.ts with persistence)
 │   │   ├── i18n/                 # next-intl routing & request configuration
