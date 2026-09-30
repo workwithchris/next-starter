@@ -11,7 +11,7 @@ An enterprise-ready, high-performance foundation built on **Next.js 16**, **Reac
 [![Zod](https://img.shields.io/badge/Zod-v4-3068b7?style=flat&logo=zod)](https://zod.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat)](LICENSE)
 
-[**Live Demo**](http://localhost:3000) • [**Design Spec (DESIGN.md)**](DESIGN.md) • [**Deploy to Vercel**](https://vercel.com/new)
+[**Live Demo**](http://localhost:3000) • [**GitHub Repository**](https://github.com/workwithchris/next-starter) • [**Design Spec (DESIGN.md)**](DESIGN.md) • [**Deploy to Vercel**](https://vercel.com/new)
 
 </div>
 
@@ -22,12 +22,16 @@ An enterprise-ready, high-performance foundation built on **Next.js 16**, **Reac
 - ⚡ **Next.js 16 & Turbopack**: Sub-second Hot Module Replacement (HMR), React Server Components (RSC), and nested layout routing.
 - ⚛️ **React 19 & React Compiler**: Preconfigured with `babel-plugin-react-compiler` for automatic memoization without boilerplate `useMemo` / `useCallback`.
 - 🔄 **TanStack React Query v5**: Production-grade server state management and asynchronous data fetching with isolated SSR caches, smart refetching, and React Query Devtools.
+- 🐻 **Zustand State Management**: Lightweight, atomic UI state with feature-scoped slices and persistent global auth state.
 - 🎨 **Tailwind CSS v4 & Nova Theme**: Pure CSS variable engine with zero JavaScript overhead, configured with Shadcn UI & accessible Base UI primitives.
 - 📐 **Geist Design Language**: Strictly adheres to [DESIGN.md](DESIGN.md) — minimalist black-on-near-white canvas (`#fafafa`), deep ink (`#171717`), 1px hairlines (`#ebebeb`), dual button radius (100px marketing pills vs. 6px square app controls), and the signature hero mesh gradient.
+- 🔐 **Pre-Built Auth & Dashboard Modules**: Production-grade authentication with Zod validation, session management, project workspace management, metrics cards, and modal workflows.
 - 🛡️ **Type-Safe Form Sandbox**: Built-in runtime validation using **Zod** and **React Hook Form** with `@hookform/resolvers/zod`.
+- 🌐 **Full i18n Suite (5 Locales)**: Powered by `next-intl` across English (`en`), Spanish (`es`), French (`fr`), German (`de`), and Japanese (`ja`).
 - 🌓 **Seamless Dark Mode**: Powered by `next-themes` with zero flash-of-unstyled-content (FOUC), system preference detection, and smooth light/dark switching.
-- 📁 **Domain-Driven Modular Architecture**: Clean separation between routes (`app/`), domain features (`modules/`), shared infrastructure (`core/`), and UI primitives (`components/`).
-- 🔌 **Fullstack & Microservices Ready**: Optimized for Next.js App Router route handlers, server actions, or a companion NestJS backend.
+- 🔔 **Toast Notifications**: Built-in **Sonner** toaster with dark-mode support.
+- 🔍 **Production SEO & PWA**: Dynamic `sitemap.ts`, `robots.ts`, and `manifest.ts` configured for localized multi-region indexing.
+- 🧪 **Vitest Test Suite**: Preconfigured unit and integration testing with JSDOM and React Testing Library utilities.
 
 ---
 
@@ -38,10 +42,14 @@ An enterprise-ready, high-performance foundation built on **Next.js 16**, **Reac
 | **Framework** | [Next.js](https://nextjs.org/) | `16.3.7` | App Router, SSR, Server Components & Turbopack |
 | **UI Library** | [React](https://react.dev/) | `19.2.8` | Component model & React Compiler optimization |
 | **Server State** | [TanStack Query](https://tanstack.com/query) | `^5.104.0` | Caching, deduplication, optimistic UI & Devtools |
+| **Client State** | [Zustand](https://zustand.docs.pmnd.rs/) | `^5.0.3` | Lightweight, scalable client & auth store |
 | **Styling** | [Tailwind CSS](https://tailwindcss.com/) | `v4.0` | Theme variables, utility-first CSS |
 | **Primitives** | [Base UI](https://base-ui.com/) / [Shadcn](https://ui.shadcn.com/) | Latest | Accessible, unstyled UI primitives (Nova preset) |
 | **Validation** | [Zod](https://zod.dev/) | `v4.6.5` | Type-safe runtime schema validation |
 | **Forms** | [React Hook Form](https://react-hook-form.com/) | `v7.89.0` | High-performance, uncontrolled form management |
+| **i18n** | [next-intl](https://next-intl-docs.vercel.app/) | `^4.8.4` | App Router localized routing & translations |
+| **Testing** | [Vitest](https://vitest.dev/) | `^5.0.2` | Ultra-fast unit & integration testing runner |
+| **Notifications** | [Sonner](https://sonner.emilkowal.ski/) | `^2.0.7` | Beautiful toast notifications |
 | **Icons** | [Lucide React](https://lucide.dev/) | `^1.48.0` | Clean, lightweight stroke icons |
 | **Language** | [TypeScript](https://www.typescriptlang.org/) | `^5.0` | Strict type safety and inference |
 
@@ -53,7 +61,7 @@ This template uses a domain-driven modular structure:
 
 ```
 next-starter-template/
-├── messages/                     # Translation dictionaries
+├── messages/                     # Translation dictionaries (5 locales)
 │   ├── en.json                   # English (default)
 │   ├── es.json                   # Spanish
 │   ├── fr.json                   # French
@@ -63,48 +71,65 @@ next-starter-template/
 ├── src/
 │   ├── app/                      # Next.js App Router
 │   │   ├── [locale]/             # Localized root segment
-│   │   │   ├── layout.tsx        # Localized root layout (Geist font & NextIntlClientProvider)
-│   │   │   └── page.tsx          # Asynchronous SSR entrypoint calling modules/home
-│   │   └── globals.css           # Tailwind v4 theme & Geist tokens
+│   │   │   ├── (public)/         # Public marketing route group
+│   │   │   │   └── page.tsx      # Landing page (modules/public/home)
+│   │   │   ├── (auth)/           # Authentication route group
+│   │   │   │   └── login/page.tsx# Login & auth (modules/auth)
+│   │   │   ├── (protected)/      # Protected authenticated route group
+│   │   │   │   └── dashboard/page.tsx # Workspace dashboard (modules/protected/dashboard)
+│   │   │   ├── layout.tsx        # Root layout (Geist font, providers, sonner toaster)
+│   │   │   ├── error.tsx         # Localized error boundary
+│   │   │   ├── not-found.tsx     # Localized 404 boundary
+│   │   │   └── loading.tsx       # Loading skeleton suspense boundary
+│   │   ├── api/                  # Next.js Route Handlers
+│   │   │   ├── projects/route.ts # CRUD projects API (GET, POST, DELETE)
+│   │   │   └── dashboard/metrics/route.ts # Live workspace metrics API
+│   │   ├── globals.css           # Tailwind v4 theme & Geist design tokens
+│   │   ├── manifest.ts           # Web App Manifest generator
+│   │   ├── robots.ts             # Robots.txt generator
+│   │   ├── sitemap.ts            # Multilingual dynamic sitemap
+│   │   └── global-error.tsx      # Root application crash boundary
 │   │
 │   ├── proxy.ts                  # Next.js 16 Proxy convention for locale routing
 │   │
 │   ├── modules/                  # Domain-driven feature modules
-│   │   └── home/                 # Home domain
-│   │       ├── home.tsx          # Main Home view orchestrator
-│   │       └── components/       # Domain-specific UI sections
-│   │           ├── navbar.tsx
-│   │           ├── hero-section.tsx
-│   │           ├── tech-stack-strip.tsx
-│   │           ├── features-grid.tsx
-│   │           ├── form-demo.tsx
-│   │           ├── architecture-viewer.tsx
-│   │           ├── vercel-triad.tsx
-│   │           ├── cta-band.tsx
-│   │           └── footer.tsx
+│   │   ├── public/               # Public-facing domains
+│   │   │   └── home/             # Marketing landing page
+│   │   │       ├── home.tsx      # Composition root
+│   │   │       ├── hooks/        # use-github-stars.ts
+│   │   │       └── components/   # Hero, Features, Architecture, FormDemo, Navbar, etc.
+│   │   ├── auth/                 # Authentication domain
+│   │   │   ├── auth.tsx          # Auth composition root
+│   │   │   ├── components/       # AuthCard, LoginForm, SocialAuthButtons
+│   │   │   ├── hooks/            # use-auth-form.ts
+│   │   │   ├── data/             # auth-types.ts, auth-api.ts
+│   │   │   └── __tests__/        # Auth unit tests
+│   │   └── protected/            # Protected domains
+│   │       └── dashboard/        # Workspace dashboard domain
+│   │           ├── dashboard.tsx # Dashboard composition root
+│   │           ├── components/   # MetricsGrid, ProjectsTable, CreateProjectDialog, Header
+│   │           ├── hooks/        # use-dashboard.ts
+│   │           ├── data/         # dashboard-types.ts, dashboard-api.ts
+│   │           ├── store/        # dashboard-slice.ts (Zustand)
+│   │           └── __tests__/    # Dashboard store & API tests
 │   │
-│   ├── core/                     # Shared application core (feature-agnostic)
-│   │   ├── providers/            # Application context providers
-│   │   │   ├── index.ts          # Consolidated provider exports
-│   │   │   ├── query-provider.tsx # TanStack Query v5 provider & client singleton
-│   │   │   └── theme-provider.tsx # Next-themes provider
-│   │   ├── i18n/                 # Internationalization configuration
-│   │   │   ├── request.ts        # getRequestConfig for next-intl
-│   │   │   └── routing.ts        # defineRouting & navigation exports
-│   │   ├── hooks/                # Reusable React hooks
+│   ├── core/                     # Shared application infrastructure
+│   │   ├── providers/            # QueryProvider, ThemeProvider
+│   │   ├── store/                # Global stores (auth-store.ts with persistence)
+│   │   ├── i18n/                 # next-intl routing & request configuration
+│   │   ├── constants/            # API endpoints & app constants
+│   │   ├── hooks/                # Shared reusable hooks
 │   │   ├── lib/                  # Utility functions (cn classnames helper)
 │   │   └── network/              # Enterprise network client suite
-│   │       ├── index.ts          # Unified entrypoint exports
-│   │       ├── client.ts         # Type-safe fetch client (interceptors, retries, multipart)
-│   │       ├── sse.ts            # Fetch-based SSE client (POST, custom headers & async stream)
-│   │       ├── socket.ts         # Resilient WebSocket client (heartbeat & offline buffer)
-│   │       ├── errors.ts         # HttpError, NetworkError, TimeoutError, ValidationError
-│   │       ├── types.ts          # TypeScript interfaces & configs
+│   │       ├── client.ts         # Type-safe fetch client (retries, timeouts, schemas)
+│   │       ├── sse.ts            # Server-Sent Events stream client (POST & auth)
+│   │       ├── socket.ts         # Resilient WebSocket client (heartbeat & buffer)
 │   │       └── hooks/            # useSSE & useSocket React hooks
 │   │
 │   └── components/               # Cross-cutting UI primitives
-│       ├── layouts/              # Global layout shells
-│       └── ui/                   # Shadcn / Base UI components (e.g. Button)
+│       ├── locale-switcher.tsx   # Language selector dropdown
+│       ├── theme-toggle.tsx      # Dark mode toggle
+│       └── ui/                   # Shadcn / Base UI primitives (button, dialog, badge, input, ...)
 │
 ├── DESIGN.md                     # Vercel Geist design system specification
 ├── components.json               # Shadcn UI configuration
@@ -124,8 +149,8 @@ next-starter-template/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-org/next-starter-template.git
-   cd next-starter-template
+   git clone https://github.com/workwithchris/next-starter.git
+   cd next-starter
    ```
 
 2. **Install dependencies:**
@@ -259,6 +284,33 @@ export function UserProfile({ userId }: { userId: string }) {
   if (error) return <div>Error loading user</div>;
 
   return <div>Welcome, {data.name}!</div>;
+}
+```
+
+---
+
+## Client State Management (Zustand)
+
+Client-side UI and session state are managed using [**Zustand**](https://zustand.docs.pmnd.rs/):
+
+- **Global Stores** (`@/core/store/`): App-wide state such as authentication (`useAuthStore`) with local storage persistence and role-based permissions.
+- **Feature-Scoped Slices** (`@/modules/<feature>/store/`): Atomic, isolated client UI state (e.g. `useDashboardStore` for search query, active tier filters, and modal toggles).
+
+```tsx
+import { useAuthStore } from "@/core/store";
+import { useDashboardStore } from "@/modules/protected/dashboard/store/dashboard-slice";
+
+export function HeaderUser() {
+  const user = useAuthStore((s) => s.user);
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const setCreateDialogOpen = useDashboardStore((s) => s.setCreateDialogOpen);
+
+  return (
+    <div>
+      {isAuthenticated && <span>{user?.name}</span>}
+      <button onClick={() => setCreateDialogOpen(true)}>New Project</button>
+    </div>
+  );
 }
 ```
 
