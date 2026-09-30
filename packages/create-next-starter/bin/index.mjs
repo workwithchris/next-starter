@@ -47,11 +47,11 @@ async function main() {
         initial: 0,
         choices: [
           {
-            title: "Fullstack (Marketing site + Auth + Protected Dashboard + Mock APIs)",
+            title: "Fullstack (All included: Landing page + Auth + Protected Dashboard + Mock APIs)",
             value: "fullstack",
           },
           {
-            title: "Minimal (Clean Next.js 16 base with i18n, Tailwind v4 & core network)",
+            title: "Minimal (Core only: Marketing site, i18n, Tailwind v4, TanStack Query, Network suite)",
             value: "minimal",
           },
         ],
@@ -116,17 +116,17 @@ async function main() {
     fs.rmSync(nestedPackagesDir, { recursive: true, force: true });
   }
 
-  // If Minimal preset selected: prune Auth and Dashboard modules and routes
+  // If Minimal preset selected: prune Auth, Protected Dashboard, and APIs
   if (templateVariant === "minimal") {
-    console.log(dim("Applying Minimal preset configuration..."));
+    console.log(dim("Configuring Minimal preset (pruning auth, protected routes, and mock apis)..."));
 
     const pathsToPrune = [
       path.join(projectPath, "src/app/[locale]/(auth)"),
       path.join(projectPath, "src/app/[locale]/(protected)"),
       path.join(projectPath, "src/modules/auth"),
       path.join(projectPath, "src/modules/protected"),
-      path.join(projectPath, "src/app/api/projects"),
-      path.join(projectPath, "src/app/api/dashboard"),
+      path.join(projectPath, "src/app/api"),
+      path.join(projectPath, "src/core/store/auth-store.ts"),
     ];
 
     for (const p of pathsToPrune) {
@@ -135,7 +135,7 @@ async function main() {
       }
     }
 
-    // Replace proxy.ts with clean i18n middleware
+    // Replace proxy.ts with clean i18n middleware without auth redirects
     const proxyPath = path.join(projectPath, "src/proxy.ts");
     if (fs.existsSync(proxyPath)) {
       const minimalProxy = `import createMiddleware from "next-intl/middleware";
@@ -151,6 +151,40 @@ export const config = {
 };
 `;
       fs.writeFileSync(proxyPath, minimalProxy);
+    }
+
+    // Reset endpoints to clean starter state
+    const endpointsPath = path.join(projectPath, "src/core/constants/endpoints.ts");
+    if (fs.existsSync(endpointsPath)) {
+      fs.writeFileSync(
+        endpointsPath,
+        `export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;\n\nexport const endpoints = {} as const;\n`
+      );
+    }
+
+    // Reset core store index
+    const storeIndexPath = path.join(projectPath, "src/core/store/index.ts");
+    if (fs.existsSync(storeIndexPath)) {
+      fs.writeFileSync(storeIndexPath, `export * from "./ui-store";\n`);
+    }
+
+    // Clean up Auth and Dashboard keys from messages
+    const messagesDir = path.join(projectPath, "messages");
+    if (fs.existsSync(messagesDir)) {
+      const localeFiles = ["en.json", "es.json", "fr.json", "de.json", "ja.json"];
+      for (const file of localeFiles) {
+        const filePath = path.join(messagesDir, file);
+        if (fs.existsSync(filePath)) {
+          try {
+            const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+            delete data.Auth;
+            delete data.Dashboard;
+            fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n");
+          } catch {
+            // ignore
+          }
+        }
+      }
     }
   }
 
