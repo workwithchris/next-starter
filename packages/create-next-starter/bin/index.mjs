@@ -42,6 +42,22 @@ async function main() {
       },
       {
         type: "select",
+        name: "templateVariant",
+        message: "Select template preset:",
+        initial: 0,
+        choices: [
+          {
+            title: "Fullstack (Marketing site + Auth + Protected Dashboard + Mock APIs)",
+            value: "fullstack",
+          },
+          {
+            title: "Minimal (Clean Next.js 16 base with i18n, Tailwind v4 & core network)",
+            value: "minimal",
+          },
+        ],
+      },
+      {
+        type: "select",
         name: "packageManager",
         message: "Select package manager:",
         initial: 0,
@@ -72,7 +88,13 @@ async function main() {
     }
   );
 
-  const { packageManager = "pnpm", gitInit = true, installDeps = true } = response;
+  const {
+    templateVariant = "fullstack",
+    packageManager = "pnpm",
+    gitInit = true,
+    installDeps = true,
+  } = response;
+
   const projectPath = path.resolve(process.cwd(), targetDir);
   const projectName = path.basename(projectPath);
 
@@ -92,6 +114,44 @@ async function main() {
   const nestedPackagesDir = path.join(projectPath, "packages");
   if (fs.existsSync(nestedPackagesDir)) {
     fs.rmSync(nestedPackagesDir, { recursive: true, force: true });
+  }
+
+  // If Minimal preset selected: prune Auth and Dashboard modules and routes
+  if (templateVariant === "minimal") {
+    console.log(dim("Applying Minimal preset configuration..."));
+
+    const pathsToPrune = [
+      path.join(projectPath, "src/app/[locale]/(auth)"),
+      path.join(projectPath, "src/app/[locale]/(protected)"),
+      path.join(projectPath, "src/modules/auth"),
+      path.join(projectPath, "src/modules/protected"),
+      path.join(projectPath, "src/app/api/projects"),
+      path.join(projectPath, "src/app/api/dashboard"),
+    ];
+
+    for (const p of pathsToPrune) {
+      if (fs.existsSync(p)) {
+        fs.rmSync(p, { recursive: true, force: true });
+      }
+    }
+
+    // Replace proxy.ts with clean i18n middleware
+    const proxyPath = path.join(projectPath, "src/proxy.ts");
+    if (fs.existsSync(proxyPath)) {
+      const minimalProxy = `import createMiddleware from "next-intl/middleware";
+import { routing } from "./core/i18n/routing";
+
+export const proxy = createMiddleware(routing);
+
+export default proxy;
+
+export const config = {
+  // Match all pathnames except for internal Next.js assets, API routes, and static files
+  matcher: ["/((?!api|_next|_vercel|.*\\\\..*).*)"],
+};
+`;
+      fs.writeFileSync(proxyPath, minimalProxy);
+    }
   }
 
   // Update package.json name
@@ -127,7 +187,7 @@ async function main() {
   }
 
   // Success summary
-  console.log(`\n${green(bold("✔ Success!"))} Created ${cyan(projectName)} at ${dim(projectPath)}\n`);
+  console.log(`\n${green(bold("✔ Success!"))} Created ${cyan(projectName)} (${blue(templateVariant)}) at ${dim(projectPath)}\n`);
   console.log("Inside that directory, you can run:\n");
   console.log(`  ${cyan(`${packageManager} run dev`)}`);
   console.log(`    Starts the development server with Turbopack\n`);

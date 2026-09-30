@@ -136,20 +136,6 @@ export function Navbar() {
             >
               {t("quickstart")}
             </a>
-            <Link
-              href="/dashboard"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#171717] dark:hover:text-white font-semibold"
-            >
-              {t("dashboard")}
-            </Link>
-            <Link
-              href="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#171717] dark:hover:text-white font-semibold"
-            >
-              {t("login")}
-            </Link>
           </nav>
 
           <div className="pt-2 flex flex-col gap-2">

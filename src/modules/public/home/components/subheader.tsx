@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/core/i18n/routing";
 
 const navSections = [
   { href: "#features", key: "features", isExternalAnchor: true },
@@ -25,21 +24,6 @@ export function Subheader() {
               {t(item.key)}
             </a>
           ))}
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Link
-            href="/dashboard"
-            className="rounded-md px-2.5 py-1 text-xs font-medium text-foreground hover:bg-muted transition-colors"
-          >
-            {t("dashboard")}
-          </Link>
-          <Link
-            href="/login"
-            className="rounded-md px-2.5 py-1 text-xs font-medium text-foreground hover:bg-muted transition-colors"
-          >
-            {t("login")}
-          </Link>
         </div>
       </nav>
     </div>
