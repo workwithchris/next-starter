@@ -17,7 +17,7 @@
     "subEyebrow": "Turbopack & Tailwind v4",
     "title": "The engineering blueprint for modern web applications.",
     "description": "Pre-configured with Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn, and strict Zod validation. Engineered for developer velocity, structural purity, and sub-second builds.",
-    "deployButton": "Deploy to Vercel",
+    "deployButton": "Deploy Application",
     "formDemoButton": "Interactive Form Demo",
     "quickScaffold": "Quick Scaffold",
     "copySuccess": "Copied to clipboard"
@@ -30,7 +30,7 @@
   "Features": {
     "eyebrow": "CORE CAPABILITIES",
     "title": "Built with surgical precision.",
-    "description": "Designed according to Vercel's Geist principles: strict minimalism, 1px hairlines, and typography-driven hierarchy."
+    "description": "Designed according to Geist principles: strict minimalism, 1px hairlines, and typography-driven hierarchy."
   },
   "FormDemo": {
     "badge": "LIVE INTERACTIVE DEMO",
@@ -42,20 +42,15 @@
     "title": "Architected for growth.",
     "description": "Clean separation of concerns with domain modules, core shared infrastructure, and type-safe schema layers."
   },
-  "VercelTriad": {
-    "eyebrow": "DEVELOPMENT LIFECYCLE",
-    "title": "Develop. Preview. Ship.",
-    "description": "The canonical workflow that powers millions of developers, distilled into a lean starter template."
-  },
   "CtaBand": {
-    "eyebrow": "INSTANT DEPLOYMENT",
-    "title": "Ready to ship your next web application?",
-    "description": "Skip days of boilerplate configuration. Clone this template and start developing with production-ready architecture immediately.",
-    "deployButton": "Deploy to Vercel",
+    "eyebrow": "GET STARTED",
+    "title": "Ready to build your next web application?",
+    "description": "Skip days of boilerplate configuration. Clone this template or use the CLI to start developing with production-ready architecture immediately.",
+    "deployButton": "Get Started",
     "githubButton": "Star on GitHub"
   },
   "Footer": {
-    "description": "Designed with the Vercel Geist design system — a stark black-on-near-white developer platform aesthetic, 1px hairlines, and strict typography.",
+    "description": "Designed with the Geist design system — a stark black-on-near-white developer platform aesthetic, 1px hairlines, and strict typography.",
     "status": "All Systems Operational • Turbopack v16.3",
     "copyright": "Next.js Starter Template. Open-source under MIT."
   },

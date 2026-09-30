@@ -99,7 +99,7 @@ export function ProjectsTable({
                     <td className="px-4 py-3.5 text-right">
                       <div className="flex items-center justify-end gap-1.5">
                         <a
-                          href={`https://${project.name}.vercel.app`}
+                          href={`https://${project.name}.dev`}
                           target="_blank"
                           rel="noreferrer"
                           className={buttonVariants({ variant: "ghost", size: "icon-sm" })}

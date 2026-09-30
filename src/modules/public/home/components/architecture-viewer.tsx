@@ -58,7 +58,7 @@ export function ArchitectureViewer() {
       ],
     },
     "DESIGN.md": {
-      title: "Vercel Geist System Specification",
+      title: "Geist Design System Specification",
       description:
         "The machine-readable and human-readable design system manifest. Defines colors (#171717 ink on #fafafa canvas), Geist typography, 1px hairlines, and dual button radius rules.",
       badge: "Design Spec",

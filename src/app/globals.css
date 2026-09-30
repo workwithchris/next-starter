@@ -129,7 +129,8 @@
   }
 }
 
-/* DESIGN.md Vercel Tokens & Utilities */
+/* Ambient Mesh Gradient Tokens & Utilities */
+.hero-mesh-gradient,
 .vercel-mesh-gradient {
   background: 
     radial-gradient(at 18% 28%, #50e3c2 0px, transparent 50%),
@@ -141,6 +142,7 @@
   opacity: 0.22;
 }
 
+.dark .hero-mesh-gradient,
 .dark .vercel-mesh-gradient {
   opacity: 0.3;
   filter: blur(85px);

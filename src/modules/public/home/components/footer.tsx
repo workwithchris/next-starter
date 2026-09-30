@@ -136,40 +136,30 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Links Column 3: Platform */}
+          {/* Links Column 3: Resources */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[#171717] dark:text-[#ededed] mb-3">
-              Deployment
+              Resources
             </h4>
             <ul className="space-y-2 text-xs text-[#4d4d4d] dark:text-[#a1a1a1]">
               <li>
                 <a
-                  href="https://vercel.com"
+                  href="https://www.npmjs.com/package/create-starter-next"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#171717] dark:hover:text-white transition-colors"
                 >
-                  Vercel Platform
+                  NPM CLI Package
                 </a>
               </li>
               <li>
                 <a
-                  href="https://vercel.com/templates"
+                  href="https://authjs.dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#171717] dark:hover:text-white transition-colors"
                 >
-                  Template Marketplace
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://vercel.com/analytics"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
-                >
-                  Speed Insights
+                  Auth.js Documentation
                 </a>
               </li>
               <li>
@@ -180,6 +170,16 @@ export function Footer() {
                   className="hover:text-[#171717] dark:hover:text-white transition-colors"
                 >
                   GitHub Repository
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/workwithchris/next-starter/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                >
+                  Issues & Discussions
                 </a>
               </li>
             </ul>

@@ -2,7 +2,7 @@
 
 # Next.js 16 Production Starter Template & CLI
 
-An enterprise-ready, high-performance foundation built on **Next.js 16**, **React 19**, **Tailwind CSS v4**, **Base UI / Shadcn**, **Auth.js v5**, **Zod**, and **React Hook Form** — engineered with Vercel's **Geist design system**.
+An enterprise-ready, high-performance foundation built on **Next.js 16**, **React 19**, **Tailwind CSS v4**, **Base UI / Shadcn**, **Auth.js v5**, **Zod**, and **React Hook Form** — engineered with the **Geist design system**.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61dafb?style=flat&logo=react)](https://react.dev/)
@@ -13,7 +13,7 @@ An enterprise-ready, high-performance foundation built on **Next.js 16**, **Reac
 [![npm version](https://img.shields.io/npm/v/create-starter-next.svg?style=flat&color=blue)](https://www.npmjs.com/package/create-starter-next)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat)](LICENSE)
 
-[**Live Demo**](http://localhost:3000) • [**NPM Package**](https://www.npmjs.com/package/create-starter-next) • [**GitHub Repository**](https://github.com/workwithchris/next-starter) • [**Design Spec (DESIGN.md)**](DESIGN.md) • [**Deploy to Vercel**](https://vercel.com/new)
+[**Live Demo**](http://localhost:3000) • [**NPM Package**](https://www.npmjs.com/package/create-starter-next) • [**GitHub Repository**](https://github.com/workwithchris/next-starter) • [**Design Spec (DESIGN.md)**](DESIGN.md)
 
 </div>
 
@@ -350,16 +350,10 @@ This project implements the design specification detailed in [DESIGN.md](DESIGN.
 
 ---
 
-## 🚀 Deployment
-
-### Deploy to Vercel (1-Click)
-Deploy your repository to Vercel with zero configuration:
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fworkwithchris%2Fnext-starter)
-
-### Self-Hosted / Docker
+## 🚀 Production Deployment
 ```bash
-pnpm build
-pnpm start
+npm run build
+npm run start
 ```
 
 ---

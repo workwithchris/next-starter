@@ -3,11 +3,11 @@
     "brand": "next-starter",
     "versionBadge": "v16.3 Next.js",
     "features": "Funktionen",
-    "techStack": "Technologie-Stack",
-    "formDemo": "Formular- & Zod-Demo",
+    "techStack": "Tech-Stack",
+    "formDemo": "Formular & Zod Demo",
     "architecture": "Architektur",
     "quickstart": "Schnellstart",
-    "githubStars": "★ Star",
+    "githubStars": "★ Stern",
     "deploy": "Bereitstellen",
     "dashboard": "Dashboard",
     "login": "Anmelden"
@@ -17,7 +17,7 @@
     "subEyebrow": "Turbopack & Tailwind v4",
     "title": "Der Konstruktionsplan für moderne Webanwendungen.",
     "description": "Vorkonfiguriert mit Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn und strenger Zod-Validierung. Entwickelt für maximale Entwicklergeschwindigkeit und zuverlässige Builds.",
-    "deployButton": "Auf Vercel bereitstellen",
+    "deployButton": "Projekt starten",
     "formDemoButton": "Interaktive Formular-Demo",
     "quickScaffold": "Schnellgerüst",
     "copySuccess": "In die Zwischenablage kopiert"
@@ -30,7 +30,7 @@
   "Features": {
     "eyebrow": "KERNFUNKTIONEN",
     "title": "Mit chirurgischer Präzision gebaut.",
-    "description": "Entworfen nach den Vercel Geist-Prinzipien: strenger Minimalismus, 1px-Haarlinien und typografiegetriebene Hierarchie."
+    "description": "Entworfen nach Geist-Prinzipien: strenger Minimalismus, 1px-Haarlinien und typografiegetriebene Hierarchie."
   },
   "FormDemo": {
     "badge": "LIVE INTERAKTIVE DEMO",
@@ -42,20 +42,15 @@
     "title": "Für Skalierung konstruiert.",
     "description": "Klare Trennung der Zuständigkeiten mit Domänenmodulen, gemeinsamer Infrastruktur und typsicheren Schichten."
   },
-  "VercelTriad": {
-    "eyebrow": "ENTWICKLUNGSLEBENSZYKLUS",
-    "title": "Entwickeln. Vorschau. Veröffentlichen.",
-    "description": "Der kanonische Workflow von Millionen Entwicklern, destilliert in ein schlankes Starter-Template."
-  },
   "CtaBand": {
-    "eyebrow": "SOFORTIGE BEREITSTELLUNG",
+    "eyebrow": "STARTEN",
     "title": "Bereit für Ihre nächste Webanwendung?",
-    "description": "Sparen Sie Tage an Konfigurationsaufwand. Klonen Sie diese Vorlage und entwickeln Sie direkt mit produktionsreifer Architektur.",
-    "deployButton": "Auf Vercel bereitstellen",
+    "description": "Sparen Sie Tage an Konfigurationsaufwand. Klonen Sie diese Vorlage oder nutzen Sie das CLI für einen schnellen Start.",
+    "deployButton": "Jetzt Starten",
     "githubButton": "Auf GitHub favorisieren"
   },
   "Footer": {
-    "description": "Entwickelt mit dem Vercel Geist-Designsystem — minimalistische dunkle Ästhetik auf hellem Grund mit präziser Typografie.",
+    "description": "Entwickelt mit dem Geist-Designsystem — minimalistische dunkle Ästhetik auf hellem Grund mit präziser Typografie.",
     "status": "Alle Systeme betriebsbereit • Turbopack v16.3",
     "copyright": "Next.js Starter-Template. Open-Source unter MIT-Lizenz."
   },
@@ -68,44 +63,44 @@
     "ja": "日本語"
   },
   "ErrorPage": {
-    "title": "Ein Fehler ist aufgetreten",
-    "description": "Während der Seitenausführung ist ein unerwarteter Fehler aufgetreten. Sie können die Seite neu laden oder zur Startseite zurückkehren.",
+    "title": "Etwas ist schiefgelaufen",
+    "description": "Ein unerwarteter Fehler ist aufgetreten. Sie können die Komponente neu laden oder zur Startseite zurückkehren.",
     "retryButton": "Erneut versuchen",
-    "homeButton": "Zurück zur Startseite"
+    "homeButton": "Zur Startseite"
   },
   "NotFoundPage": {
     "title": "Seite nicht gefunden",
-    "description": "Die angeforderte Ressource oder Seite konnte nicht gefunden werden. Sie wurde möglicherweise verschoben.",
-    "homeButton": "Zur Startseite zurückkehren"
+    "description": "Die angeforderte Ressource konnte nicht gefunden werden. Möglicherweise wurde sie verschoben oder gelöscht.",
+    "homeButton": "Zur Startseite"
   },
   "Dashboard": {
     "overviewBadge": "WORKSPACE-ÜBERSICHT",
-    "title": "Ressourcen-Hub & Deployments",
-    "description": "Echtzeit-Edge-Dienste, serverlose Bereitstellungspipelines und aktive Workloads.",
+    "title": "Ressourcen-Hub & Bereitstellungen",
+    "description": "Echtzeit-Edge-Dienste, Serverless-Pipelines und aktive Arbeitslasten.",
     "refreshButton": "Aktualisieren",
     "logoutButton": "Abmelden",
     "newProjectButton": "Neues Projekt",
     "Metrics": {
-      "totalProjects": "Projekte Gesamt",
-      "activeDeployments": "Aktive Deployments",
-      "bandwidth": "Bandbreitennutzung",
+      "totalProjects": "Gesamtprojekte",
+      "activeDeployments": "Aktive Dienste",
+      "bandwidth": "Bandbreite",
       "uptime": "Systemverfügbarkeit"
     },
     "Table": {
       "searchPlaceholder": "Projekte nach Name oder Beschreibung durchsuchen...",
       "nameColumn": "Projektname",
       "statusColumn": "Status",
-      "tierColumn": "Tarif",
+      "tierColumn": "Stufe",
       "requestsColumn": "Anfragen (30T)",
       "actionsColumn": "Aktionen",
       "noProjects": "Keine Projekte entsprechen Ihren Filterkriterien."
     },
     "CreateDialog": {
       "title": "Neues Projekt erstellen",
-      "description": "Konfigurieren Sie Ihre Bereitstellungsdiensteinstellungen und Tarifspezifikationen.",
+      "description": "Konfigurieren Sie Spezifikationen und Stufe für Ihren neuen Dienst.",
       "nameLabel": "Projekt-Slug",
       "descriptionLabel": "Beschreibung (optional)",
-      "descriptionPlaceholder": "Kurze Zusammenfassung des Dienstzwecks...",
+      "descriptionPlaceholder": "Kurze Zusammenfassung des Projektzwecks...",
       "cancelButton": "Abbrechen",
       "submitButton": "Projekt erstellen",
       "creatingButton": "Wird erstellt..."
@@ -113,13 +108,13 @@
   },
   "Auth": {
     "title": "Konto-Anmeldung",
-    "description": "Geben Sie Ihre Anmeldedaten ein, um auf das Workspace-Dashboard zuzugreifen.",
+    "description": "Geben Sie Ihre Anmeldedaten ein, um auf das Dashboard zuzugreifen.",
     "orContinueWith": "Oder fortfahren mit",
     "emailLabel": "E-Mail-Adresse",
     "passwordLabel": "Passwort",
     "forgotPassword": "Passwort vergessen?",
     "rememberMe": "Dieses Gerät für 30 Tage merken",
-    "signInButton": "Im Workspace anmelden",
+    "signInButton": "Anmelden",
     "signingIn": "Anmeldung läuft..."
   }
 }

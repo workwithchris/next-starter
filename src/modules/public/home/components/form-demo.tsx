@@ -195,7 +195,7 @@ export function FormDemo() {
                     {...register("environment")}
                     className="w-full rounded-[6px] border border-[#ebebeb] dark:border-[#2b2b2b] bg-white dark:bg-[#181818] px-3 py-2 text-sm text-[#171717] dark:text-white outline-none focus:border-[#171717] dark:focus:border-white transition-colors"
                   >
-                    <option value="preview">Preview (Vercel Branch URL)</option>
+                    <option value="preview">Preview (Staging URL)</option>
                     <option value="staging">Staging (Integration Pipeline)</option>
                     <option value="production">Production (Global Edge CDN)</option>
                   </select>

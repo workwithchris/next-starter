@@ -4,12 +4,12 @@
     "versionBadge": "v16.3 Next.js",
     "features": "Fonctionnalités",
     "techStack": "Technologies",
-    "formDemo": "Démo Formulaire & Zod",
+    "formDemo": "Démo Formulaires & Zod",
     "architecture": "Architecture",
     "quickstart": "Démarrage Rapide",
-    "githubStars": "★ Star",
+    "githubStars": "★ Étoiler",
     "deploy": "Déployer",
-    "dashboard": "Tableau de bord",
+    "dashboard": "Tableau de Bord",
     "login": "Connexion"
   },
   "Hero": {
@@ -17,7 +17,7 @@
     "subEyebrow": "Turbopack et Tailwind v4",
     "title": "Le modèle d'ingénierie pour les applications web modernes.",
     "description": "Préconfiguré avec Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn et validation stricte avec Zod. Conçu pour la vitesse, la pureté structurelle et des builds instantanés.",
-    "deployButton": "Déployer sur Vercel",
+    "deployButton": "Commencer le Projet",
     "formDemoButton": "Démo Interactive",
     "quickScaffold": "Génération Rapide",
     "copySuccess": "Copié dans le presse-papier"
@@ -30,7 +30,7 @@
   "Features": {
     "eyebrow": "CAPACITÉS PRINCIPALES",
     "title": "Conçu avec une précision chirurgicale.",
-    "description": "Pensé selon les principes Geist de Vercel : minimalisme strict, bordures fines de 1px et hiérarchie typographique."
+    "description": "Pensé selon les principes Geist : minimalisme strict, bordures fines de 1px et hiérarchie typographique."
   },
   "FormDemo": {
     "badge": "DÉMO INTERACTIVE EN DIRECT",
@@ -42,20 +42,15 @@
     "title": "Une architecture pour grandir.",
     "description": "Séparation claire des responsabilités avec modules de domaine, infrastructure partagée et validation stricte."
   },
-  "VercelTriad": {
-    "eyebrow": "CYCLE DE DÉVELOPPEMENT",
-    "title": "Développer. Prévisualiser. Déployer.",
-    "description": "Le flux de travail canonique qui propulse des millions de développeurs, distillé dans un starter épuré."
-  },
   "CtaBand": {
-    "eyebrow": "DÉPLOIEMENT INSTANTANÉ",
+    "eyebrow": "COMMENCER",
     "title": "Prêt à lancer votre prochaine application web ?",
-    "description": "Évitez des jours de configuration. Clonez ce modèle et commencez immédiatement à développer avec une architecture éprouvée.",
-    "deployButton": "Déployer sur Vercel",
+    "description": "Évitez des jours de configuration. Clonez ce modèle ou utilisez le CLI et commencez immédiatement à développer.",
+    "deployButton": "Commencer",
     "githubButton": "Étoiler sur GitHub"
   },
   "Footer": {
-    "description": "Conçu avec le système de design Vercel Geist — esthétique minimaliste sombre sur fond clair et typographie soignée.",
+    "description": "Conçu avec le système de design Geist — esthétique minimaliste sombre sur fond clair et typographie soignée.",
     "status": "Tous les systèmes opérationnels • Turbopack v16.3",
     "copyright": "Modèle de démarrage Next.js. Open-source sous licence MIT."
   },
@@ -69,19 +64,19 @@
   },
   "ErrorPage": {
     "title": "Une erreur est survenue",
-    "description": "Une erreur inattendue est survenue lors de l'exécution. Vous pouvez recharger la page ou revenir à l'accueil.",
+    "description": "Une erreur inattendue s'est produite lors de l'exécution. Vous pouvez recharger le composant ou retourner à l'accueil.",
     "retryButton": "Réessayer",
     "homeButton": "Retour à l'Accueil"
   },
   "NotFoundPage": {
-    "title": "Page non trouvée",
-    "description": "La ressource ou page demandée est introuvable. Elle a peut-être été déplacée ou supprimée.",
+    "title": "Page introuvable",
+    "description": "La ressource demandée n'a pas pu être localisée. Elle a peut-être été déplacée ou supprimée.",
     "homeButton": "Retour à l'Accueil"
   },
   "Dashboard": {
     "overviewBadge": "APERÇU DE L'ESPACE",
-    "title": "Centre de Ressources & Déploiements",
-    "description": "Services Edge en temps réel, pipelines serverless et charges de travail actives.",
+    "title": "Centre de Ressources et Déploiements",
+    "description": "Services périphériques en direct, pipelines de déploiement et charges actives.",
     "refreshButton": "Actualiser",
     "logoutButton": "Déconnexion",
     "newProjectButton": "Nouveau Projet",
@@ -89,7 +84,7 @@
       "totalProjects": "Projets Totaux",
       "activeDeployments": "Déploiements Actifs",
       "bandwidth": "Bande Passante",
-      "uptime": "Disponibilité Système"
+      "uptime": "Disponibilité"
     },
     "Table": {
       "searchPlaceholder": "Rechercher des projets par nom ou description...",
@@ -98,14 +93,14 @@
       "tierColumn": "Niveau",
       "requestsColumn": "Requêtes (30j)",
       "actionsColumn": "Actions",
-      "noProjects": "Aucun projet ne correspond à vos filtres actuels."
+      "noProjects": "Aucun projet ne correspond à vos critères actuels."
     },
     "CreateDialog": {
       "title": "Créer un Nouveau Projet",
-      "description": "Configurez les paramètres et le niveau de votre service de déploiement.",
-      "nameLabel": "Identifiant du Projet",
+      "description": "Configurez les spécifications et le niveau de votre service.",
+      "nameLabel": "Identifiant (Slug)",
       "descriptionLabel": "Description (optionnel)",
-      "descriptionPlaceholder": "Bref résumé du rôle du service...",
+      "descriptionPlaceholder": "Bref résumé de l'objectif du projet...",
       "cancelButton": "Annuler",
       "submitButton": "Créer le Projet",
       "creatingButton": "Création..."
@@ -113,13 +108,13 @@
   },
   "Auth": {
     "title": "Connexion au Compte",
-    "description": "Entrez vos identifiants pour accéder au tableau de bord.",
+    "description": "Saisissez vos identifiants pour accéder au tableau de bord.",
     "orContinueWith": "Ou continuer avec",
-    "emailLabel": "Adresse email",
+    "emailLabel": "Adresse e-mail",
     "passwordLabel": "Mot de passe",
     "forgotPassword": "Mot de passe oublié ?",
-    "rememberMe": "Mémoriser cet appareil pendant 30 jours",
-    "signInButton": "Se connecter à l'Espace",
+    "rememberMe": "Se souvenir de cet appareil pendant 30 jours",
+    "signInButton": "Se connecter",
     "signingIn": "Connexion en cours..."
   }
 }

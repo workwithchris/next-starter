@@ -4,7 +4,6 @@ import { TechStackStrip } from "./components/tech-stack-strip";
 import { FeaturesGrid } from "./components/features-grid";
 import { FormDemo } from "./components/form-demo";
 import { ArchitectureViewer } from "./components/architecture-viewer";
-import { VercelTriad } from "./components/vercel-triad";
 import { CtaBand } from "./components/cta-band";
 import { Footer } from "./components/footer";
 import { StructuredData } from "./components/structured-data";
@@ -37,14 +36,11 @@ export function Home() {
         {/* 5. Enterprise Architecture & File Manifest Explorer */}
         <ArchitectureViewer />
 
-        {/* 6. Vercel Triad Highlight (Develop, Preview, Ship) */}
-        <VercelTriad />
-
-        {/* 7. CTA Band with Black Marketing Pill */}
+        {/* 6. CTA Band with Black Marketing Pill */}
         <CtaBand />
       </main>
 
-      {/* 8. Structural Footer */}
+      {/* 7. Structural Footer */}
       <Footer />
     </div>
   );

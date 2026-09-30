@@ -3,21 +3,21 @@
     "brand": "next-starter",
     "versionBadge": "v16.3 Next.js",
     "features": "Características",
-    "techStack": "Tecnologías",
-    "formDemo": "Demo Formularios & Zod",
+    "techStack": "Stack Tecnológico",
+    "formDemo": "Demo Formularios y Zod",
     "architecture": "Arquitectura",
     "quickstart": "Inicio Rápido",
-    "githubStars": "★ Star",
+    "githubStars": "★ Destacar",
     "deploy": "Desplegar",
     "dashboard": "Panel",
-    "login": "Iniciar Sesión"
+    "login": "Acceder"
   },
   "Hero": {
     "eyebrow": "Kit de Inicio de Producción Next.js 16",
     "subEyebrow": "Turbopack y Tailwind v4",
     "title": "El modelo de ingeniería para aplicaciones web modernas.",
     "description": "Preconfigurado con Next.js 16 App Router, React 19, Tailwind CSS v4, Base UI / Shadcn y validación estricta con Zod. Diseñado para velocidad, pureza estructural y compilaciones instantáneas.",
-    "deployButton": "Desplegar en Vercel",
+    "deployButton": "Iniciar Proyecto",
     "formDemoButton": "Demo de Formularios",
     "quickScaffold": "Creación Rápida",
     "copySuccess": "Copiado al portapapeles"
@@ -30,7 +30,7 @@
   "Features": {
     "eyebrow": "CAPACIDADES PRINCIPALES",
     "title": "Construido con precisión quirúrgica.",
-    "description": "Diseñado según los principios Geist de Vercel: minimalismo riguroso, bordes finos de 1px y jerarquía tipográfica."
+    "description": "Diseñado según los principios Geist: minimalismo riguroso, bordes finos de 1px y jerarquía tipográfica."
   },
   "FormDemo": {
     "badge": "DEMO INTERACTIVA EN VIVO",
@@ -42,20 +42,15 @@
     "title": "Arquitectura para escalar.",
     "description": "Separación clara de responsabilidades con módulos de dominio, infraestructura central y capas de validación seguras."
   },
-  "VercelTriad": {
-    "eyebrow": "CICLO DE DESARROLLO",
-    "title": "Desarrolla. Previsualiza. Envía.",
-    "description": "El flujo de trabajo canónico que impulsa a millones de desarrolladores, integrado en una plantilla ligera."
-  },
   "CtaBand": {
-    "eyebrow": "DESPLIEGUE INMEDIATO",
+    "eyebrow": "COMENZAR",
     "title": "¿Listo para lanzar tu próxima aplicación web?",
-    "description": "Ahorra días de configuración. Clona esta plantilla y comienza a desarrollar con arquitectura de nivel de producción de inmediato.",
-    "deployButton": "Desplegar en Vercel",
+    "description": "Ahorra días de configuración. Clona esta plantilla o usa el CLI y comienza a desarrollar con arquitectura de nivel de producción de inmediato.",
+    "deployButton": "Comenzar",
     "githubButton": "Destacar en GitHub"
   },
   "Footer": {
-    "description": "Diseñado con el sistema Geist de Vercel — estética minimalista de tinta oscura sobre lienzo claro, líneas sutiles y tipografía cuidada.",
+    "description": "Diseñado con el sistema de diseño Geist — estética minimalista de tinta oscura sobre lienzo claro, líneas sutiles y tipografía cuidada.",
     "status": "Todos los Sistemas Operativos • Turbopack v16.3",
     "copyright": "Plantilla de inicio de Next.js. Código abierto bajo licencia MIT."
   },
@@ -69,25 +64,25 @@
   },
   "ErrorPage": {
     "title": "Algo salió mal",
-    "description": "Ocurrió un error inesperado al cargar la página. Puede intentar recargar el componente o regresar al inicio.",
-    "retryButton": "Intentar de nuevo",
+    "description": "Ocurrió un error inesperado durante la ejecución de la página. Puede intentar recargar el componente o volver al inicio.",
+    "retryButton": "Reintentar",
     "homeButton": "Volver al Inicio"
   },
   "NotFoundPage": {
     "title": "Página no encontrada",
-    "description": "El recurso o la página solicitada no se pudo encontrar. Es posible que haya sido movida o eliminada.",
+    "description": "No se pudo encontrar el recurso solicitado. Es posible que haya sido movido o eliminado.",
     "homeButton": "Volver al Inicio"
   },
   "Dashboard": {
-    "overviewBadge": "PANEL DE CONTROL",
-    "title": "Centro de Recursos y Despliegues",
-    "description": "Servicios en el borde en tiempo real, canalizaciones sin servidor y cargas activas.",
+    "overviewBadge": "RESUMEN DEL ESPACIO",
+    "title": "Centro de Recursos y Servicios",
+    "description": "Servicios perimetrales en tiempo real, canales de despliegue y cargas activas.",
     "refreshButton": "Actualizar",
-    "logoutButton": "Cerrar sesión",
+    "logoutButton": "Cerrar Sesión",
     "newProjectButton": "Nuevo Proyecto",
     "Metrics": {
       "totalProjects": "Proyectos Totales",
-      "activeDeployments": "Despliegues Activos",
+      "activeDeployments": "Servicios Activos",
       "bandwidth": "Ancho de Banda",
       "uptime": "Disponibilidad"
     },
@@ -98,14 +93,14 @@
       "tierColumn": "Nivel",
       "requestsColumn": "Peticiones (30d)",
       "actionsColumn": "Acciones",
-      "noProjects": "No se encontraron proyectos con los filtros actuales."
+      "noProjects": "Ningún proyecto coincide con sus criterios de búsqueda."
     },
     "CreateDialog": {
       "title": "Crear Nuevo Proyecto",
-      "description": "Configure los parámetros de su servicio y especificaciones de nivel.",
-      "nameLabel": "Slug del Proyecto",
+      "description": "Configure las especificaciones y el nivel de su nuevo servicio.",
+      "nameLabel": "Identificador (Slug)",
       "descriptionLabel": "Descripción (opcional)",
-      "descriptionPlaceholder": "Resumen breve del propósito del servicio...",
+      "descriptionPlaceholder": "Breve resumen del propósito del proyecto...",
       "cancelButton": "Cancelar",
       "submitButton": "Crear Proyecto",
       "creatingButton": "Creando..."
@@ -113,13 +108,13 @@
   },
   "Auth": {
     "title": "Iniciar Sesión",
-    "description": "Ingrese sus credenciales para acceder al panel de su espacio de trabajo.",
+    "description": "Ingrese sus credenciales para acceder al panel de control.",
     "orContinueWith": "O continuar con",
     "emailLabel": "Correo electrónico",
     "passwordLabel": "Contraseña",
     "forgotPassword": "¿Olvidó su contraseña?",
     "rememberMe": "Recordar este dispositivo por 30 días",
-    "signInButton": "Entrar al Espacio de Trabajo",
-    "signingIn": "Iniciando sesión..."
+    "signInButton": "Acceder al Panel",
+    "signingIn": "Accediendo..."
   }
 }

@@ -2,12 +2,12 @@
   "Navbar": {
     "brand": "next-starter",
     "versionBadge": "v16.3 Next.js",
-    "features": "機能",
+    "features": "機能紹介",
     "techStack": "技術スタック",
     "formDemo": "フォーム & Zod デモ",
     "architecture": "アーキテクチャ",
     "quickstart": "クイックスタート",
-    "githubStars": "★ Star",
+    "githubStars": "★ スター",
     "deploy": "デプロイ",
     "dashboard": "ダッシュボード",
     "login": "ログイン"
@@ -17,7 +17,7 @@
     "subEyebrow": "Turbopack & Tailwind v4",
     "title": "モダン Web アプリケーションのためのエンジニアリング設計図。",
     "description": "Next.js 16 App Router、React 19、Tailwind CSS v4、Base UI / Shadcn、厳格な Zod バリデーションを事前設定。開発者の速度と構造の純粋さを重視して設計されています。",
-    "deployButton": "Vercel にデプロイ",
+    "deployButton": "プロジェクトを開始",
     "formDemoButton": "フォームデモを体験",
     "quickScaffold": "クイック足場作成",
     "copySuccess": "クリップボードにコピーしました"
@@ -30,7 +30,7 @@
   "Features": {
     "eyebrow": "コア機能",
     "title": "緻密な精度で構築。",
-    "description": "Vercel の Geist 原則に従って設計：徹底したミニマリズム、1px の極細線、タイポグラフィ重視の階層。"
+    "description": "Geist デザイン原則に従って設計：徹底したミニマリズム、1px の極細線、タイポグラフィ重視の階層。"
   },
   "FormDemo": {
     "badge": "インタラクティブ ライブデモ",
@@ -42,20 +42,15 @@
     "title": "拡張性を考慮した設計。",
     "description": "ドメインモジュール、コア共有インフラストラクチャ、型安全スキーマ層による明確な関心の分離。"
   },
-  "VercelTriad": {
-    "eyebrow": "開発ライフサイクル",
-    "title": "開発・プレビュー・公開。",
-    "description": "何百万人もの開発者を支える標準ワークフローを無駄のないスターターテンプレートに凝縮。"
-  },
   "CtaBand": {
-    "eyebrow": "即時デプロイ可能",
+    "eyebrow": "今すぐ開始",
     "title": "新しい Web アプリケーションを開発する準備はできましたか？",
-    "description": "面倒な初期設定を省略。このテンプレートをクローンして本番品質のアーキテクチャですぐに開発を開始しましょう。",
-    "deployButton": "Vercel にデプロイ",
+    "description": "面倒な初期設定を省略。このテンプレートをクローンまたは CLI で作成して、本番品質のアーキテクチャですぐに開発を開始しましょう。",
+    "deployButton": "今すぐ開始",
     "githubButton": "GitHub でスター"
   },
   "Footer": {
-    "description": "Vercel Geist デザインシステムを採用 — 明瞭なモノトーンと精緻なタイポグラフィによる開発者プラットフォームの美学。",
+    "description": "Geist デザインシステムを採用 — 明瞭なモノトーンと精緻なタイポグラフィによる開発者プラットフォームの美学。",
     "status": "全システム正常稼働中 • Turbopack v16.3",
     "copyright": "Next.js スターターテンプレート。MIT ライセンスによるオープンソース。"
   },
@@ -69,30 +64,30 @@
   },
   "ErrorPage": {
     "title": "エラーが発生しました",
-    "description": "ページの実行中に予期しないエラーが発生しました。再試行するか、ホームページに戻ることができます。",
+    "description": "予期しないエラーが発生しました。コンポーネントを再読み込みするか、トップページに戻ってください。",
     "retryButton": "再試行",
-    "homeButton": "ホームに戻る"
+    "homeButton": "トップページへ戻る"
   },
   "NotFoundPage": {
     "title": "ページが見つかりません",
-    "description": "リクエストされたリソースまたはページが見つかりませんでした。移動または削除された可能性があります。",
-    "homeButton": "ホームページに戻る"
+    "description": "お探しのページまたはリソースが見つかりませんでした。移動または削除された可能性があります。",
+    "homeButton": "トップページへ戻る"
   },
   "Dashboard": {
     "overviewBadge": "ワークスペース概要",
-    "title": "リソースハブ & デプロイ一覧",
-    "description": "リアルタイムのエッジサービス、サーバーレスデプロイパイプライン、稼働中ワークロード。",
+    "title": "リソース & デプロイメント ハブ",
+    "description": "リアルタイムのエッジサービス、デプロイパイプライン、およびアクティブなワークロード。",
     "refreshButton": "更新",
     "logoutButton": "ログアウト",
     "newProjectButton": "新規プロジェクト",
     "Metrics": {
       "totalProjects": "総プロジェクト数",
-      "activeDeployments": "稼働中デプロイ",
-      "bandwidth": "使用帯域幅",
+      "activeDeployments": "稼働中サービス",
+      "bandwidth": "帯域幅使用量",
       "uptime": "稼働率"
     },
     "Table": {
-      "searchPlaceholder": "名前や説明でプロジェクトを検索...",
+      "searchPlaceholder": "プロジェクト名または説明で検索...",
       "nameColumn": "プロジェクト名",
       "statusColumn": "ステータス",
       "tierColumn": "プラン",
@@ -102,10 +97,10 @@
     },
     "CreateDialog": {
       "title": "新規プロジェクト作成",
-      "description": "デプロイサービスの設定とプラン仕様を構成します。",
-      "nameLabel": "プロジェクトスラッグ",
+      "description": "新しいサービスの仕様とプランを設定してください。",
+      "nameLabel": "識別子 (Slug)",
       "descriptionLabel": "説明 (任意)",
-      "descriptionPlaceholder": "サービスの概要...",
+      "descriptionPlaceholder": "プロジェクトの目的の簡単な概要...",
       "cancelButton": "キャンセル",
       "submitButton": "プロジェクトを作成",
       "creatingButton": "作成中..."
@@ -113,13 +108,13 @@
   },
   "Auth": {
     "title": "アカウント ログイン",
-    "description": "認証情報を入力してワークスペースダッシュボードにアクセスします。",
+    "description": "ダッシュボードにアクセスするにはログイン情報を入力してください。",
     "orContinueWith": "または以下でログイン",
     "emailLabel": "メールアドレス",
     "passwordLabel": "パスワード",
     "forgotPassword": "パスワードをお忘れですか？",
-    "rememberMe": "この端末を30日間記憶する",
-    "signInButton": "ワークスペースにログイン",
+    "rememberMe": "30日間ログイン状態を保持する",
+    "signInButton": "ログイン",
     "signingIn": "ログイン中..."
   }
 }
