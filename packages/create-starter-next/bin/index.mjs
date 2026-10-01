@@ -75,6 +75,36 @@ ${bold("Options:")}
 `);
 }
 
+function mergeCssVariables(css, selector, selectedVariables) {
+  const selectorPattern = new RegExp(`${selector.replace(".", "\\.")}\\s*\\{[\\s\\S]*?\\n\\}`);
+  const match = css.match(selectorPattern);
+  if (!match) return css;
+
+  const variables = new Map(
+    [...match[0].matchAll(/--([\w-]+):\s*([^;]+);/g)].map(([, name, value]) => [name, value.trim()])
+  );
+  for (const [, name, value] of selectedVariables.matchAll(/--([\w-]+):\s*([^;]+);/g)) {
+    variables.set(name, value.trim());
+  }
+  for (const [name, value] of Object.entries({
+    sidebar: "var(--background)",
+    "sidebar-foreground": "var(--foreground)",
+    "sidebar-primary": "var(--primary)",
+    "sidebar-primary-foreground": "var(--primary-foreground)",
+    "sidebar-accent": "var(--accent)",
+    "sidebar-accent-foreground": "var(--accent-foreground)",
+    "sidebar-border": "var(--border)",
+    "sidebar-ring": "var(--ring)",
+  })) {
+    variables.set(name, value);
+  }
+
+  const merged = `${selector} {\n${[...variables]
+    .map(([name, value]) => `  --${name}: ${value};`)
+    .join("\n")}\n}`;
+  return css.replace(match[0], merged);
+}
+
 function applyDesignSystem(projectPath, designId) {
   const design = DESIGN_CATALOG.find((d) => d.id === designId) || DESIGN_CATALOG[0];
   const globalsCssPath = path.join(projectPath, "src/app/globals.css");
@@ -82,8 +112,8 @@ function applyDesignSystem(projectPath, designId) {
   if (fs.existsSync(globalsCssPath)) {
     try {
       let css = fs.readFileSync(globalsCssPath, "utf8");
-      css = css.replace(/:root\s*\{[\s\S]*?\n\}/, `:root {${design.cssRoot}}`);
-      css = css.replace(/\.dark\s*\{[\s\S]*?\n\}/, `.dark {${design.cssDark}}`);
+      css = mergeCssVariables(css, ":root", design.cssRoot);
+      css = mergeCssVariables(css, ".dark", design.cssDark);
       if (design.meshGradient) {
         css = css.replace(
           /(\.hero-mesh-gradient,\s*\.vercel-mesh-gradient\s*\{[\s\S]*?)(filter:)/,

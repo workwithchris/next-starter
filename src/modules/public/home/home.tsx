@@ -13,7 +13,7 @@ export function Home() {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://next-starter.dev";
 
   return (
-    <div className="min-h-screen bg-[#fafafa] dark:bg-black text-[#171717] dark:text-[#ededed] font-sans antialiased selection:bg-[#0070f3] selection:text-white transition-colors">
+    <div className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-primary selection:text-primary-foreground transition-colors">
       {/* Schema.org JSON-LD Structured Data for Google Rich Snippets */}
       <StructuredData appUrl={appUrl} />
 

@@ -6,13 +6,13 @@ export function Footer() {
   const t = useTranslations("Footer");
 
   return (
-    <footer className="border-t border-[#ebebeb] dark:border-[#262626] bg-[#fafafa] dark:bg-black py-16 transition-colors">
+    <footer className="border-t border-border bg-background py-16 transition-colors">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Brand Info */}
           <div className="col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-5 w-5 items-center justify-center bg-[#171717] dark:bg-white text-white dark:text-black rounded-sm">
+              <div className="flex h-5 w-5 items-center justify-center bg-primary text-primary-foreground rounded-sm">
                 <svg
                   width="11"
                   height="10"
@@ -23,16 +23,16 @@ export function Footer() {
                   <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
                 </svg>
               </div>
-              <span className="font-semibold text-sm tracking-tight text-[#171717] dark:text-[#ededed]">
+              <span className="font-semibold text-sm tracking-tight text-foreground">
                 next-starter-template
               </span>
             </div>
-            <p className="text-xs text-[#8f8f8f] max-w-sm leading-relaxed">
+            <p className="text-xs text-muted-foreground max-w-sm leading-relaxed">
               {t("description")}
             </p>
             <div className="pt-2 flex items-center gap-2">
               <span className="flex h-2 w-2 rounded-full bg-[#10b981]" />
-              <span className="text-[11px] font-mono text-[#4d4d4d] dark:text-[#a1a1a1]">
+              <span className="text-[11px] font-mono text-muted-foreground">
                 {t("status")}
               </span>
             </div>
@@ -40,16 +40,16 @@ export function Footer() {
 
           {/* Links Column 1: Framework */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#171717] dark:text-[#ededed] mb-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-3">
               Framework
             </h4>
-            <ul className="space-y-2 text-xs text-[#4d4d4d] dark:text-[#a1a1a1]">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li>
                 <a
                   href="https://nextjs.org/docs"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Next.js Docs
                 </a>
@@ -59,7 +59,7 @@ export function Footer() {
                   href="https://react.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   React 19
                 </a>
@@ -69,7 +69,7 @@ export function Footer() {
                   href="https://tailwindcss.com/docs"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Tailwind CSS v4
                 </a>
@@ -79,7 +79,7 @@ export function Footer() {
                   href="https://turbopack.org"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Turbopack
                 </a>
@@ -89,16 +89,16 @@ export function Footer() {
 
           {/* Links Column 2: Ecosystem */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#171717] dark:text-[#ededed] mb-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-3">
               Libraries
             </h4>
-            <ul className="space-y-2 text-xs text-[#4d4d4d] dark:text-[#a1a1a1]">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li>
                 <a
                   href="https://ui.shadcn.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Base UI & Shadcn
                 </a>
@@ -108,7 +108,7 @@ export function Footer() {
                   href="https://zod.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Zod Validation
                 </a>
@@ -118,7 +118,7 @@ export function Footer() {
                   href="https://react-hook-form.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   React Hook Form
                 </a>
@@ -128,7 +128,7 @@ export function Footer() {
                   href="https://lucide.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Lucide Icons
                 </a>
@@ -138,16 +138,16 @@ export function Footer() {
 
           {/* Links Column 3: Resources */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#171717] dark:text-[#ededed] mb-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-3">
               Resources
             </h4>
-            <ul className="space-y-2 text-xs text-[#4d4d4d] dark:text-[#a1a1a1]">
+            <ul className="space-y-2 text-xs text-muted-foreground">
               <li>
                 <a
                   href="https://www.npmjs.com/package/create-starter-next"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   NPM CLI Package
                 </a>
@@ -157,7 +157,7 @@ export function Footer() {
                   href="https://authjs.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Auth.js Documentation
                 </a>
@@ -167,7 +167,7 @@ export function Footer() {
                   href="https://github.com/workwithchris/next-starter"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   GitHub Repository
                 </a>
@@ -177,7 +177,7 @@ export function Footer() {
                   href="https://github.com/workwithchris/next-starter/issues"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#171717] dark:hover:text-white transition-colors"
+                  className="hover:text-foreground transition-colors"
                 >
                   Issues & Discussions
                 </a>
@@ -187,8 +187,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar with Hairline Divider */}
-        <div className="pt-8 border-t border-[#ebebeb] dark:border-[#262626] flex flex-col sm:flex-row items-center justify-between text-xs text-[#8f8f8f] gap-4">
-          <p>© {new Date().getFullYear()} Next.js Starter Template. Open-source under MIT.</p>
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between text-xs text-muted-foreground gap-4">
+          <p>
+            © {new Date().getFullYear()} Next.js Starter Template. Open-source
+            under MIT.
+          </p>
           <div className="flex items-center gap-4 font-mono text-[11px]">
             <span>DESIGN.md Spec: Alpha</span>
             <span>•</span>

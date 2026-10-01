@@ -70,29 +70,33 @@ export function ArchitectureViewer() {
     },
   };
 
-  const current = structureDetails[selectedPath] || structureDetails["src/core"];
+  const current =
+    structureDetails[selectedPath] || structureDetails["src/core"];
 
   return (
-    <section id="architecture" className="py-20 border-t border-[#ebebeb] dark:border-[#262626] bg-white dark:bg-[#0c0c0c] transition-colors">
+    <section
+      id="architecture"
+      className="py-20 border-t border-border bg-card transition-colors"
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl mb-12">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] font-medium">
+          <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground font-medium">
             {t("eyebrow")}
           </span>
-          <h2 className="mt-1 text-3xl font-semibold tracking-[-0.04em] text-[#171717] dark:text-[#ededed]">
+          <h2 className="mt-1 text-3xl font-semibold tracking-[-0.04em] text-foreground">
             {t("title")}
           </h2>
-          <p className="mt-2 text-base text-[#4d4d4d] dark:text-[#a1a1a1]">
+          <p className="mt-2 text-base text-muted-foreground">
             {t("description")}
           </p>
         </div>
 
         {/* Interactive Explorer Card */}
-        <div className="rounded-xl border border-[#ebebeb] dark:border-[#262626] bg-[#fafafa]/50 dark:bg-[#121212]/50 shadow-xs overflow-hidden">
+        <div className="rounded-xl border border-border bg-background/50 shadow-xs overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Left Column: Directory Tree Selector */}
-            <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-[#ebebeb] dark:border-[#262626] p-4 bg-white dark:bg-[#101010]">
-              <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[#ebebeb] dark:border-[#262626] text-xs font-mono text-[#8f8f8f]">
+            <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-border p-4 bg-card">
+              <div className="flex items-center gap-2 pb-3 mb-3 border-b border-border text-xs font-mono text-muted-foreground">
                 <Layers className="h-3.5 w-3.5" />
                 <span>PROJECT TREE EXPLORER</span>
               </div>
@@ -106,8 +110,8 @@ export function ArchitectureViewer() {
                       onClick={() => setSelectedPath(path)}
                       className={`w-full flex items-center justify-between px-3 py-2 rounded-[6px] transition-colors text-left cursor-pointer ${
                         isSelected
-                          ? "bg-[#171717] dark:bg-white text-white dark:text-[#171717] font-medium"
-                          : "text-[#4d4d4d] dark:text-[#a1a1a1] hover:bg-[#f4f4f4] dark:hover:bg-[#1a1a1a]"
+                          ? "bg-primary text-primary-foreground font-medium"
+                          : "text-muted-foreground hover:bg-muted"
                       }`}
                     >
                       <div className="flex items-center gap-2 truncate">
@@ -118,7 +122,9 @@ export function ArchitectureViewer() {
                         )}
                         <span className="truncate">{path}</span>
                       </div>
-                      <span className="text-[10px] opacity-75 font-sans">select</span>
+                      <span className="text-[10px] opacity-75 font-sans">
+                        select
+                      </span>
                     </button>
                   );
                 })}
@@ -129,30 +135,30 @@ export function ArchitectureViewer() {
             <div className="lg:col-span-8 p-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-mono text-xs text-[#0070f3] dark:text-[#50e3c2] font-medium">
+                  <span className="font-mono text-xs text-primary font-medium">
                     {current.badge}
                   </span>
-                  <span className="font-mono text-xs rounded bg-white dark:bg-[#1c1c1c] border border-[#ebebeb] dark:border-[#2c2c2c] px-2 py-0.5 text-[#8f8f8f]">
+                  <span className="font-mono text-xs rounded bg-card border border-border px-2 py-0.5 text-muted-foreground">
                     {selectedPath}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-[#171717] dark:text-[#ededed] tracking-tight">
+                <h3 className="text-xl font-semibold text-foreground tracking-tight">
                   {current.title}
                 </h3>
-                <p className="mt-2 text-sm text-[#4d4d4d] dark:text-[#a1a1a1] leading-relaxed">
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   {current.description}
                 </p>
 
                 <div className="mt-6">
-                  <span className="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider block mb-2">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block mb-2">
                     Key File Manifest
                   </span>
                   <div className="space-y-2">
                     {current.files.map((file) => (
                       <div
                         key={file}
-                        className="flex items-start gap-2.5 rounded-lg border border-[#ebebeb] dark:border-[#262626] bg-white dark:bg-[#161616] p-2.5 text-xs font-mono text-[#171717] dark:text-[#ededed]"
+                        className="flex items-start gap-2.5 rounded-lg border border-border bg-card p-2.5 text-xs font-mono text-foreground"
                       >
                         <Check className="h-3.5 w-3.5 text-[#10b981] mt-0.5 shrink-0" />
                         <span>{file}</span>
@@ -162,10 +168,12 @@ export function ArchitectureViewer() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-[#ebebeb] dark:border-[#262626] flex items-center justify-between text-xs text-[#8f8f8f]">
+              <div className="mt-8 pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
                 <div className="flex items-center gap-1.5">
-                  <Info className="h-3.5 w-3.5 text-[#0070f3]" />
-                  <span>Configured with Next.js 16 tsconfig path aliases (@/*)</span>
+                  <Info className="h-3.5 w-3.5 text-primary" />
+                  <span>
+                    Configured with Next.js 16 tsconfig path aliases (@/*)
+                  </span>
                 </div>
               </div>
             </div>
